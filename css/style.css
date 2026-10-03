@@ -636,7 +636,7 @@ h1, h2, h3, p { margin: 0; }
 .strengths__frame img.is-active { opacity: 1; transform: scale(1); }
 .strength-items { margin-top: clamp(2.5rem, 5vw, 4rem); }
 .strength {
-  display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; padding: 2.25rem 0; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; padding: clamp(3rem, 5vw, 4.5rem) 0; border-top: 1px solid var(--line);
   opacity: .35; transition: opacity .6s var(--ease-out);
 }
 .strength:last-child { border-bottom: 1px solid var(--line); }
