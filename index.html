@@ -16,7 +16,7 @@
   <link rel="preload" as="image" href="assets/img/hero/find-placeholder/house.webp">
   <link rel="preload" as="image" href="assets/img/hero/find-placeholder/cloud.webp">
 
-  <link rel="stylesheet" href="css/style.css?v=37">
+  <link rel="stylesheet" href="css/style.css?v=38">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -204,7 +204,7 @@
 
         <article class="svc" id="svc-architecture" aria-labelledby="svc-architecture-title">
           <a class="svc__media" href="architecture.html" tabindex="-1" aria-hidden="true">
-            <span class="svc__frame"><img src="assets/img/work/villa-sunset.webp" alt="Low modern villa with deep flat roofs and glass walls at sunset" loading="lazy" decoding="async" data-parallax></span>
+            <span class="svc__frame"><img src="assets/img/work/house-gabled.webp" alt="Modern home with gabled roofs, timber panels and a planted front garden" loading="lazy" decoding="async" data-parallax></span>
             <span class="svc__inset" data-float><img src="assets/img/work/house-timber-gate-sm.webp" alt="" loading="lazy" decoding="async"></span>
           </a>
           <div class="svc__body">
@@ -547,7 +547,7 @@
 
       <div class="marquee" data-marquee>
         <div class="marquee__track">
-          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/work/house-gabled-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/work/mansion-fountain-sm.webp" alt="" loading="lazy"></a>
           <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/work/bedroom-calm-sm.webp" alt="" loading="lazy"></a>
           <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/curve-6-sm.webp" alt="" loading="lazy"></a>
           <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/work/living-studio-sm.webp" alt="" loading="lazy"></a>
@@ -562,19 +562,35 @@
     </section>
 
     <!-- ============ CTA — project brief ============ -->
-    <!-- Visitors pick what they're planning; a little isometric drawing builds itself to match and the
-         brief goes out as a ready-written WhatsApp message (js/brief.js). Works without a server. -->
+    <!-- A big photo with the invitation on the left and a white card on the right. The card's answers write a
+         ready-to-send WhatsApp / e-mail message (js/brief.js). Works without a server. -->
     <section class="cta" id="contact" aria-labelledby="cta-title" data-cta>
-      <div class="container">
-        <div class="cta__head">
-          <div>
+      <div class="cta__stage">
+        <div class="container cta__inner">
+          <div class="cta__copy">
+            <!-- full-bleed behind the whole section on wide screens; behind just the words on phones -->
+            <div class="cta__media" aria-hidden="true">
+              <img src="assets/img/work/villa-sunset.webp" alt="" loading="lazy" decoding="async" data-parallax>
+            </div>
             <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">08</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Start your project</span></p>
             <h2 class="cta__title" id="cta-title" data-reveal>Let's build your dream <em>together.</em></h2>
+            <p class="cta__text" data-reveal>Tell us a little about your project. It takes 20 seconds, and we'll get back to you on WhatsApp.</p>
+            <ul class="cta__contact" role="list" data-reveal>
+              <li>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+                <a href="tel:+919814626056">+91 98146 26056</a>
+              </li>
+              <li>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3.5 6h17v12h-17zM3.5 6.5l8.5 7 8.5-7"/></svg>
+                <a href="mailto:gsassociates.biz@gmail.com">gsassociates.biz@gmail.com</a>
+              </li>
+              <li>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+                <span>4th Floor, Ranjit Tower, Pakhowal Road, Ludhiana · <a href="https://www.google.com/maps/search/?api=1&amp;query=Ranjit+Tower+Gurdev+Nagar+Pakhowal+Road+Ludhiana" target="_blank" rel="noopener">Get directions</a></span>
+              </li>
+            </ul>
           </div>
-          <p class="cta__text" data-reveal>Tell us a little about your project. It takes 20 seconds, and we'll get back to you on WhatsApp.</p>
-        </div>
 
-        <div class="cta__grid">
           <form class="brief" data-brief>
             <fieldset class="brief__q">
               <legend><span class="brief__n" aria-hidden="true">1</span>What are you planning?</legend>
@@ -605,32 +621,14 @@
               <span><span class="brief__n" aria-hidden="true">4</span>Your name <small>(optional)</small></span>
               <input type="text" name="name" autocomplete="name" placeholder="Type your name" maxlength="60">
             </label>
-          </form>
-
-          <div class="plan">
-            <div class="plan__view">
-              <svg class="iso" data-iso role="img" aria-label="A drawing of your project that changes with your choices"></svg>
-              <p class="plan__empty">Pick a service to start the drawing</p>
-            </div>
-            <dl class="plan__block" aria-live="polite">
-              <div><dt>Project</dt><dd data-brief-out="type">New home</dd></div>
-              <div><dt>Services</dt><dd data-brief-out="service">Architecture, Construction, Interiors</dd></div>
-              <div><dt>Start</dt><dd data-brief-out="when">To be decided</dd></div>
-            </dl>
-            <div class="plan__send">
+            <div class="brief__send">
               <a class="btn btn--brand btn--lg" href="https://wa.me/919814626056" target="_blank" rel="noopener" data-brief-wa>
                 <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
                 <span>Send on WhatsApp</span>
               </a>
-              <p class="plan__alt">or <a href="tel:+919814626056">call +91 98146 26056</a> · <a href="mailto:gsassociates.biz@gmail.com" data-brief-mail>email us</a></p>
+              <p class="brief__alt">or <a href="mailto:gsassociates.biz@gmail.com" data-brief-mail>send it by email</a></p>
             </div>
-          </div>
-        </div>
-
-        <div class="cta__visit">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-          <p><strong>Visit our studio</strong> 4th Floor, Ranjit Tower, Pakhowal Road, Ludhiana</p>
-          <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Ranjit+Tower+Gurdev+Nagar+Pakhowal+Road+Ludhiana" target="_blank" rel="noopener">Get directions →</a>
+          </form>
         </div>
       </div>
     </section>
@@ -706,6 +704,6 @@
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
   <script src="js/main.js?v=31" defer></script>
-  <script src="js/brief.js?v=2" defer></script>
+  <script src="js/brief.js?v=3" defer></script>
 </body>
 </html>
