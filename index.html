@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GS Associates — Architecture, Construction &amp; Interiors · Ludhiana</title>
+  <meta name="description" content="GS Associates (Gurpreet Singh &amp; Associates) designs, builds and furnishes homes and buildings in Ludhiana — architecture, construction and interiors under one roof.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="assets/img/hero/find-placeholder/sky.webp">
+  <link rel="preload" as="image" href="assets/img/hero/find-placeholder/house.webp">
+  <link rel="preload" as="image" href="assets/img/hero/find-placeholder/cloud.webp">
+
+  <link rel="stylesheet" href="css/style.css?v=33">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="#top" aria-label="GS Associates — home">
+        <img class="brand__mark" src="assets/img/brand/gs-mark.webp" alt="" width="40" height="34">
+        <span class="brand__name">GS <span>Associates</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn--dark btn--sm header-cta" href="tel:+919814626056">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+        <span>Call us</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="menu-toggle__label">Menu</span>
+        <span class="menu-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
+    <nav aria-label="Mobile">
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="mobile-menu__contact">
+      <a class="btn btn--dark btn--lg" href="tel:+919814626056">Call +91 98146 26056</a>
+      <a class="mobile-menu__mail" href="mailto:gsassociates.biz@gmail.com">gsassociates.biz@gmail.com</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO (scroll story) ============ -->
+    <!-- NOTE: hero art in assets/img/hero/find-placeholder/ is findrealestate.com's artwork, used only as a
+         local reference. Replace with GS-owned or licensed images before this site goes live. -->
+    <section class="hero" id="top" aria-label="Introduction" data-hero>
+      <div class="hero__sticky">
+        <div class="hero__bg" aria-hidden="true">
+          <div class="hero__back"><img src="assets/img/hero/find-placeholder/sky.webp" alt=""></div>
+
+          <!-- building, outline lettering and building-inside-the-letters share one SVG so they line up exactly -->
+          <svg class="hero__svg" data-hero-svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <clipPath id="gs-letters" clipPathUnits="userSpaceOnUse">
+                <text class="hero__word" data-mark-gs>GS</text>
+                <text class="hero__word hero__word--sub" data-mark-sub>ASSOCIATES</text>
+              </clipPath>
+            </defs>
+            <g data-house>
+              <image href="assets/img/hero/find-placeholder/house.webp" preserveAspectRatio="none" data-house-img></image>
+            </g>
+            <g class="hero__outline" data-outline>
+              <text class="hero__word" data-mark-gs>GS</text>
+              <text class="hero__word hero__word--sub" data-mark-sub>ASSOCIATES</text>
+            </g>
+            <g class="hero__composite" data-composite>
+              <g clip-path="url(#gs-letters)">
+                <image href="assets/img/hero/find-placeholder/house.webp" preserveAspectRatio="none" data-house-img></image>
+              </g>
+            </g>
+          </svg>
+
+          <div class="hero__clouds">
+            <div class="hero__cloud hero__cloud--l" data-cloud="l"><img src="assets/img/hero/find-placeholder/cloud.webp" alt=""></div>
+            <div class="hero__cloud hero__cloud--r" data-cloud="r"><img src="assets/img/hero/find-placeholder/cloud.webp" alt=""></div>
+          </div>
+
+          <div class="hero__smoke"><img src="assets/img/hero/find-placeholder/smoke.webp" alt=""></div>
+        </div>
+
+        <div class="hero__content" data-hero-content>
+          <div class="container">
+            <h1 class="hero__title" aria-label="Designing. Building. Transforming.">
+              <span class="line" aria-hidden="true"><span>Designing.</span></span>
+              <span class="line" aria-hidden="true"><span>Building.</span></span>
+              <span class="line" aria-hidden="true"><span>Transforming.</span></span>
+            </h1>
+            <p class="hero__sub" data-intro>Architecture, construction &amp; interiors. <span class="em">All under one roof.</span></p>
+            <div class="hero__actions" data-intro>
+              <a class="btn btn--dark" href="#projects">
+                <span>See our work</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- clouds that rise over the lettering and hand off to the white page -->
+      <div class="hero__overlap" aria-hidden="true">
+        <div class="hero__smoke hero__smoke--rise"><img src="assets/img/hero/find-placeholder/smoke.webp" alt=""></div>
+        <div class="hero__overlay"></div>
+      </div>
+    </section>
+
+    <!-- ============ STATEMENT / ABOUT ============ -->
+    <section class="statement" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__main">
+          <p class="eyebrow" id="about-title"><span class="eyebrow__num" aria-hidden="true">01</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Why GS Associates</span></p>
+          <p class="statement__text" data-words>Every project begins with an idea. We shape that idea into spaces that are thoughtful, purposeful and built around the way you live.</p>
+          <a class="btn btn--light btn--lg about__cta" href="about.html" data-reveal>
+            <span>Know more about us</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="about__photo">
+            <img src="assets/img/projects/curve-5.webp" alt="Warm living room with an open staircase designed by GS Associates" loading="lazy" decoding="async" data-parallax>
+          </div>
+        </div>
+
+        <div class="about__media">
+          <video class="about__video" muted loop playsinline preload="metadata" poster="assets/video/about-poster.webp"
+                 aria-label="From ground to grandeur: an empty plot becomes a finished building" data-about-video>
+            <source src="assets/video/about.mp4" type="video/mp4">
+          </video>
+          <button class="about__toggle" type="button" aria-label="Pause video" data-video-toggle>
+            <svg class="i-pause" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+            <svg class="i-play" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="container">
+        <ul class="stats" role="list">
+          <li class="stat" data-reveal>
+            <span class="stat__num"><span data-count="20">20</span>+</span>
+            <span class="stat__label">Years of experience</span>
+          </li>
+          <li class="stat" data-reveal>
+            <span class="stat__num"><span data-count="36">36</span>+</span>
+            <span class="stat__label">Architects, engineers &amp; designers</span>
+          </li>
+          <li class="stat" data-reveal>
+            <span class="stat__num"><span data-count="18">18</span>K+</span>
+            <span class="stat__label">Projects completed</span>
+          </li>
+          <li class="stat" data-reveal>
+            <span class="stat__num">3<span class="stat__in">in</span>1</span>
+            <span class="stat__label">Design, build &amp; interiors by one team</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="services__head">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">02</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">What we do</span></p>
+            <h2 class="h2" id="services-title" data-reveal>Everything your project needs. <em>Under one roof.</em></h2>
+          </div>
+          <div class="services__intro" data-reveal>
+            <p class="lead">From the first sketch to the final finish, one team designs, builds and furnishes your space.</p>
+            <nav class="services__jump" aria-label="Jump to a service">
+              <a href="#svc-architecture">Architecture</a>
+              <a href="#svc-construction">Construction</a>
+              <a href="#svc-interiors">Interiors</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="rule" data-rule aria-hidden="true">
+          <span class="rule__track"></span>
+          <span class="rule__draw"></span>
+          <span class="rule__tick rule__tick--l"></span>
+          <span class="rule__tick rule__tick--r"></span>
+          <span class="rule__dot"></span>
+          <span class="rule__label">One team <i>·</i> Three services</span>
+        </div>
+
+        <article class="svc" id="svc-architecture" aria-labelledby="svc-architecture-title">
+          <a class="svc__media" href="architecture.html" tabindex="-1" aria-hidden="true">
+            <span class="svc__frame"><img src="assets/img/projects/curve-2.webp" alt="Contemporary home with sculpted concrete towers designed by GS Associates" loading="lazy" decoding="async" data-parallax></span>
+            <span class="svc__inset" data-float><img src="assets/img/projects/manor-3-sm.webp" alt="" loading="lazy" decoding="async"></span>
+          </a>
+          <div class="svc__body">
+            <p class="svc__num" data-reveal><span>01</span> of 03</p>
+            <h3 class="svc__title" id="svc-architecture-title" data-reveal>Architecture</h3>
+            <p class="svc__tagline" data-reveal>Designs shaped around the way you live.</p>
+            <p class="svc__text" data-reveal>Architecture, for us, is more than drawing a building. We start by understanding your vision, lifestyle and needs, then create designs that are modern yet timeless, practical, and built to adapt for years to come.</p>
+            <ul class="svc__list" role="list" data-reveal hidden><li>Site study &amp; planning</li><li>Concept design &amp; 3D views</li><li>Sustainable, climate-aware design</li><li>Homes, commercial &amp; institutional</li></ul>
+            <div class="svc__actions" data-reveal>
+              <a class="btn btn--dark btn--lg" href="architecture.html"><span>Explore Architecture</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="svc svc--flip" id="svc-construction" aria-labelledby="svc-construction-title">
+          <a class="svc__media" href="construction.html" tabindex="-1" aria-hidden="true">
+            <span class="svc__frame"><img src="assets/img/projects/stone-1.webp" alt="Stone-clad villa with an arched window built by GS Associates" loading="lazy" decoding="async" data-parallax></span>
+            <span class="svc__inset" data-float><img src="assets/img/projects/stone-2-sm.webp" alt="" loading="lazy" decoding="async"></span>
+          </a>
+          <div class="svc__body">
+            <p class="svc__num" data-reveal><span>02</span> of 03</p>
+            <h3 class="svc__title" id="svc-construction-title" data-reveal>Construction</h3>
+            <p class="svc__tagline" data-reveal>Built with care. Delivered on time.</p>
+            <p class="svc__text" data-reveal>Construction is the backbone of what we do. Our own team builds with trusted materials, modern techniques and strict quality checks, working closely with you, our architects and engineers so every detail is right.</p>
+            <ul class="svc__list" role="list" data-reveal hidden><li>Homes to large commercial projects</li><li>Trusted materials &amp; quality control</li><li>Safety-first site management</li><li>Completed on the agreed timeline</li></ul>
+            <div class="svc__actions" data-reveal>
+              <a class="btn btn--dark btn--lg" href="construction.html"><span>Explore Construction</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="svc" id="svc-interiors" aria-labelledby="svc-interiors-title">
+          <a class="svc__media" href="interiors.html" tabindex="-1" aria-hidden="true">
+            <span class="svc__frame"><img src="assets/img/projects/refined-1.webp" alt="Sculptural floating staircase with warm hidden lighting" loading="lazy" decoding="async" data-parallax></span>
+            <span class="svc__inset" data-float><img src="assets/img/projects/curve-3-sm.webp" alt="" loading="lazy" decoding="async"></span>
+          </a>
+          <div class="svc__body">
+            <p class="svc__num" data-reveal><span>03</span> of 03</p>
+            <h3 class="svc__title" id="svc-interiors-title" data-reveal>Interiors</h3>
+            <p class="svc__tagline" data-reveal>Rooms that feel like you.</p>
+            <p class="svc__text" data-reveal>We turn bare spaces into warm, elegant rooms that reflect your personality and make everyday life easier, planning layouts, materials, colours and lighting from the first idea to the final finish.</p>
+            <ul class="svc__list" role="list" data-reveal hidden><li>Space planning &amp; layouts</li><li>Materials, colours &amp; finishes</li><li>Lighting design</li><li>Homes, offices &amp; commercial spaces</li></ul>
+            <div class="svc__actions" data-reveal>
+              <a class="btn btn--dark btn--lg" href="interiors.html"><span>Explore Interiors</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">03</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Selected work</span></p>
+            <h2 class="h2" id="projects-title" data-reveal>Spaces we've <em>shaped.</em></h2>
+          </div>
+          <p class="lead" data-reveal>Four recent projects. Tap any photo to see the full set.</p>
+        </div>
+
+        <div class="stack" data-stack>
+          <article class="proj" style="--i: 0" aria-labelledby="proj-manor">
+            <header class="proj__bar">
+              <span class="proj__num">01 / 04</span>
+              <span class="proj__name">French Classical Residence</span>
+              <span class="proj__cat">Architecture · Landscape</span>
+            </header>
+            <div class="proj__body">
+              <button class="proj__media" type="button" data-project="manor" data-index="0" data-cursor="View" aria-label="Open the French Classical Residence photos">
+                <img src="assets/img/projects/manor-1.webp" alt="French classical residence with a limestone facade, slate mansard roof and formal gardens" loading="lazy" decoding="async" data-parallax>
+              </button>
+              <div class="proj__info">
+                <h3 class="proj__title" id="proj-manor">French Classical Residence</h3>
+                <p class="proj__desc">A limestone façade, slate mansard roof and formal gardens. Classic proportions, planned for modern family life.</p>
+                <div class="proj__thumbs"><button class="proj__thumb" type="button" data-project="manor" data-index="1" aria-label="Open photo 2 of 4"><img src="assets/img/projects/manor-2-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="manor" data-index="2" aria-label="Open photo 3 of 4"><img src="assets/img/projects/manor-3-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="manor" data-index="3" aria-label="Open photo 4 of 4"><img src="assets/img/projects/manor-4-sm.webp" alt="" loading="lazy" decoding="async"></button></div>
+                <button class="btn btn--dark btn--lg proj__cta" type="button" data-project="manor"><span>View all 4 photos</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="proj" style="--i: 1" aria-labelledby="proj-curve">
+            <header class="proj__bar">
+              <span class="proj__num">02 / 04</span>
+              <span class="proj__name">Contemporary Curve House</span>
+              <span class="proj__cat">Architecture · Interiors</span>
+            </header>
+            <div class="proj__body">
+              <button class="proj__media" type="button" data-project="curve" data-index="0" data-cursor="View" aria-label="Open the Contemporary Curve House photos">
+                <img src="assets/img/projects/curve-1.webp" alt="Contemporary residence with sculpted concrete towers and timber garage doors" loading="lazy" decoding="async" data-parallax>
+              </button>
+              <div class="proj__info">
+                <h3 class="proj__title" id="proj-curve">Contemporary Curve House</h3>
+                <p class="proj__desc">Sculpted concrete towers, warm timber and deep balconies. A bold modern home, with interiors to match.</p>
+                <div class="proj__thumbs"><button class="proj__thumb" type="button" data-project="curve" data-index="1" aria-label="Open photo 2 of 5"><img src="assets/img/projects/curve-2-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="curve" data-index="2" aria-label="Open photo 3 of 5"><img src="assets/img/projects/curve-3-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="curve" data-index="3" aria-label="Open photo 4 of 5"><img src="assets/img/projects/curve-4-sm.webp" alt="" loading="lazy" decoding="async"><span class="proj__more">+1</span></button></div>
+                <button class="btn btn--dark btn--lg proj__cta" type="button" data-project="curve"><span>View all 5 photos</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="proj" style="--i: 2" aria-labelledby="proj-stone">
+            <header class="proj__bar">
+              <span class="proj__num">03 / 04</span>
+              <span class="proj__name">The Stone Villa</span>
+              <span class="proj__cat">Architecture · Interiors</span>
+            </header>
+            <div class="proj__body">
+              <button class="proj__media" type="button" data-project="stone" data-index="0" data-cursor="View" aria-label="Open the The Stone Villa photos">
+                <img src="assets/img/projects/stone-1.webp" alt="Stone-clad villa with a large arched window and landscaped entrance" loading="lazy" decoding="async" data-parallax>
+              </button>
+              <div class="proj__info">
+                <h3 class="proj__title" id="proj-stone">The Stone Villa</h3>
+                <p class="proj__desc">Textured stone outside, warm and refined rooms inside. A residence defined by craftsmanship and timeless elegance.</p>
+                <div class="proj__thumbs"><button class="proj__thumb" type="button" data-project="stone" data-index="1" aria-label="Open photo 2 of 10"><img src="assets/img/projects/stone-2-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="stone" data-index="2" aria-label="Open photo 3 of 10"><img src="assets/img/projects/stone-3-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="stone" data-index="5" aria-label="Open photo 6 of 10"><img src="assets/img/projects/stone-6-sm.webp" alt="" loading="lazy" decoding="async"><span class="proj__more">+6</span></button></div>
+                <button class="btn btn--dark btn--lg proj__cta" type="button" data-project="stone"><span>View all 10 photos</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="proj" style="--i: 3" aria-labelledby="proj-refined">
+            <header class="proj__bar">
+              <span class="proj__num">04 / 04</span>
+              <span class="proj__name">Refined Everyday Living</span>
+              <span class="proj__cat">Interiors</span>
+            </header>
+            <div class="proj__body">
+              <button class="proj__media" type="button" data-project="refined" data-index="2" data-cursor="View" aria-label="Open the Refined Everyday Living photos">
+                <img src="assets/img/projects/refined-3.webp" alt="Calm living room in warm neutral tones with arched shelving" loading="lazy" decoding="async" data-parallax>
+              </button>
+              <div class="proj__info">
+                <h3 class="proj__title" id="proj-refined">Refined Everyday Living</h3>
+                <p class="proj__desc">Soft neutrals, curved forms and hidden lighting. A calm home, designed from the first sketch to the final finish.</p>
+                <div class="proj__thumbs"><button class="proj__thumb" type="button" data-project="refined" data-index="0" aria-label="Open photo 1 of 6"><img src="assets/img/projects/refined-1-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="refined" data-index="1" aria-label="Open photo 2 of 6"><img src="assets/img/projects/refined-2-sm.webp" alt="" loading="lazy" decoding="async"></button><button class="proj__thumb" type="button" data-project="refined" data-index="3" aria-label="Open photo 4 of 6"><img src="assets/img/projects/refined-4-sm.webp" alt="" loading="lazy" decoding="async"><span class="proj__more">+2</span></button></div>
+                <button class="btn btn--dark btn--lg proj__cta" type="button" data-project="refined"><span>View all 6 photos</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="projects__more" data-reveal>
+          <a class="link-arrow" href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener">See our latest projects on Instagram →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ IDEA TO CREATION ============ -->
+    <!-- The Curve House drawn as a plan, raised as a frame, modelled in 3D and handed over to the real photo
+         as you scroll (js/idea3d.js). Without WebGL the sheet simply shows the photo. -->
+    <section class="idea" id="idea" aria-labelledby="idea-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">04</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Idea to creation</span></p>
+          <h2 class="h2" id="idea-title" data-reveal>From first sketch to <em>finished space.</em></h2>
+          <p class="lead" data-reveal data-idea-lead>Keep scrolling to watch one of our homes go from a plan on paper to a finished house.</p>
+        </div>
+      </div>
+
+      <div class="idea__track" data-idea>
+        <div class="idea__sticky">
+          <div class="container idea__grid">
+            <ol class="idea__steps" role="list" data-idea-steps>
+              <li class="idea__step is-active" data-idea-step="0">
+                <button type="button"><span class="idea__num">01</span><span class="idea__name">Plan</span></button>
+                <p><strong>It starts on paper.</strong> Rooms, light and the way you'll move through your home, worked out line by line.</p>
+              </li>
+              <li class="idea__step" data-idea-step="1">
+                <button type="button"><span class="idea__num">02</span><span class="idea__name">Structure</span></button>
+                <p><strong>Then it stands up.</strong> Columns, slabs and walls rise floor by floor, engineered before a single brick is laid.</p>
+              </li>
+              <li class="idea__step" data-idea-step="2">
+                <button type="button"><span class="idea__num">03</span><span class="idea__name">3D model</span></button>
+                <p><strong>Every curve, considered.</strong> We shape form, light and materials in 3D, so you see your home long before it's built.</p>
+              </li>
+              <li class="idea__step" data-idea-step="3">
+                <button type="button"><span class="idea__num">04</span><span class="idea__name">Reality</span></button>
+                <p><strong>And then, it's real.</strong> The Contemporary Curve House: the same lines, now in concrete, timber and glass.</p>
+              </li>
+            </ol>
+
+            <figure class="sheet" data-sheet>
+              <div class="sheet__view" data-idea-view tabindex="0" role="group" aria-roledescription="3D model" aria-label="3D model of the Contemporary Curve House. Drag, or use the arrow keys, to look at it from any angle.">
+                <canvas class="sheet__canvas" aria-hidden="true" data-idea-canvas></canvas>
+                <div class="sheet__labels" aria-hidden="true" data-idea-labels></div>
+                <div class="sheet__photo">
+                  <img src="assets/img/projects/curve-1.webp" alt="The finished Contemporary Curve House: sculpted concrete fins above deep balconies and a timber garage door" loading="lazy" decoding="async">
+                </div>
+                <span class="sheet__scan" aria-hidden="true"></span>
+                <span class="sheet__hint" aria-hidden="true" data-idea-hint>
+                  <svg viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 3.2 0 1 0 7.5-3.2M12 8.8 9.6 6.6M12 8.8l-2.3 2.3"/></svg>
+                  <span data-idea-hint-text>Drag to rotate</span>
+                </span>
+                <button class="sheet__reset" type="button" data-idea-reset>
+                  <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>
+                  <span>Reset view</span>
+                </button>
+                <button class="btn btn--dark btn--sm sheet__cta" type="button" data-project="curve"><span>See all 5 photos</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+              <figcaption class="sheet__block">
+                <span class="sheet__brand"><img src="assets/img/brand/gs-mark.webp" alt="" width="28" height="24"><span>GS Associates</span></span>
+                <span class="sheet__cell"><small>Project</small>Contemporary Curve House</span>
+                <span class="sheet__cell"><small>Drawing</small><b data-idea-drawing>Ground floor plan</b></span>
+                <span class="sheet__cell sheet__cell--num"><small>Sheet</small><b data-idea-sheet>01 / 04</b></span>
+              </figcaption>
+            </figure>
+
+            <p class="idea__caption" aria-live="polite" data-idea-caption><strong>It starts on paper.</strong> Rooms, light and the way you'll move through your home, worked out line by line.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container idea__inside">
+        <div class="section-head section-head--center">
+          <h3 class="idea__inside-title" data-reveal>Inside, <em>room by room.</em></h3>
+          <p class="lead" data-reveal>Drag the round handle to see how an idea on paper becomes a real room.</p>
+        </div>
+
+        <div class="compare-tabs" role="tablist" aria-label="Choose a room" data-compare-tabs>
+          <button role="tab" aria-selected="true" data-before="assets/img/projects/refined-4.webp" data-after="assets/img/projects/refined-1.webp">Staircase</button>
+          <button role="tab" aria-selected="false" data-before="assets/img/projects/refined-5.webp" data-after="assets/img/projects/refined-2.webp">Bedroom</button>
+          <button role="tab" aria-selected="false" data-before="assets/img/projects/refined-6.webp" data-after="assets/img/projects/refined-3.webp">Living room</button>
+        </div>
+
+        <div class="compare" data-compare style="--pos: 50%">
+          <img class="compare__after" src="assets/img/projects/refined-1.webp" alt="Finished staircase with warm lighting" loading="lazy" decoding="async" data-compare-after>
+          <div class="compare__before">
+            <img src="assets/img/projects/refined-4.webp" alt="Concept sketch of the same staircase" loading="lazy" decoding="async" data-compare-before>
+          </div>
+          <span class="compare__tag compare__tag--l">Sketch</span>
+          <span class="compare__tag compare__tag--r">Finished</span>
+          <div class="compare__handle" aria-hidden="true">
+            <span class="compare__knob">
+              <svg viewBox="0 0 24 24" width="26" height="26"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Move to compare sketch and finished room" data-compare-range>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STRENGTHS ============ -->
+    <section class="strengths" aria-labelledby="strengths-title">
+      <div class="container strengths__grid">
+        <div class="strengths__visual" aria-hidden="true">
+          <div class="strengths__frame">
+            <img class="is-active" src="assets/img/projects/stone-2.webp" alt="" loading="lazy" decoding="async" data-strength-img="0">
+            <img src="assets/img/projects/curve-2.webp" alt="" loading="lazy" decoding="async" data-strength-img="1">
+            <img src="assets/img/projects/manor-3.webp" alt="" loading="lazy" decoding="async" data-strength-img="2">
+            <img src="assets/img/projects/curve-3.webp" alt="" loading="lazy" decoding="async" data-strength-img="3">
+          </div>
+        </div>
+
+        <div class="strengths__list">
+          <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">05</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Our strength</span></p>
+          <h2 class="h2" id="strengths-title" data-reveal>Why clients <em>trust us.</em></h2>
+
+          <ol class="strength-items" role="list">
+            <li class="strength" data-strength="0">
+              <span class="strength__num">01</span>
+              <div>
+                <h3>Hands-on approach</h3>
+                <p>Our principal architects personally look after every project — from the first drawing to the day we hand you the keys.</p>
+              </div>
+            </li>
+            <li class="strength" data-strength="1">
+              <span class="strength__num">02</span>
+              <div>
+                <h3>Contemporary style</h3>
+                <p>Modern ideas with timeless details. Spaces that look stunning and are easy to live in, every single day.</p>
+              </div>
+            </li>
+            <li class="strength" data-strength="2">
+              <span class="strength__num">03</span>
+              <div>
+                <h3>One team, start to finish</h3>
+                <p>Architecture, construction and interiors by the same people — so the outside and the inside fit together perfectly.</p>
+              </div>
+            </li>
+            <li class="strength" data-strength="3">
+              <span class="strength__num">04</span>
+              <div>
+                <h3>Client trust</h3>
+                <p>Clear communication, honest timelines and a personal approach. Your vision stays at the heart of every decision.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="container process__grid">
+        <div class="process__head">
+          <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">06</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">How we work</span></p>
+          <h2 class="h2" id="process-title" data-reveal>Four simple steps. <em>One promise.</em></h2>
+          <p class="lead" data-reveal>A clear, simple process, so you always know what happens next.</p>
+          <a class="link-arrow process__link" href="#contact" data-reveal>Start with a conversation →</a>
+        </div>
+
+        <ol class="steps" role="list">
+          <li class="step" data-step>
+            <span class="step__num" aria-hidden="true">01</span>
+            <div class="step__body">
+              <h3><span class="visually-hidden">Step 1: </span>We listen</h3>
+              <p>Meet us and share your plot, budget and dreams. We take time to understand how you live.</p>
+            </div>
+          </li>
+          <li class="step" data-step>
+            <span class="step__num" aria-hidden="true">02</span>
+            <div class="step__body">
+              <h3><span class="visually-hidden">Step 2: </span>We design</h3>
+              <p>Plans, 3D views and materials, refined together with you until it feels just right.</p>
+            </div>
+          </li>
+          <li class="step" data-step>
+            <span class="step__num" aria-hidden="true">03</span>
+            <div class="step__body">
+              <h3><span class="visually-hidden">Step 3: </span>We build</h3>
+              <p>Our own team builds it with quality materials, and keeps you updated from the site.</p>
+            </div>
+          </li>
+          <li class="step" data-step>
+            <span class="step__num" aria-hidden="true">04</span>
+            <div class="step__body">
+              <h3><span class="visually-hidden">Step 4: </span>We hand over</h3>
+              <p>Interiors finished and every detail checked. You simply move in.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PRESS ============ -->
+    <section class="press" aria-labelledby="press-title">
+      <div class="container press__inner">
+        <p class="press__label" id="press-title">As featured in</p>
+        <ul class="press__logos" role="list">
+          <li><img src="assets/img/press/archello.png" alt="Archello" loading="lazy" width="310" height="56"></li>
+          <li><img src="assets/img/press/elle-decor.png" alt="Elle Decor" loading="lazy" width="233" height="111"></li>
+          <li><img src="assets/img/press/surfaces-reporter.png" alt="Surfaces Reporter" loading="lazy" width="329" height="73"></li>
+          <li><img src="assets/img/press/ade.png" alt="Architecture &amp; Design Empire" loading="lazy" width="303" height="166"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ INSTAGRAM ============ -->
+    <section class="insta" aria-labelledby="insta-title">
+      <div class="container insta__head">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">07</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">On Instagram</span></p>
+          <h2 class="h2" id="insta-title" data-reveal>Follow the <em>journey.</em></h2>
+        </div>
+        <a class="btn btn--light btn--lg" href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3Zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3Zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1ZM21.1 8.2a5.4 5.4 0 0 0-1.5-3.8A5.4 5.4 0 0 0 15.8 3c-1.5-.1-6.1-.1-7.6 0a5.4 5.4 0 0 0-3.8 1.4A5.4 5.4 0 0 0 3 8.2c-.1 1.5-.1 6.1 0 7.6a5.4 5.4 0 0 0 1.4 3.8A5.4 5.4 0 0 0 8.2 21c1.5.1 6.1.1 7.6 0a5.4 5.4 0 0 0 3.8-1.4 5.4 5.4 0 0 0 1.5-3.8c.1-1.5.1-6.1 0-7.6Zm-2 9.3a3.1 3.1 0 0 1-1.7 1.7c-1.2.5-4 .4-5.4.4s-4.2.1-5.4-.4a3.1 3.1 0 0 1-1.7-1.7c-.5-1.2-.4-4-.4-5.4s-.1-4.2.4-5.4A3.1 3.1 0 0 1 6.6 5c1.2-.5 4-.4 5.4-.4s4.2-.1 5.4.4a3.1 3.1 0 0 1 1.7 1.7c.5 1.2.4 4 .4 5.4s.1 4.2-.4 5.4Z"/></svg>
+          <span>@gs.associates</span>
+        </a>
+      </div>
+
+      <div class="marquee" data-marquee>
+        <div class="marquee__track">
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/manor-2-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/stone-4-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/curve-4-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/stone-9-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/refined-2-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/manor-4-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/stone-6-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/curve-5-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/stone-3-sm.webp" alt="" loading="lazy"></a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/img/projects/stone-10-sm.webp" alt="" loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA — project brief ============ -->
+    <!-- Visitors pick what they're planning; a little isometric drawing builds itself to match and the
+         brief goes out as a ready-written WhatsApp message (js/brief.js). Works without a server. -->
+    <section class="cta" id="contact" aria-labelledby="cta-title" data-cta>
+      <div class="cta__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta__head">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__num" aria-hidden="true">08</span><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Start your project</span></p>
+            <h2 class="cta__title" id="cta-title" data-reveal>Let's build your dream <em>together.</em></h2>
+          </div>
+          <p class="cta__text" data-reveal>Tell us a little about your project. It takes 20 seconds, and we'll get back to you on WhatsApp.</p>
+        </div>
+
+        <div class="cta__grid">
+          <form class="brief" data-brief>
+            <fieldset class="brief__q">
+              <legend><span class="brief__n" aria-hidden="true">1</span>What are you planning?</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="type" value="home" checked><span>New home</span></label>
+                <label class="chip"><input type="radio" name="type" value="renovation"><span>Renovation</span></label>
+                <label class="chip"><input type="radio" name="type" value="commercial"><span>Office or shop</span></label>
+                <label class="chip"><input type="radio" name="type" value="other"><span>Something else</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="brief__q">
+              <legend><span class="brief__n" aria-hidden="true">2</span>What do you need?</legend>
+              <div class="chips">
+                <label class="chip chip--check"><input type="checkbox" name="service" value="Architecture" checked><span>Architecture</span></label>
+                <label class="chip chip--check"><input type="checkbox" name="service" value="Construction" checked><span>Construction</span></label>
+                <label class="chip chip--check"><input type="checkbox" name="service" value="Interiors" checked><span>Interiors</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="brief__q">
+              <legend><span class="brief__n" aria-hidden="true">3</span>When would you like to start?</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="when" value="Right away"><span>Right away</span></label>
+                <label class="chip"><input type="radio" name="when" value="In 3–6 months"><span>In 3–6 months</span></label>
+                <label class="chip"><input type="radio" name="when" value="Just exploring"><span>Just exploring</span></label>
+              </div>
+            </fieldset>
+            <label class="brief__name">
+              <span><span class="brief__n" aria-hidden="true">4</span>Your name <small>(optional)</small></span>
+              <input type="text" name="name" autocomplete="name" placeholder="Type your name" maxlength="60">
+            </label>
+          </form>
+
+          <div class="plan">
+            <div class="plan__view">
+              <svg class="iso" data-iso role="img" aria-label="A drawing of your project that changes with your choices"></svg>
+              <p class="plan__empty">Pick a service to start the drawing</p>
+            </div>
+            <dl class="plan__block" aria-live="polite">
+              <div><dt>Project</dt><dd data-brief-out="type">New home</dd></div>
+              <div><dt>Services</dt><dd data-brief-out="service">Architecture, Construction, Interiors</dd></div>
+              <div><dt>Start</dt><dd data-brief-out="when">To be decided</dd></div>
+            </dl>
+            <div class="plan__send">
+              <a class="btn btn--brand btn--lg" href="https://wa.me/919814626056" target="_blank" rel="noopener" data-brief-wa>
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+                <span>Send on WhatsApp</span>
+              </a>
+              <p class="plan__alt">or <a href="tel:+919814626056">call +91 98146 26056</a> · <a href="mailto:gsassociates.biz@gmail.com" data-brief-mail>email us</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta__visit">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <p><strong>Visit our studio</strong> 4th Floor, Ranjit Tower, Pakhowal Road, Ludhiana</p>
+          <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Ranjit+Tower+Gurdev+Nagar+Pakhowal+Road+Ludhiana" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="assets/img/brand/gs-logo.webp" alt="GS Associates" width="120" height="124" loading="lazy">
+          <p>A trusted name in architecture, construction and interiors — delivering thoughtful designs, quality structures and elegant interiors.</p>
+        </div>
+
+        <div class="footer__col">
+          <h3>Visit us</h3>
+          <address>
+            4th Floor, Ranjit Tower,<br>
+            Gurdev Nagar, Opp. Big N Meats,<br>
+            Pakhowal Road, Ludhiana
+          </address>
+          <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Ranjit+Tower+Gurdev+Nagar+Pakhowal+Road+Ludhiana" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+
+        <div class="footer__col">
+          <h3>Talk to us</h3>
+          <a class="footer__big" href="tel:+919814626056">+91 98146 26056</a>
+          <a class="footer__big" href="tel:+919914348583">+91 99143 48583</a>
+          <a href="mailto:gsassociates.biz@gmail.com">gsassociates.biz@gmail.com</a>
+        </div>
+
+        <div class="footer__col">
+          <h3>Explore</h3>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#about">About us</a>
+          <a href="https://www.instagram.com/gs.associates/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.youtube.com/@gsassociates" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+
+      <div class="footer__word" aria-hidden="true">GS Associates</div>
+
+      <div class="footer__bottom">
+        <p>© <span data-year>2026</span> GS Associates. All rights reserved.</p>
+        <a href="#top" class="to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Project photos" hidden data-lightbox>
+    <div class="lightbox__bar">
+      <p class="lightbox__title" data-lb-title>Project</p>
+      <p class="lightbox__count" data-lb-count>1 / 1</p>
+      <button class="lightbox__close" type="button" data-lb-close aria-label="Close photos">
+        <span>Close</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="lightbox__stage">
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lb-prev aria-label="Previous photo">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <figure class="lightbox__figure"><img data-lb-img alt=""></figure>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lb-next aria-label="Next photo">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="lightbox__thumbs" data-lb-thumbs></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
+
+  <script src="js/main.js?v=30" defer></script>
+  <script src="js/brief.js?v=1" defer></script>
+</body>
+</html>
