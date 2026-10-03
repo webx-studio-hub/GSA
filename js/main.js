@@ -482,7 +482,7 @@
      --------------------------------------------------------- */
   const PROJECTS = {
     manor: { title: 'French Classical Residence', n: 4 },
-    curve: { title: 'Contemporary Curve House', n: 5 },
+    curve: { title: 'Contemporary Curve House', n: 6 },
     stone: { title: 'The Stone Villa', n: 10 },
     refined: { title: 'Refined Everyday Living', n: 6 },
   };

@@ -244,22 +244,4 @@
     update({ intro: true });
   }, { threshold: 0.35 }).observe(svg);
   update();
-
-  /* ---------------------------------------------------------
-     A soft light that follows the cursor across the blueprint grid
-     --------------------------------------------------------- */
-  if (!reduceMotion && matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    let raf = 0; let mx = 0; let my = 0;
-    root.addEventListener('pointermove', (e) => {
-      const r = root.getBoundingClientRect();
-      mx = e.clientX - r.left; my = e.clientY - r.top;
-      if (!raf) raf = requestAnimationFrame(() => {
-        raf = 0;
-        root.style.setProperty('--mx', `${mx}px`);
-        root.style.setProperty('--my', `${my}px`);
-        root.classList.add('is-lit');
-      });
-    });
-    root.addEventListener('pointerleave', () => root.classList.remove('is-lit'));
-  }
 })();
