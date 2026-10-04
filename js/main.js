@@ -9,7 +9,7 @@
   const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ideaScripts = ['vendor/three.idea.min.js?v=1', 'idea3d.js?v=5'].map((f) => new URL(f, document.currentScript.src).href);
+  const ideaScripts = ['vendor/three.idea.min.js?v=1', 'idea3d.js?v=6'].map((f) => new URL(f, document.currentScript.src).href);
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------------------------------------------------------

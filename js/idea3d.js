@@ -137,7 +137,6 @@ function initIdea(section, { reduceMotion = false } = {}) {
   const stepsEl = $('[data-idea-steps]');
   const steps = [...section.querySelectorAll('[data-idea-step]')];
   const drawingEl = $('[data-idea-drawing]');
-  const sheetNumEl = $('[data-idea-sheet]');
   const captionEl = $('[data-idea-caption]');
 
   let renderer;
@@ -747,7 +746,6 @@ function initIdea(section, { reduceMotion = false } = {}) {
       stage = s;
       steps.forEach((el, i) => el.classList.toggle('is-active', i === s));
       drawingEl.textContent = STAGES[s].name;
-      sheetNumEl.textContent = `0${s + 1} / 04`;
       if (captionEl) captionEl.innerHTML = steps[s].querySelector('p').innerHTML;
     }
     stepsEl.style.setProperty('--p', clamp(p / 0.95).toFixed(4));
