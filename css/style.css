@@ -228,6 +228,8 @@ h1, h2, h3, p { margin: 0; }
           mask-image: linear-gradient(90deg, rgba(0,0,0,.5), #000 22%, #000 78%, rgba(0,0,0,.5));
 }
 @media (min-width: 900px) { .hero__title { flex-wrap: nowrap; white-space: nowrap; } }
+/* the heading grows with the screen, so its box must too (the 1440px page width cut it on wide screens) */
+.hero__content .container { max-width: none; }
 /* each line is a window the words slide up into; the extra room below keeps g's tail inside it */
 .hero__title .line { display: inline-block; overflow: hidden; padding: .08em .02em .32em; margin: -.08em 0 -.32em; }
 .hero__title .line > span { display: inline-block; transform: translateY(140%); }
@@ -759,13 +761,13 @@ h1, h2, h3, p { margin: 0; }
    ========================================================= */
 .footer { background: var(--soft); padding: clamp(4.5rem, 8vw, 7rem) 0 1.75rem; overflow: hidden; }
 .footer__top {
-  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, .75fr);
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr) minmax(0, .8fr) minmax(0, 1.4fr);
   gap: clamp(2.5rem, 4vw, 4rem);
 }
 .footer__logo { display: inline-block; }
 .footer__logo img { width: 6rem; height: auto; transition: transform .5s var(--ease-out); }
 .footer__logo:hover img { transform: scale(1.04); }
-.footer__brand p { margin-top: 1.5rem; color: var(--muted); max-width: 34ch; line-height: 1.6; }
+.footer__brand p { margin-top: 1.5rem; color: var(--muted); max-width: 25rem; line-height: 1.6; font-size: 14px; }
 .footer__social { display: flex; gap: .65rem; margin-top: 1.75rem; }
 .footer__social a {
   display: grid; place-items: center; width: 3.25rem; height: 3.25rem; border-radius: 50%;
@@ -774,7 +776,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .footer__social a:hover { background: var(--ink); color: #fff; transform: translateY(-3px); }
 .footer__col { display: grid; align-content: start; gap: .75rem; font-size: 1.125rem; }
-.footer__col h3 {
+.footer__col h3, .footer__visit h3 {
   font-family: var(--font); font-size: .875rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
   color: var(--brand-deep); margin-bottom: .6rem;
 }
@@ -782,15 +784,28 @@ h1, h2, h3, p { margin: 0; }
 .footer__col a:hover { text-decoration: underline; text-underline-offset: .2em; }
 .footer__col address { font-style: normal; line-height: 1.6; }
 .footer__col .link-arrow { margin-top: .35rem; font-size: 1.0625rem; text-decoration: underline; }
-.footer__big { font-family: var(--display); font-size: clamp(1.375rem, 1.2rem + .5vw, 1.625rem); font-weight: 700; letter-spacing: -.01em; }
-.footer__word {
-  margin-top: clamp(3.5rem, 7vw, 6rem); font-family: var(--mark); font-weight: 900; text-transform: uppercase;
-  font-size: 10.4vw; line-height: .82; letter-spacing: -.04em; white-space: nowrap; overflow: hidden; padding-bottom: .04em;
-  background: linear-gradient(180deg, var(--ink) 15%, rgba(17, 18, 20, .1) 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+.footer__reach { display: grid; gap: .7rem; }
+.footer__reach li { display: flex; align-items: center; gap: .75rem; }
+.footer__reach svg { flex: none; color: var(--brand-deep); }
+.footer__reach a { font-weight: 600; }
+
+/* wide map strip under the columns, the address on a white card */
+.footer__map {
+  position: relative; margin-top: clamp(3rem, 6vw, 4.5rem); height: clamp(16rem, 24vw, 21rem);
+  overflow: hidden; background: #e9e7e2; box-shadow: inset 0 0 0 1px var(--line);
 }
+.footer__map iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; }
+.footer__visit { /* full-height panel on the left; it also hides Google's own corner buttons */
+  position: absolute; left: 0; top: 0; bottom: 0; width: min(23rem, 42%);
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  padding: 1.5rem clamp(1.5rem, 2.5vw, 2.25rem); background: #fff; box-shadow: 1px 0 0 var(--line), 12px 0 30px -18px rgba(17, 18, 20, .3);
+}
+.footer__visit address { font-style: normal; line-height: 1.6; font-size: 1.0625rem; }
+.footer__visit .btn { margin-top: 1.1rem; }
+.footer__big { font-family: var(--display); font-size: clamp(1.375rem, 1.2rem + .5vw, 1.625rem); font-weight: 700; letter-spacing: -.01em; }
 .footer__bottom {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap;
-  margin-top: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--faint); color: var(--muted); font-size: 1rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: 1.5rem; border-top: 1px solid var(--faint); color: var(--muted); font-size: 1rem;
 }
 .footer__credit { color: var(--muted); text-decoration: none; transition: color .3s; }
 .footer__credit strong { color: var(--ink); font-weight: 700; }
@@ -929,7 +944,11 @@ h1, h2, h3, p { margin: 0; }
   .site-header__inner { height: 4.25rem; }
   .brand__mark { width: 2.6rem; }
   .stat { padding: 1.5rem .75rem; }
-  .footer__top { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.5rem; }
+  .footer__brand, .footer__contact { grid-column: 1 / -1; }   /* quick links and services sit side by side */
+  .footer__map { height: auto; display: flex; flex-direction: column; }
+  .footer__map iframe { position: relative; height: 15rem; }
+  .footer__visit { position: static; width: auto; box-shadow: none; }
   .footer__bottom { flex-direction: column; align-items: flex-start; gap: .9rem; }
   .brief__send .btn { width: 100%; justify-content: center; }
   .chip span { padding: 0 1.1rem; }
