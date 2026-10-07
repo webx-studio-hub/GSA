@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=59">
+  <link rel="stylesheet" href="css/style.css?v=64">
 </head>
 <body class="page-service page-consultancy has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -27,7 +27,43 @@
 
       <nav class="nav" aria-label="Main">
         <a href="index.html#projects">Projects</a>
-        <a href="services.html" aria-current="page">Services</a>
+        <div class="nav__item" data-mega-item>
+          <a class="nav__trigger" href="services.html" aria-current="page" aria-expanded="false" aria-controls="mega-services">Services <svg class="nav__chev" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></a>
+          <!-- full-width services panel: opens on hover or keyboard focus (main.js) -->
+          <div class="mega" id="mega-services" data-mega>
+            <div class="container mega__inner">
+              <div class="mega__intro">
+                <p class="mega__label">Our services</p>
+                <p class="mega__title">Everything your project needs. <em>Under one roof.</em></p>
+                <p class="mega__text">From the first piece of advice to the final finish, one team plans, designs, builds and furnishes your space.</p>
+                <a class="btn btn--dark mega__all" href="services.html"><span>View all services</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <p class="mega__call">Not sure where to start? <a href="tel:+919814626056">Call +91 98146 26056</a></p>
+              </div>
+              <ul class="mega__cards" role="list">
+                <li style="--i: 0"><a class="mega__card" href="architecture.html">
+                  <span class="mega__img"><img src="assets/img/work/house-gabled-sm.webp" alt="" decoding="async"></span>
+                  <span class="mega__name">Architecture <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                  <span class="mega__tag">Designs shaped around the way you live.</span>
+                </a></li>
+                <li style="--i: 1"><a class="mega__card" href="construction.html">
+                  <span class="mega__img"><img src="assets/img/work/township-street-sm.webp" alt="" decoding="async"></span>
+                  <span class="mega__name">Construction <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                  <span class="mega__tag">Built with care. Delivered on time.</span>
+                </a></li>
+                <li style="--i: 2"><a class="mega__card" href="interiors.html">
+                  <span class="mega__img"><img src="assets/img/work/living-chandelier-sm.webp" alt="" decoding="async"></span>
+                  <span class="mega__name">Interiors <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                  <span class="mega__tag">Rooms that feel like you.</span>
+                </a></li>
+                <li style="--i: 3"><a class="mega__card" href="consultancy.html" aria-current="page">
+                  <span class="mega__img"><img src="assets/img/projects/refined-3-sm.webp" alt="" decoding="async"></span>
+                  <span class="mega__name">Consultancy <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                  <span class="mega__tag">Clear advice before you build.</span>
+                </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -48,6 +84,12 @@
     <nav aria-label="Mobile">
       <a href="index.html#projects">Projects</a>
       <a href="services.html" aria-current="page">Services</a>
+      <div class="mobile-menu__services">
+        <a href="architecture.html"><img src="assets/img/work/house-gabled-sm.webp" alt="" loading="lazy" decoding="async"><span>Architecture</span></a>
+        <a href="construction.html"><img src="assets/img/work/township-street-sm.webp" alt="" loading="lazy" decoding="async"><span>Construction</span></a>
+        <a href="interiors.html"><img src="assets/img/work/living-chandelier-sm.webp" alt="" loading="lazy" decoding="async"><span>Interiors</span></a>
+        <a href="consultancy.html"><img src="assets/img/projects/refined-3-sm.webp" alt="" loading="lazy" decoding="async"><span>Consultancy</span></a>
+      </div>
       <a href="about.html">About us</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -375,7 +417,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=35" defer></script>
+  <script src="js/main.js?v=37" defer></script>
   <script src="js/brief.js?v=3" defer></script>
 </body>
 </html>
