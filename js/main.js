@@ -168,37 +168,38 @@
   }
 
   /* ---------------------------------------------------------
-     Services mega menu: opens on hover (with a little patience, so it doesn't flicker) or keyboard focus
+     Mega menus (Projects, Services): open on hover (with a little patience, so they don't flicker) or keyboard
+     focus; only one is open at a time
      --------------------------------------------------------- */
-  const megaItem = $('[data-mega-item]');
   let megaOpen = false;
-  if (megaItem) {
-    const trigger = $('.nav__trigger', megaItem);
-    let timer = 0;
-    const setMega = (open) => {
-      clearTimeout(timer);
-      if (open === megaOpen) return;
-      megaOpen = open;
-      megaItem.classList.toggle('is-open', open);
-      header.classList.toggle('is-mega', open);
-      trigger.setAttribute('aria-expanded', String(open));
-      if (open) header.classList.remove('is-hidden');
-    };
-    const later = (open, ms) => { clearTimeout(timer); timer = setTimeout(() => setMega(open), ms); };
-    megaItem.addEventListener('mouseenter', () => later(true, 90));
-    megaItem.addEventListener('mouseleave', () => later(false, 220));
-    let quiet = false; // set while Escape hands focus back to the trigger, so that doesn't reopen the panel
-    megaItem.addEventListener('focusin', () => { if (!quiet) setMega(true); });
-    megaItem.addEventListener('focusout', (e) => { if (!megaItem.contains(e.relatedTarget)) setMega(false); });
-    addEventListener('keydown', (e) => {
-      if (e.key !== 'Escape' || !megaOpen) return;
-      setMega(false);
-      quiet = true; trigger.focus(); quiet = false;
-    });
-    addEventListener('scroll', () => { if (megaOpen && !megaItem.matches(':hover')) setMega(false); }, { passive: true });
-    // clicking the dimmed page below the panel closes it
-    $('.mega', megaItem).addEventListener('click', (e) => { if (e.target === e.currentTarget) setMega(false); });
-  }
+  const megas = $$('[data-mega-item]').map((item) => ({ item, trigger: $('.nav__trigger', item), timer: 0, open: false }));
+  let quiet = false; // set while Escape hands focus back to a trigger, so that doesn't reopen its panel
+  const setMega = (m, open) => {
+    clearTimeout(m.timer);
+    if (open) megas.forEach((o) => { if (o !== m) setMega(o, false); });
+    if (open === m.open) return;
+    m.open = open;
+    m.item.classList.toggle('is-open', open);
+    m.trigger.setAttribute('aria-expanded', String(open));
+    megaOpen = megas.some((o) => o.open);
+    header.classList.toggle('is-mega', megaOpen);
+    if (open) header.classList.remove('is-hidden');
+  };
+  megas.forEach((m) => {
+    const later = (open, ms) => { clearTimeout(m.timer); m.timer = setTimeout(() => setMega(m, open), ms); };
+    // moving straight from one trigger to the other switches at once
+    m.item.addEventListener('mouseenter', () => later(true, megaOpen ? 0 : 90));
+    m.item.addEventListener('mouseleave', () => later(false, 220));
+    m.item.addEventListener('focusin', () => { if (!quiet) setMega(m, true); });
+    m.item.addEventListener('focusout', (e) => { if (!m.item.contains(e.relatedTarget)) setMega(m, false); });
+  });
+  addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !megaOpen) return;
+    const m = megas.find((o) => o.open);
+    setMega(m, false);
+    quiet = true; m.trigger.focus(); quiet = false;
+  });
+  addEventListener('scroll', () => { megas.forEach((m) => { if (m.open && !m.item.matches(':hover')) setMega(m, false); }); }, { passive: true });
 
   /* ---------------------------------------------------------
      Mobile menu
@@ -282,7 +283,7 @@
      The photo also drifts gently inside its frame, and overlapping inset photos float a little faster.
      --------------------------------------------------------- */
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .about__media, .about__photo, .leader__portrait--photo, .chapter__big').map((frame) => {
+  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .about__media, .about__photo, .leader__portrait--photo, .chapter__big, .pj-shot--full, .pj-next__media').map((frame) => {
     frame.setAttribute('data-scrub', '');
     const media = frame.closest('.svc__media');
     return {
@@ -530,6 +531,7 @@
     curve: { title: 'Contemporary Curve House', n: 6 },
     stone: { title: 'The Stone Villa', n: 10 },
     refined: { title: 'Refined Everyday Living', n: 6 },
+    urban: { title: 'Urban Square', n: 1 },
   };
   const lb = $('[data-lightbox]') || document.createElement('div'); // inner pages have no lightbox
   const hasLb = !!lb.parentNode;

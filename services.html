@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=64">
+  <link rel="stylesheet" href="css/style.css?v=66">
 </head>
 <body class="page-services has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,7 +26,55 @@
       </a>
 
       <nav class="nav" aria-label="Main">
-        <a href="index.html#projects">Projects</a>
+        <div class="nav__item" data-mega-item>
+          <a class="nav__trigger" href="residential.html" aria-expanded="false" aria-controls="mega-projects">Projects <svg class="nav__chev" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></a>
+          <!-- full-width projects panel: residential and commercial lists (main.js opens it) -->
+          <div class="mega mega--projects" id="mega-projects" data-mega>
+            <div class="container mega__inner mega__inner--projects">
+              <div class="mega__intro">
+                <p class="mega__label">Our projects</p>
+                <p class="mega__title">Spaces we've <em>shaped.</em></p>
+                <p class="mega__text">Homes, villas, interiors and commercial spaces, designed and built by one team.</p>
+                <p class="mega__call">Planning something similar? <a href="contact.html">Talk to us</a></p>
+              </div>
+                <div class="mega__col">
+                  <a class="mega__colhead" href="residential.html"><span>Residential</span><small>4 projects</small><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                  <ul class="mega__list" role="list">
+                    <li style="--i: 0"><a class="mega__row" href="classical-residence.html">
+                      <img src="assets/img/projects/manor-1-sm.webp" alt="" decoding="async">
+                      <span><b>French Classical Residence</b><small>Architecture · Landscape</small></span>
+                    </a></li>
+                    <li style="--i: 1"><a class="mega__row" href="curve-house.html">
+                      <img src="assets/img/projects/curve-1-sm.webp" alt="" decoding="async">
+                      <span><b>Contemporary Curve House</b><small>Architecture · Interiors</small></span>
+                    </a></li>
+                    <li style="--i: 2"><a class="mega__row" href="stone-villa.html">
+                      <img src="assets/img/projects/stone-1-sm.webp" alt="" decoding="async">
+                      <span><b>The Stone Villa</b><small>Architecture · Interiors</small></span>
+                    </a></li>
+                    <li style="--i: 3"><a class="mega__row" href="refined-living.html">
+                      <img src="assets/img/projects/refined-1-sm.webp" alt="" decoding="async">
+                      <span><b>Refined Everyday Living</b><small>Interiors</small></span>
+                    </a></li>
+                  </ul>
+                </div>
+                <div class="mega__col">
+                  <a class="mega__colhead" href="commercial.html"><span>Commercial</span><small>1 project</small><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                  <ul class="mega__list" role="list">
+                    <li style="--i: 4"><a class="mega__row" href="urban-square.html">
+                      <img src="assets/img/projects/urban-1-sm.webp" alt="" decoding="async">
+                      <span><b>Urban Square</b><small>Architecture · Construction</small></span>
+                    </a></li>
+                  </ul>
+                </div>
+              <a class="mega__feature" href="curve-house.html" style="--i: 6">
+                <span class="mega__img"><img src="assets/img/projects/curve-1-sm.webp" alt="" decoding="async"></span>
+                <span class="mega__tag">Featured project</span>
+                <span class="mega__name">Contemporary Curve House <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="nav__item" data-mega-item>
           <a class="nav__trigger" href="services.html" aria-current="page" aria-expanded="false" aria-controls="mega-services">Services <svg class="nav__chev" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></a>
           <!-- full-width services panel: opens on hover or keyboard focus (main.js) -->
@@ -83,6 +131,10 @@
   <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
     <nav aria-label="Mobile">
       <a href="index.html#projects">Projects</a>
+      <div class="mobile-menu__services">
+        <a href="residential.html"><img src="assets/img/projects/manor-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Residential</span></a>
+        <a href="commercial.html"><img src="assets/img/projects/urban-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Commercial</span></a>
+      </div>
       <a href="services.html" aria-current="page">Services</a>
       <div class="mobile-menu__services">
         <a href="architecture.html"><img src="assets/img/work/house-gabled-sm.webp" alt="" loading="lazy" decoding="async"><span>Architecture</span></a>
@@ -358,7 +410,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=37" defer></script>
+  <script src="js/main.js?v=38" defer></script>
   <script src="js/brief.js?v=3" defer></script>
 </body>
 </html>
