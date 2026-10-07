@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About us — GS Associates · Ludhiana</title>
-  <meta name="description" content="Meet GS Associates (Gurpreet Singh &amp; Associates), the Ludhiana studio that designs, builds and furnishes homes and buildings, led by Ar. Yuvraj Singh and Jasdeep Singh.">
+  <title>Services — GS Associates · Ludhiana</title>
+  <meta name="description" content="Architecture, construction, interiors and consultancy from GS Associates in Ludhiana. One team plans, designs, builds and furnishes your home or building.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" href="assets/img/brand/favicon.png">
 
@@ -15,7 +15,7 @@
 
   <link rel="stylesheet" href="css/style.css?v=59">
 </head>
-<body class="page-about has-photo-hero">
+<body class="page-services has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ HEADER ============ -->
@@ -27,8 +27,8 @@
 
       <nav class="nav" aria-label="Main">
         <a href="index.html#projects">Projects</a>
-        <a href="services.html">Services</a>
-        <a href="about.html" aria-current="page">About</a>
+        <a href="services.html" aria-current="page">Services</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -47,8 +47,8 @@
   <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
     <nav aria-label="Mobile">
       <a href="index.html#projects">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="about.html" aria-current="page">About us</a>
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="about.html">About us</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="mobile-menu__contact">
@@ -61,184 +61,120 @@
   <main id="main">
 
     <!-- ============ PAGE HERO ============ -->
-    <!-- full-screen photo; it settles from a slight zoom as the page opens and drifts as you scroll (main.js) -->
-    <section class="page-hero" id="top" aria-labelledby="page-title" data-page-hero>
+    <!-- same full-screen photo hero as About and Contact; the strip along the bottom jumps to each service -->
+    <section class="page-hero page-hero--services" id="top" aria-labelledby="page-title" data-page-hero>
       <div class="page-hero__media">
-        <img src="assets/img/work/mansion-fountain.webp" alt="A classical mansion with a fountain and formal lawn, designed and built by GS Associates" fetchpriority="high" decoding="async" data-page-hero-img>
+        <img src="assets/img/work/house-gabled.webp" alt="A modern home with gabled roofs, timber panels and a planted front garden" fetchpriority="high" decoding="async" data-page-hero-img>
       </div>
       <div class="container page-hero__inner">
-        <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">About us</span></p>
-        <h1 class="page-hero__title" id="page-title" aria-label="Designing. Building. Transforming.">
-          <span class="line" aria-hidden="true"><span>Designing.</span></span>
-          <span class="line" aria-hidden="true"><span>Building.</span></span>
-          <span class="line" aria-hidden="true"><span><em>Transforming.</em></span></span>
+        <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Our services</span></p>
+        <h1 class="page-hero__title" id="page-title" aria-label="Four services. One team.">
+          <span class="line" aria-hidden="true"><span>Four services.</span></span>
+          <span class="line" aria-hidden="true"><span><em>One team.</em></span></span>
         </h1>
         <div class="page-hero__foot" data-intro>
-          <p class="page-hero__lead">Gurpreet Singh &amp; Associates is an architecture, construction and interiors studio in Ludhiana. One team, from the first sketch to the day you move in.</p>
-          <a class="page-hero__down" href="#story">
-            <span>Our story</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M6 13l6 6 6-6"/></svg>
-          </a>
+          <p class="page-hero__lead">From the first piece of advice to the final finish, we plan, design, build and furnish your space. Choose one service, or let us take care of everything.</p>
         </div>
-        <ul class="page-hero__facts" role="list" data-intro>
-          <li><b><span data-count="20">20</span>+</b><span>Years of experience</span></li>
-          <li><b><span data-count="36">36</span>+</b><span>Architects, engineers &amp; designers</span></li>
-          <li><b><span data-count="18">18</span>K+</b><span>Projects completed</span></li>
-          <li><b>3<i>in</i>1</b><span>Design, build &amp; interiors</span></li>
+        <ul class="page-hero__reach page-hero__jump" role="list" data-intro>
+          <li><a href="#architecture"><span class="page-hero__label">Architecture</span><span class="page-hero__jumptext">Designs shaped around the way you live.</span></a></li>
+          <li><a href="#construction"><span class="page-hero__label">Construction</span><span class="page-hero__jumptext">Built with care. Delivered on time.</span></a></li>
+          <li><a href="#interiors"><span class="page-hero__label">Interiors</span><span class="page-hero__jumptext">Rooms that feel like you.</span></a></li>
+          <li><a href="#consultancy"><span class="page-hero__label">Consultancy</span><span class="page-hero__jumptext">Clear advice before you build.</span></a></li>
         </ul>
       </div>
     </section>
 
-    <!-- ============ WHO WE ARE ============ -->
-    <section class="story" id="story" aria-labelledby="story-title">
-      <div class="container story__grid">
-        <div>
-          <p class="eyebrow" id="story-title"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Who we are</span></p>
-          <p class="statement__text" data-words>We bring together creativity, precision and innovation to shape spaces that inspire, and we stay with you from the idea to the keys.</p>
-        </div>
-        <div class="story__text" data-reveal>
-          <p>With expertise in architecture, construction and interiors, GS Associates delivers end-to-end solutions that turn ideas into real, lasting places.</p>
-          <p>Our architects, engineers and designers work together on every project, so it is practical, beautiful and built to last. From the first plan to the final finish, we focus on getting every detail right.</p>
-          <p>Whether it's a modern home, a large commercial building or an elegant interior, we are a partner you can trust, committed to good design, sustainability and your satisfaction.</p>
-        </div>
+    <!-- ============ THE FOUR SERVICES ============ -->
+    <!-- words stay in view on one side while the photos scroll past on the other -->
+    <section class="chapters" aria-label="Our services">
+      <div class="container">
+        <article class="chapter" id="architecture" aria-labelledby="architecture-title">
+          <div class="chapter__body">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Design</span></p>
+            <h2 class="chapter__title" id="architecture-title" data-reveal>Architecture</h2>
+            <p class="svc__tagline" data-reveal>Designs shaped around the way you live.</p>
+            <p class="chapter__text" data-reveal>For us, architecture is more than designing buildings. It is about shaping experiences and creating spaces that inspire. Every project begins with understanding your vision, your lifestyle and your needs, so the design truly feels like yours.</p>
+            <p class="chapter__text" data-reveal>We consider the climate, the structure and how your needs may change over time, so every design is sustainable, practical and modern yet timeless.</p>
+            <h3 class="chapter__sub" data-reveal>What we do</h3>
+            <ul class="svc__list" role="list" data-reveal><li>Site study &amp; planning</li><li>Concept design &amp; 3D views</li><li>Working drawings &amp; structural coordination</li><li>Sustainable, climate-aware design</li></ul>
+            <p class="chapter__good" data-reveal><span>Good for</span> Homes · Commercial · Institutional</p>
+            <div class="chapter__actions" data-reveal><a class="btn btn--dark btn--lg" href="architecture.html"><span>Explore architecture</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="link-arrow" href="#contact">or talk to us</a></div>
+          </div>
+          <div class="chapter__media">
+            <div class="chapter__big"><img src="assets/img/projects/manor-1.webp" alt="A French classical residence with a limestone facade and formal gardens" loading="lazy" decoding="async" data-parallax></div>
+            <div class="chapter__small"><img src="assets/img/work/house-timber-gate.webp" alt="A modern home with a timber gate" loading="lazy" decoding="async"></div>
+            <div class="chapter__small"><img src="assets/img/projects/stone-3.webp" alt="A stone-clad villa" loading="lazy" decoding="async"></div>
+          </div>
+        </article>
+        <article class="chapter chapter--flip" id="construction" aria-labelledby="construction-title">
+          <div class="chapter__body">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Build</span></p>
+            <h2 class="chapter__title" id="construction-title" data-reveal>Construction</h2>
+            <p class="svc__tagline" data-reveal>Built with care. Delivered on time.</p>
+            <p class="chapter__text" data-reveal>Construction is the backbone of what we do. From modern homes to large commercial developments, our own team builds every project to the highest standards of quality and precision.</p>
+            <p class="chapter__text" data-reveal>We use trusted materials, modern techniques and strict quality checks for strength and safety, and we work closely with you, our architects and engineers so every detail is right and the project is finished on the agreed timeline.</p>
+            <h3 class="chapter__sub" data-reveal>What we do</h3>
+            <ul class="svc__list" role="list" data-reveal><li>Homes to large commercial projects</li><li>Trusted materials &amp; quality control</li><li>Safety-first site management</li><li>Regular updates from the site</li></ul>
+            <p class="chapter__good" data-reveal><span>Good for</span> New builds · Commercial developments · Renovations</p>
+            <div class="chapter__actions" data-reveal><a class="btn btn--dark btn--lg" href="construction.html"><span>Explore construction</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="link-arrow" href="#contact">or talk to us</a></div>
+          </div>
+          <div class="chapter__media">
+            <div class="chapter__big"><img src="assets/img/work/township-street.webp" alt="Aerial view of a landscaped commercial street with shops and a hotel block" loading="lazy" decoding="async" data-parallax></div>
+            <div class="chapter__small"><img src="assets/img/work/villa-classical.webp" alt="A classical villa with columns and a balcony" loading="lazy" decoding="async"></div>
+            <div class="chapter__small"><img src="assets/img/work/villa-stone-dusk.webp" alt="A stone villa lit up at dusk" loading="lazy" decoding="async"></div>
+          </div>
+        </article>
+        <article class="chapter" id="interiors" aria-labelledby="interiors-title">
+          <div class="chapter__body">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Furnish</span></p>
+            <h2 class="chapter__title" id="interiors-title" data-reveal>Interiors</h2>
+            <p class="svc__tagline" data-reveal>Rooms that feel like you.</p>
+            <p class="chapter__text" data-reveal>Interior design goes beyond decoration. We turn bare spaces into elegant, comfortable rooms that reflect your personality and make everyday life easier.</p>
+            <p class="chapter__text" data-reveal>From the first idea to the final finish, we plan layouts, choose materials and colours and design the lighting. Contemporary, classic or a mix of both, every interior is made for you.</p>
+            <h3 class="chapter__sub" data-reveal>What we do</h3>
+            <ul class="svc__list" role="list" data-reveal><li>Space planning &amp; layouts</li><li>Materials, colours &amp; finishes</li><li>Lighting design</li><li>Custom furniture &amp; joinery</li></ul>
+            <p class="chapter__good" data-reveal><span>Good for</span> Homes · Offices · Shops &amp; showrooms</p>
+            <div class="chapter__actions" data-reveal><a class="btn btn--dark btn--lg" href="interiors.html"><span>Explore interiors</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="link-arrow" href="#contact">or talk to us</a></div>
+          </div>
+          <div class="chapter__media">
+            <div class="chapter__big"><img src="assets/img/work/living-chandelier.webp" alt="Living room with cream sofas, a dark feature wall and a crystal chandelier" loading="lazy" decoding="async" data-parallax></div>
+            <div class="chapter__small"><img src="assets/img/work/kitchen-arch.webp" alt="A kitchen with an arched opening and warm wood" loading="lazy" decoding="async"></div>
+            <div class="chapter__small"><img src="assets/img/work/stair-double-height.webp" alt="A double-height staircase hall" loading="lazy" decoding="async"></div>
+          </div>
+        </article>
+        <article class="chapter chapter--flip" id="consultancy" aria-labelledby="consultancy-title">
+          <div class="chapter__body">
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Advise</span></p>
+            <h2 class="chapter__title" id="consultancy-title" data-reveal>Consultancy</h2>
+            <p class="svc__tagline" data-reveal>Clear advice before you build.</p>
+            <p class="chapter__text" data-reveal>Not sure where to start? We study your plot, budget and plans, then give you honest, practical advice, so every decision about your project is made with confidence.</p>
+            <p class="chapter__text" data-reveal>It is a good first step before you buy a plot, start drawings or choose a contractor, and it is there for you even if you are not ready to build yet.</p>
+            <h3 class="chapter__sub" data-reveal>What we do</h3>
+            <ul class="svc__list" role="list" data-reveal><li>Site &amp; feasibility studies</li><li>Budget planning &amp; cost estimates</li><li>Design reviews &amp; second opinions</li><li>Guidance on approvals &amp; materials</li></ul>
+            <p class="chapter__good" data-reveal><span>Good for</span> Plot owners · First-time builders · Second opinions</p>
+            <div class="chapter__actions" data-reveal><a class="btn btn--dark btn--lg" href="consultancy.html"><span>Explore consultancy</span><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="link-arrow" href="#contact">or talk to us</a></div>
+          </div>
+          <div class="chapter__media">
+            <div class="chapter__big"><img src="assets/img/projects/refined-6.webp" alt="Concept sketch of a living room, drawn while planning the space with the owners" loading="lazy" decoding="async" data-parallax></div>
+            <div class="chapter__small"><img src="assets/img/projects/refined-4.webp" alt="Concept sketch of a staircase" loading="lazy" decoding="async"></div>
+            <div class="chapter__small"><img src="assets/img/projects/refined-3.webp" alt="The finished living room" loading="lazy" decoding="async"></div>
+          </div>
+        </article>
       </div>
-
     </section>
 
-    <!-- ============ LEADERSHIP ============ -->
-    <!-- names from the studio's Instagram bio ("Led by @ar.yuvrajsingh & Jasdeep Singh"); portraits still to come from the client -->
-    <section class="leaders" id="team" aria-labelledby="leaders-title">
+    <!-- ============ PROJECTS OF EVERY SIZE ============ -->
+    <section class="sizes" aria-labelledby="sizes-title">
       <div class="container">
         <div class="section-head section-head--center">
-          <div>
-            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Led by</span></p>
-            <h2 class="h2" id="leaders-title" data-reveal>The people behind <em>every project.</em></h2>
-          </div>
-          <p class="lead" data-reveal>Our principals look after each project personally, from the first drawing to the day we hand over the keys.</p>
+          <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Who we work with</span></p>
+          <h2 class="h2" id="sizes-title" data-reveal>Projects of <em>every size.</em></h2>
         </div>
-
-        <ul class="leaders__grid" role="list">
-          <li class="leader" data-reveal>
-            <div class="leader__portrait" aria-hidden="true"><span>YS</span></div>
-            <h3 class="leader__name">Ar. Yuvraj Singh</h3>
-            <p class="leader__role">Architect · Principal</p>
-            <a class="link-arrow leader__link" href="https://www.instagram.com/ar.yuvrajsingh/" target="_blank" rel="noopener">@ar.yuvrajsingh →</a>
-          </li>
-          <li class="leader" data-reveal>
-            <div class="leader__portrait" aria-hidden="true"><span>JS</span></div>
-            <h3 class="leader__name">Jasdeep Singh</h3>
-            <p class="leader__role">Principal</p>
-          </li>
-          <li class="leader leader--team" data-reveal>
-            <div class="leader__portrait leader__portrait--photo">
-              <img src="assets/img/projects/refined-6.webp" alt="A concept sketch of a living room, drawn by the GS Associates design team" loading="lazy" decoding="async" data-parallax>
-            </div>
-            <h3 class="leader__name">And a team of 36+</h3>
-            <p class="leader__role">Architects, engineers, site managers &amp; interior designers</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ STRENGTHS ============ -->
-    <section class="strengths" aria-labelledby="strengths-title">
-      <div class="container strengths__grid">
-        <div class="strengths__visual" aria-hidden="true">
-          <div class="strengths__frame">
-            <img class="is-active" src="assets/img/projects/stone-1.webp" alt="" loading="lazy" decoding="async" data-strength-img="0">
-            <img src="assets/img/projects/curve-3.webp" alt="" loading="lazy" decoding="async" data-strength-img="1">
-            <img src="assets/img/work/living-studio.webp" alt="" loading="lazy" decoding="async" data-strength-img="2">
-            <img src="assets/img/projects/manor-2.webp" alt="" loading="lazy" decoding="async" data-strength-img="3">
-          </div>
-        </div>
-
-        <div class="strengths__list">
-          <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Our strength</span></p>
-          <h2 class="h2" id="strengths-title" data-reveal>What makes us <em>different.</em></h2>
-
-          <ol class="strength-items" role="list">
-            <li class="strength" data-strength="0">
-              <div>
-                <h3>Hands-on approach</h3>
-                <p>Our principal architects and team personally oversee each project from concept to completion, so every detail is built with precision and quality. That care has earned us a name for excellence and reliability.</p>
-              </div>
-            </li>
-            <li class="strength" data-strength="1">
-              <div>
-                <h3>Contemporary style</h3>
-                <p>We take inspiration from modern design and add practicality and creativity. Blending new ideas with timeless details, we create spaces that look striking and are easy to live in.</p>
-              </div>
-            </li>
-            <li class="strength" data-strength="2">
-              <div>
-                <h3>Complete expertise</h3>
-                <p>Architecture, construction and interiors under one roof. Because one team designs and builds it all, the outside of your building and the rooms inside fit together perfectly.</p>
-              </div>
-            </li>
-            <li class="strength" data-strength="3">
-              <div>
-                <h3>Client trust</h3>
-                <p>Consistent delivery, open communication and a personal approach. Every project is a partnership, and your vision stays at the heart of what we create.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ UNDER ONE ROOF ============ -->
-    <section class="roof" aria-labelledby="roof-title">
-      <div class="container">
-        <div class="section-head section-head--split">
-          <div>
-            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">What we do</span></p>
-            <h2 class="h2" id="roof-title" data-reveal>Four services. <em>One roof.</em></h2>
-          </div>
-          <p class="lead" data-reveal>Pick one, or let us handle the whole journey for you.</p>
-        </div>
-
-        <ul class="roof__grid" role="list">
-          <li data-reveal>
-            <a class="tile" href="services.html#architecture">
-              <span class="tile__frame"><img src="assets/img/work/house-gabled.webp" alt="" loading="lazy" decoding="async"></span>
-              <span class="tile__title">Architecture <span aria-hidden="true">→</span></span>
-              <span class="tile__text">Designs shaped around the way you live.</span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a class="tile" href="services.html#construction">
-              <span class="tile__frame"><img src="assets/img/work/township-street.webp" alt="" loading="lazy" decoding="async"></span>
-              <span class="tile__title">Construction <span aria-hidden="true">→</span></span>
-              <span class="tile__text">Built with care. Delivered on time.</span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a class="tile" href="services.html#interiors">
-              <span class="tile__frame"><img src="assets/img/work/living-chandelier.webp" alt="" loading="lazy" decoding="async"></span>
-              <span class="tile__title">Interiors <span aria-hidden="true">→</span></span>
-              <span class="tile__text">Rooms that feel like you.</span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a class="tile" href="services.html#consultancy">
-              <span class="tile__frame"><img src="assets/img/projects/refined-3.webp" alt="" loading="lazy" decoding="async"></span>
-              <span class="tile__title">Consultancy <span aria-hidden="true">→</span></span>
-              <span class="tile__text">Clear advice before you build.</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ PRESS ============ -->
-    <section class="press" aria-labelledby="press-title">
-      <div class="container">
-        <h2 class="press__title" id="press-title" data-reveal>Our work has been featured in</h2>
-        <ul class="press__logos" role="list" data-reveal>
-          <li><img src="assets/img/press/elle-decor.png" alt="Elle Decor" width="489" height="251" loading="lazy"></li>
-          <li><img src="assets/img/press/archello.png" alt="Archello" width="489" height="251" loading="lazy"></li>
-          <li><img src="assets/img/press/surfaces-reporter.png" alt="Surfaces Reporter" width="489" height="251" loading="lazy"></li>
-          <li><img src="assets/img/press/architecture-design-empire.png" alt="Architecture &amp; Design Empire" width="489" height="251" loading="lazy"></li>
+        <ul class="sizes__grid" role="list">
+          <li data-reveal><h3>Homes &amp; villas</h3><p>Family homes, villas and farmhouses, designed around the way you live.</p></li>
+          <li data-reveal><h3>Commercial</h3><p>Offices, shops, showrooms and larger commercial developments.</p></li>
+          <li data-reveal><h3>Institutional</h3><p>Buildings for schools and organisations, planned for daily use by many people.</p></li>
+          <li data-reveal><h3>Renovations</h3><p>New life for an existing home or office, inside and out.</p></li>
         </ul>
       </div>
     </section>
@@ -335,7 +271,7 @@
           <h3>Quick links</h3>
           <a href="index.html">Home</a>
           <a href="index.html#projects">Projects</a>
-          <a href="about.html" aria-current="page">About us</a>
+          <a href="about.html">About us</a>
           <a href="blog.html">Blog</a>
           <a href="contact.html">Contact us</a>
         </nav>

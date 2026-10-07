@@ -249,7 +249,7 @@
      The photo also drifts gently inside its frame, and overlapping inset photos float a little faster.
      --------------------------------------------------------- */
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .about__media, .about__photo, .leader__portrait--photo').map((frame) => {
+  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .about__media, .about__photo, .leader__portrait--photo, .chapter__big').map((frame) => {
     frame.setAttribute('data-scrub', '');
     const media = frame.closest('.svc__media');
     return {
