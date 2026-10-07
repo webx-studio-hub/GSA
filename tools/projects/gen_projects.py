@@ -273,3 +273,7 @@ for c, cat in CATS.items():
                 f'page-projects page-{c}', c, main)
     open(c + '.html', 'w').write(out)
     print('wrote', c)
+
+# refresh the social-sharing tags (the copied header carries the Services page's ones)
+import runpy
+runpy.run_path(os.path.join('tools', 'seo.py'))

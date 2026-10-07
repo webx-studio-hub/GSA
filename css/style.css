@@ -1502,6 +1502,12 @@ h1, h2, h3, p { margin: 0; }
   .lightbox__close { width: 3rem; padding: 0; justify-content: center; }
 }
 
+/* the narrowest phones (around 350px): two photo tiles per row only fit with a smaller name */
+@media (max-width: 420px) {
+  .tile__title { font-size: 1.1875rem; gap: .5rem; }
+  .page-hero__jump .page-hero__label { font-size: .75rem; letter-spacing: .03em; }
+}
+
 /* calmer experience for people who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

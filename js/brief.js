@@ -23,9 +23,9 @@
       '',
       `Project: ${type}`,
       `Services: ${services.length ? services.join(', ') : 'Not sure yet, please advise'}`,
-      when && `Start: ${when}`,
-      name && `Name: ${name}`,
-    ].filter((l) => l !== false && l !== null && l !== undefined).join('\n');
+      when ? `Start: ${when}` : null,
+      name ? `Name: ${name}` : null,
+    ].filter((l) => l !== null).join('\n');
     wa.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
     mail.href = `mailto:${EMAIL}?subject=${encodeURIComponent(`New project: ${type}`)}&body=${encodeURIComponent(text)}`;
   }
