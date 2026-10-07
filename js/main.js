@@ -1,4 +1,4 @@
-/* GS Associates — homepage interactions */
+/* GS Associates — site interactions (home + inner pages) */
 (() => {
   document.documentElement.classList.add('js');
   const $ = (s, el = document) => el.querySelector(s);
@@ -17,7 +17,7 @@
      --------------------------------------------------------- */
   const heroImages = ['assets/img/hero/find-placeholder/sky.webp', 'assets/img/hero/find-placeholder/house.webp', 'assets/img/hero/find-placeholder/cloud.webp'];
   const imgReady = (src) => new Promise((res) => { const i = new Image(); i.onload = i.onerror = res; i.src = src; });
-  const ready = Promise.all([document.fonts ? document.fonts.ready : null, ...heroImages.map(imgReady)]);
+  const ready = Promise.all([document.fonts ? document.fonts.ready : null, ...($('[data-hero]') ? heroImages : []).map(imgReady)]);
   Promise.race([ready, new Promise((r) => setTimeout(r, 1400))]).then(() => {
     document.documentElement.classList.add('is-loaded');
   });
@@ -141,11 +141,12 @@
   /* ---------------------------------------------------------
      Header: hide on the way down, show on the way up
      --------------------------------------------------------- */
+  const pageHero = $('[data-page-hero]');
   const header = $('[data-header]');
   let lastY = scrollY;
   function updateHeader() {
     const y = scrollY;
-    const heroEnd = hero ? hero.offsetTop + hero.offsetHeight - innerHeight * 1.05 : 200;
+    const heroEnd = hero ? hero.offsetTop + hero.offsetHeight - innerHeight * 1.05 : pageHero ? pageHero.offsetHeight - 80 : 200;
     const menuOpen = document.body.classList.contains('menu-open');
     if (!menuOpen) {
       if (y > 140 && y > lastY + 4) header.classList.add('is-hidden');
@@ -153,6 +154,17 @@
     }
     header.classList.toggle('is-solid', y > heroEnd || menuOpen);
     lastY = y;
+  }
+
+  /* ---------------------------------------------------------
+     Inner-page hero: the photo drifts down a little slower than the page
+     --------------------------------------------------------- */
+  const pageHeroImg = pageHero && $('[data-page-hero-img]', pageHero);
+  if (pageHeroImg) setTimeout(() => pageHero.classList.add('is-settled'), 3000); // zoom-in done, follow the scroll directly
+  function updatePageHero() {
+    if (!pageHeroImg || reduceMotion) return;
+    const y = Math.min(scrollY, pageHero.offsetHeight);
+    pageHeroImg.style.setProperty('--drift', `${(y * 0.35).toFixed(1)}px`);
   }
 
   /* ---------------------------------------------------------
@@ -237,7 +249,7 @@
      The photo also drifts gently inside its frame, and overlapping inset photos float a little faster.
      --------------------------------------------------------- */
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .about__media, .about__photo').map((frame) => {
+  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .about__media, .about__photo, .leader__portrait--photo').map((frame) => {
     frame.setAttribute('data-scrub', '');
     const media = frame.closest('.svc__media');
     return {
@@ -486,7 +498,8 @@
     stone: { title: 'The Stone Villa', n: 10 },
     refined: { title: 'Refined Everyday Living', n: 6 },
   };
-  const lb = $('[data-lightbox]');
+  const lb = $('[data-lightbox]') || document.createElement('div'); // inner pages have no lightbox
+  const hasLb = !!lb.parentNode;
   const lbImg = $('[data-lb-img]', lb);
   const lbTitle = $('[data-lb-title]', lb);
   const lbCount = $('[data-lb-count]', lb);
@@ -532,6 +545,7 @@
     if (lbTrigger) lbTrigger.focus({ preventScroll: true });
   }
 
+  if (hasLb) {
   $$('[data-project]').forEach((el) => el.addEventListener('click', () => lbOpen(el.dataset.project, el, +(el.dataset.index || 0))));
   $('[data-lb-close]', lb).addEventListener('click', lbClose);
   $('[data-lb-prev]', lb).addEventListener('click', () => lbShow(lbIndex - 1));
@@ -556,6 +570,7 @@
     const dx = e.clientX - swipeX; swipeX = null;
     if (Math.abs(dx) > 50) lbShow(lbIndex + (dx < 0 ? 1 : -1));
   });
+  }
 
   /* ---------------------------------------------------------
      "View" cursor on project cards
@@ -596,7 +611,7 @@
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
-      updateHeader(); updateWords();
+      updateHeader(); updateWords(); updatePageHero();
       ticking = false;
     });
   }
