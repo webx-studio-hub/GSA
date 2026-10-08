@@ -2,7 +2,8 @@
 # assets/img/projects/<key>-<n>.webp and <key>-<n>-sm.webp, add it to PROJECTS in js/main.js for the
 # photo viewer, then run: python3 tools/projects/gen_projects.py
 P = [
- dict(key='manor', page='classical-residence', cat='residential', name='French Classical Residence', l1='French Classical', l2='Residence.',
+ dict(key='manor', seo_title='French Classical Residence | Luxury Home Design | GS Associates',
+  seo_desc='French Classical Residence by GS Associates: a limestone facade, slate mansard roof and formal gardens, with classic proportions planned for modern family life.', page='classical-residence', cat='residential', name='French Classical Residence', l1='French Classical', l2='Residence.',
   type='Private residence', style='French classical', services=['Architecture', 'Landscape'], n=4, pos='50% 45%',
   lead='A limestone facade, a slate mansard roof and formal gardens. Classic proportions, planned for modern family life.',
   statement='A home that borrows the grace of French classical architecture, and quietly makes it work for the way a family lives today.',
@@ -10,7 +11,8 @@ P = [
          'Formal gardens, clipped hedges and wrought-iron gates frame the approach, so the landscape feels like part of the architecture rather than an afterthought.'],
   features=['Limestone facade with classical detailing', 'Slate mansard roof and dormer windows', 'Formal gardens and wrought-iron gates', 'Bright, open family spaces behind a symmetrical front'],
   links=['architecture', 'construction']),
- dict(key='curve', page='curve-house', cat='residential', name='Contemporary Curve House', l1='Contemporary', l2='Curve House.',
+ dict(key='curve', seo_title='Contemporary Curve House | Modern Home Design | GS Associates',
+  seo_desc='A bold modern home by GS Associates, with sculpted concrete towers, warm timber and deep shaded balconies, and interiors designed by the same team.', page='curve-house', cat='residential', name='Contemporary Curve House', l1='Contemporary', l2='Curve House.',
   type='Private residence', style='Contemporary', services=['Architecture', 'Interiors'], n=6, pos='50% 60%',
   lead='Sculpted concrete towers, warm timber and deep balconies. A bold modern home, with interiors to match.',
   statement='Curved concrete fins, warm timber and deep shade: a modern home that is bold on the street and calm inside.',
@@ -18,7 +20,8 @@ P = [
          'Inside, the same care continues: warm wood, soft lighting and feature walls turn every room into a calm, comfortable space.'],
   features=['Sculpted concrete fins and curved towers', 'Deep, shaded balconies on every floor', 'Warm timber garage doors and details', 'Interiors designed with the same team'],
   links=['architecture', 'interiors']),
- dict(key='stone', page='stone-villa', cat='residential', name='The Stone Villa', l1='The Stone', l2='Villa.',
+ dict(key='stone', seo_title='The Stone Villa | Stone &amp; Timber Villa Design | GS Associates',
+  seo_desc='A villa defined by craftsmanship: hand-laid stone cladding, a tall arched window, a floating glass staircase and warm, refined interiors by GS Associates.', page='stone-villa', cat='residential', name='The Stone Villa', l1='The Stone', l2='Villa.',
   type='Private residence', style='Stone &amp; timber', services=['Architecture', 'Interiors'], n=10, pos='50% 40%',
   lead='Textured stone outside, warm and refined rooms inside. A residence defined by craftsmanship and timeless elegance.',
   statement='Natural stone, a great arched window and rooms full of warm light. A villa built to feel timeless.',
@@ -26,7 +29,8 @@ P = [
          'Inside, a floating glass staircase, rich wood and soft lighting carry the same sense of craft into every room, from the living spaces to the bedrooms.'],
   features=['Hand-laid natural stone cladding', 'A tall arched feature window', 'Floating staircase with glass railings', 'Warm, refined interiors throughout'],
   links=['architecture', 'interiors']),
- dict(key='refined', page='refined-living', cat='residential', name='Refined Everyday Living', l1='Refined', l2='Everyday Living.',
+ dict(key='refined', seo_title='Refined Everyday Living | Home Interior Design | GS Associates',
+  seo_desc='A calm home interior by GS Associates in soft neutrals, curved forms and hidden lighting, with every room sketched by hand before it was built.', page='refined-living', cat='residential', name='Refined Everyday Living', l1='Refined', l2='Everyday Living.',
   type='Home interiors', style='Soft modern', services=['Interiors'], n=6, pos='50% 55%',
   lead='Soft neutrals, curved forms and hidden lighting. A calm home, designed from the first sketch to the final finish.',
   statement='A calm home in soft neutrals, where every curve and every light was drawn by hand before it was built.',
@@ -34,7 +38,8 @@ P = [
          'Hidden lighting, rounded edges and natural textures keep the home quiet and warm, a place made for everyday life.'],
   features=['Curved staircase with hidden step lighting', 'Arched shelving and soft, rounded forms', 'Warm neutral palette and natural textures', 'Each room sketched first, then built'],
   links=['interiors', 'consultancy']),
- dict(key='urban', page='urban-square', cat='commercial', name='Urban Square', l1='Urban', l2='Square.',
+ dict(key='urban', seo_title='Urban Square | Commercial Development | GS Associates',
+  seo_desc='Urban Square by GS Associates: a landscaped shopping street with shopfronts, a hotel block and parking, planned as a place people want to visit and stay.', page='urban-square', cat='commercial', name='Urban Square', l1='Urban', l2='Square.',
   type='Commercial development', style='Mixed-use street', services=['Architecture', 'Construction'], n=1, pos='50% 55%',
   lead='A landscaped shopping street with shopfronts, a hotel block and space to walk. A place people want to visit and stay.',
   statement='A commercial street planned around people: shaded walkways, lively shopfronts and room to gather.',
@@ -44,10 +49,10 @@ P = [
   links=['architecture', 'construction']),
 ]
 CATS = {
- 'residential': dict(page='residential', name='Residential', l1='Residential', l2='projects.', hero=('assets/img/projects/manor-1.webp', 'A French classical residence with formal gardens', '50% 45%'),
+ 'residential': dict(seo_title='Residential Projects: Homes &amp; Villas | GS Associates Ludhiana', seo_desc='Explore homes, villas and interiors designed and built by GS Associates, Ludhiana, from French classical residences to contemporary family homes.', page='residential', name='Residential', l1='Residential', l2='projects.', hero=('assets/img/projects/manor-1.webp', 'A French classical residence with formal gardens', '50% 45%'),
    lead='Homes, villas and interiors designed and built around the families who live in them.',
    statement='Every home starts with the people who will live in it. These are a few of the homes we have designed, built and furnished.'),
- 'commercial': dict(page='commercial', name='Commercial', l1='Commercial', l2='projects.', hero=('assets/img/projects/urban-1.webp', 'Aerial view of a landscaped commercial street', '50% 55%'),
+ 'commercial': dict(seo_title='Commercial Projects | GS Associates Ludhiana', seo_desc='Commercial architecture and construction by GS Associates, Ludhiana: shops, offices, hotels and mixed-use developments planned for the people who use them.', page='commercial', name='Commercial', l1='Commercial', l2='projects.', hero=('assets/img/projects/urban-1.webp', 'Aerial view of a landscaped commercial street', '50% 55%'),
    lead='Shops, offices, hotels and larger developments, planned for the people who use them every day.',
    statement='Good commercial spaces are easy to find, easy to use and pleasant to spend time in. That is what we design and build.'),
 }

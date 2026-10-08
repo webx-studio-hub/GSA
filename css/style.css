@@ -1492,7 +1492,7 @@ h1, h2, h3, p { margin: 0; }
 
 @media (max-width: 640px) {
   .site-header__inner { height: 4.25rem; }
-  .page-hero__reach:not(.page-hero__jump) { display: none; }
+  .page-hero__reach:not(.page-hero__jump) { display: none; }   /* phones: the Call button is enough here; every detail is repeated further down */
   .page-hero__jump .page-hero__label { font-size: .8125rem; letter-spacing: .06em; }
   .page-hero__checks { display: none; }
   .page-hero__facts--dl { display: none; }
@@ -1504,7 +1504,7 @@ h1, h2, h3, p { margin: 0; }
   .scope__grid { grid-template-columns: minmax(0, 1fr); }
   .page-hero__jumptext { font-size: 1.0625rem; }
   .sizes__grid { grid-template-columns: minmax(0, 1fr); }
-  .sizes__grid li, .sizes__grid li + li, .sizes__grid li:nth-child(n) { padding: 1.5rem 0; border-left: 0; border-bottom: 1px solid var(--line); }   /* phones: the Call button is enough here; every detail is repeated further down */
+  .sizes__grid li, .sizes__grid li + li, .sizes__grid li:nth-child(n) { padding: 1.5rem 0; border-left: 0; border-bottom: 1px solid var(--line); }
   .brand__mark { width: 2.6rem; }
   .stat { padding: 1.5rem .75rem; }
   .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.5rem; }
@@ -1512,7 +1512,8 @@ h1, h2, h3, p { margin: 0; }
   .footer__map { height: auto; display: flex; flex-direction: column; }
   .footer__map iframe { position: relative; height: 15rem; }
   .footer__visit { position: static; width: auto; box-shadow: none; }
-  .footer__bottom { flex-direction: column; align-items: flex-start; gap: .9rem; }
+  .footer__bottom { flex-direction: column; align-items: center; gap: .6rem; text-align: center; }
+  .to-top { display: none; }
   .brief__send .btn { width: 100%; justify-content: center; }
   .chip span { padding: 0 1.1rem; }
   .lightbox__close span { display: none; }

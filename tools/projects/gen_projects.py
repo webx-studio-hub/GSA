@@ -111,7 +111,7 @@ CTA = idx[idx.index('    <!-- ============ CTA — project brief ============ --
 LIGHTBOX = idx[idx.index('  <!-- ============ LIGHTBOX ============ -->'):idx.index('  <div class="cursor"')]
 
 def shell(title, desc, body, current, main, lightbox=False):
-    h = HEAD.replace('<title>Services — GS Associates · Ludhiana</title>', f'<title>{title}</title>')
+    h = re.sub(r'<title>.*?</title>', lambda m: f'<title>{title}</title>', HEAD, count=1)
     h = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{desc}">', h)
     h = h.replace('<body class="page-services has-photo-hero">', f'<body class="{body} has-photo-hero">')
     h = h.replace('<a class="nav__trigger" href="services.html" aria-current="page"', '<a class="nav__trigger" href="services.html"')
@@ -231,7 +231,7 @@ for n, p in enumerate(P):
     </section>
 
 '''
-    out = shell(f'{p["name"]} — GS Associates · Ludhiana', f'{p["name"]} by GS Associates, Ludhiana. {re.sub("<[^>]+>", "", p["lead"])}',
+    out = shell(p['seo_title'], p['seo_desc'],
                 f'page-project page-{p["cat"]}-project', p['page'], main, lightbox=True)
     open(p['page'] + '.html', 'w').write(out)
     print('wrote', p['page'])
@@ -293,7 +293,7 @@ for c, cat in CATS.items():
     </section>
 
 '''
-    out = shell(f'{cat["name"]} projects — GS Associates · Ludhiana', f'{cat["name"]} projects by GS Associates, Ludhiana. {cat["lead"]}',
+    out = shell(cat['seo_title'], cat['seo_desc'],
                 f'page-projects page-{c}', c, main)
     open(c + '.html', 'w').write(out)
     print('wrote', c)
