@@ -226,7 +226,7 @@
       const open = !grp.g.classList.contains('is-open');
       groups.forEach((o) => setGroup(o, o === grp && open));
     });
-    if ($('[aria-current="page"]', grp.g)) setGroup(grp, true);
+    if ($('[aria-current="page"], [data-mm-open]', grp.g)) setGroup(grp, true);
   });
   toggle.addEventListener('click', () => setMenu(menu.hidden));
   $$('a', menu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
@@ -700,6 +700,10 @@
       $$('.blog-card', blogGrid).forEach((c) => { const on = cat === 'all' || c.dataset.cat === cat; c.hidden = !on; if (on) { shown += 1; c.classList.add('is-in'); } });
       empty.hidden = shown > 0;
     }));
+    // blog.html?topic=Interiors (from the Blog menu) opens on that topic
+    const topic = new URLSearchParams(location.search).get('topic');
+    const pick = topic && btns.find((b) => b.dataset.blogFilter.toLowerCase() === topic.toLowerCase());
+    if (pick) pick.click();
   }
   // article contents, as a progress timeline: the current section is marked, passed sections are ticked, the rail fills
   // in amber as you read and a counter shows the minutes left. Large screens: always open beside the text. Smaller

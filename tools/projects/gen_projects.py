@@ -7,6 +7,8 @@
 import re, sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 from projects_data import P, CATS
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'blog'))
+from posts import featured as featured_posts, POSTS as BLOG_POSTS
 from PIL import Image
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 ARR = '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -64,7 +66,7 @@ SERVICES = [('architecture', 'Architecture', 'assets/img/work/house-gabled-sm.we
             ('consultancy', 'Consultancy', 'assets/img/projects/refined-3-sm.webp')]
 
 def mobile_nav(current_file):
-    """The phone/tablet menu: Projects and Services open as dropdowns (main.js), About and Contact are plain links."""
+    """The phone/tablet menu: Projects, Services and Blog open as dropdowns (main.js), About and Contact are plain links."""
     cur = lambda f: ' aria-current="page"' if f == current_file else ''
     def group(gid, label, inner):
         return f'''
@@ -84,8 +86,14 @@ def mobile_nav(current_file):
                 + '\n            </ul>')
     services = ('\n            <div class="mobile-menu__services">' + ''.join(tile(f'{k}.html', src, n) for k, n, src in SERVICES) + '\n            </div>'
                 + f'\n            <a class="link-arrow mm-all" href="services.html"{cur("services.html")}>All services →</a>')
+    # on an article, its own row is marked; the dropdown opens on every blog page (data-mm-open)
+    in_blog = ' data-mm-open' if current_file in {q['slug'] + '.html' for q in BLOG_POSTS} else ''
+    blog = ('\n            <ul class="mm-list" role="list">' + ''.join(f'''
+              <li><a href="{q['slug']}.html"{cur(q['slug'] + '.html')}><img src="{q['image'].replace('.webp', '-sm.webp') if os.path.exists(q['image'].replace('.webp', '-sm.webp')) else q['image']}" alt="" loading="lazy" decoding="async"><span>{q['title']}<small>{q['category']}</small></span></a></li>''' for q in featured_posts())
+            + '\n            </ul>' + f'\n            <a class="link-arrow mm-all" href="blog.html"{cur("blog.html")}{in_blog}>All articles →</a>')
     return ('<nav aria-label="Mobile">' + group('projects', 'Projects', projects) + group('services', 'Services', services)
-            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>\n      <a href="blog.html"{cur("blog.html")}>Blog</a>\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
+            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>' + group('blog', 'Blog', blog)
+            + f'\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
 
 def set_mobile_nav(t, current_file):
     a = t.index('<nav aria-label="Mobile">'); b = t.index('</nav>', a) + len('</nav>')
@@ -103,7 +111,7 @@ for pg in EXISTING:
         seg2 = re.sub(r'<a href="(index\.html)?#projects">Projects</a>', mega_projects(), seg, count=1)
         assert seg2 != seg, p
         t = t[:a] + seg2 + t[b:]
-    t = set_mobile_nav(t, 'blog.html' if 'page-post' in t[:t.index('<body')+200] else p)   # blog articles sit under Blog
+    t = set_mobile_nav(t, p)
     open(p, 'w').write(t)
 
 # ---------- shared shell for the new pages ----------

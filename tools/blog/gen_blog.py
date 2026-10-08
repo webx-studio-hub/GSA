@@ -1,10 +1,10 @@
 # Builds blog.html and one page per post in posts.py, from one template.
 # Run from anywhere:  python3 tools/blog/gen_blog.py
-# Header/footer come from services.html, the brief form from index.html. Re-runs tools/seo.py at the end,
-# so every post gets its share tags and a sitemap entry.
-import datetime, html, os, re, runpy, sys
+# Header/footer come from services.html, the brief form from index.html. Also writes the Blog mega menu (featured
+# articles) into the header of every page, then runs tools/projects/gen_projects.py (phone menu, share tags, sitemap).
+import datetime, glob, html, os, re, runpy, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from posts import POSTS, CATEGORIES
+from posts import POSTS, CATEGORIES, featured
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 
 ARR = '<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -163,4 +163,56 @@ open('blog.html', 'w').write(shell('Blog: Home Building, Architecture &amp; Inte
                                    'Practical advice on planning, building and furnishing your home in Punjab: guides on architecture, construction and interior design from GS Associates.',
                                    'page-blog page-blog-list', main))
 print('wrote blog')
-runpy.run_path(os.path.join('tools', 'seo.py'))
+
+# ---------- the Blog mega menu, in every page's header ----------
+CHEV = '<svg class="nav__chev" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>'
+ARR18 = ARR.replace('width="20" height="20"', 'width="18" height="18"')
+post_files = {q['slug'] + '.html' for q in POSTS}
+
+def mega_blog(current_file):
+    in_blog = current_file == 'blog.html' or current_file in post_files
+    topics = ''.join(f'<a href="blog.html?topic={c}">{c}</a>' for c in CATEGORIES if any(q['category'] == c for q in POSTS))
+    cards = ''.join(f'''
+                <li style="--i: {n}"><a class="mega__post" href="{q['slug']}.html"{' aria-current="page"' if current_file == q['slug'] + '.html' else ''}>
+                  <span class="mega__img"><img src="{q['image']}" alt="" decoding="async"></span>
+                  <span class="mega__meta"><b>{q['category']}</b> · {read_mins(q)} min read</span>
+                  <span class="mega__posttitle">{q['title']}</span>
+                </a></li>''' for n, q in enumerate(featured()))
+    return f'''<!-- mega:blog -->
+        <div class="nav__item" data-mega-item>
+          <a class="nav__trigger" href="blog.html"{' aria-current="page"' if in_blog else ''} aria-expanded="false" aria-controls="mega-blog">Blog {CHEV}</a>
+          <!-- full-width blog panel: topics and featured articles (tools/blog/gen_blog.py writes it; main.js opens it) -->
+          <div class="mega mega--blog" id="mega-blog" data-mega>
+            <div class="container mega__inner mega__inner--blog">
+              <div class="mega__intro">
+                <p class="mega__label">From the blog</p>
+                <p class="mega__title">Ideas, advice <em>&amp; stories.</em></p>
+                <p class="mega__text">Practical guides on planning, building and furnishing your home.</p>
+                <div class="mega__topics" aria-label="Topics">{topics}</div>
+                <a class="btn btn--dark mega__all" href="blog.html"><span>All articles</span>{ARR18}</a>
+              </div>
+              <ul class="mega__cards mega__cards--blog" role="list">{cards}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /mega:blog -->'''
+
+for f in sorted(glob.glob('*.html')):
+    t = open(f).read()
+    a = t.index('<nav class="nav" aria-label="Main">')
+    if '<!-- mega:blog -->' in t:
+        s0 = t.index('<!-- mega:blog -->', a); s1 = t.index('<!-- /mega:blog -->', s0) + len('<!-- /mega:blog -->')
+        t = t[:s0] + mega_blog(f) + t[s1:]
+    else:
+        b = t.index('</nav>', t.rindex('</div>', a, t.index('</nav>', t.rindex('data-mega-item', a, t.index('<div class="mobile-menu"'))) + 1))
+        seg = t[a:b]
+        seg2 = re.sub(r'<a href="blog\.html"(?: aria-current="page")?>Blog</a>', lambda m: mega_blog(f), seg, count=1)
+        assert seg2 != seg, f
+        t = t[:a] + seg2 + t[b:]
+    open(f, 'w').write(t)
+print('blog menu written into every page')
+
+# the phone menu (with its Blog dropdown) and the share tags/sitemap are owned by the project generator and seo.py:
+# running it here leaves every page in the same state whichever generator was run last
+runpy.run_path(os.path.join('tools', 'projects', 'gen_projects.py'))

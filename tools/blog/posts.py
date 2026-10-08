@@ -1,5 +1,6 @@
 # Blog posts for gen_blog.py. Newest first; the first post is featured on blog.html.
-# To add a post: add an entry at the top of POSTS (body is plain HTML: <h2>, <p>, <ul>, <blockquote>, <figure>),
+# To add a post: add an entry at the top of POSTS (body is plain HTML: <h2>, <p>, <ul>, <blockquote>, <figure>;
+# add featured=True to show it in the Blog menus, otherwise the three newest are shown),
 # then run:  python3 tools/blog/gen_blog.py
 # These four starter articles are general advice written for the launch; have the client review them.
 CATEGORIES = ['Planning', 'Construction', 'Interiors', 'Design']
@@ -126,3 +127,9 @@ POSTS = [
 <p>See it for yourself on our <a href="consultancy.html">consultancy page</a>, where you can drag a slider from the sketch to the finished room.</p>
 '''),
 ]
+
+
+def featured(n=3):
+    """The articles shown in the Blog menus: posts marked featured=True first, topped up with the newest."""
+    picked = [p for p in POSTS if p.get('featured')]
+    return (picked + [p for p in POSTS if p not in picked])[:n]

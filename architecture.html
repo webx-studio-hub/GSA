@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=73">
+  <link rel="stylesheet" href="css/style.css?v=74">
 </head>
 <body class="page-service page-architecture has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -123,7 +123,40 @@
           </div>
         </div>
         <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
+        <!-- mega:blog -->
+        <div class="nav__item" data-mega-item>
+          <a class="nav__trigger" href="blog.html" aria-expanded="false" aria-controls="mega-blog">Blog <svg class="nav__chev" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></a>
+          <!-- full-width blog panel: topics and featured articles (tools/blog/gen_blog.py writes it; main.js opens it) -->
+          <div class="mega mega--blog" id="mega-blog" data-mega>
+            <div class="container mega__inner mega__inner--blog">
+              <div class="mega__intro">
+                <p class="mega__label">From the blog</p>
+                <p class="mega__title">Ideas, advice <em>&amp; stories.</em></p>
+                <p class="mega__text">Practical guides on planning, building and furnishing your home.</p>
+                <div class="mega__topics" aria-label="Topics"><a href="blog.html?topic=Planning">Planning</a><a href="blog.html?topic=Construction">Construction</a><a href="blog.html?topic=Interiors">Interiors</a><a href="blog.html?topic=Design">Design</a></div>
+                <a class="btn btn--dark mega__all" href="blog.html"><span>All articles</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <ul class="mega__cards mega__cards--blog" role="list">
+                <li style="--i: 0"><a class="mega__post" href="plan-your-new-home.html">
+                  <span class="mega__img"><img src="assets/img/projects/manor-4.webp" alt="" decoding="async"></span>
+                  <span class="mega__meta"><b>Planning</b> · 3 min read</span>
+                  <span class="mega__posttitle">Planning a new home? Seven steps from plot to keys</span>
+                </a></li>
+                <li style="--i: 1"><a class="mega__post" href="architect-and-builder-under-one-roof.html">
+                  <span class="mega__img"><img src="assets/img/work/house-gabled.webp" alt="" decoding="async"></span>
+                  <span class="mega__meta"><b>Construction</b> · 2 min read</span>
+                  <span class="mega__posttitle">Architect, contractor or both? Why one team makes building easier</span>
+                </a></li>
+                <li style="--i: 2"><a class="mega__post" href="warm-neutral-interiors.html">
+                  <span class="mega__img"><img src="assets/img/projects/refined-3.webp" alt="" decoding="async"></span>
+                  <span class="mega__meta"><b>Interiors</b> · 2 min read</span>
+                  <span class="mega__posttitle">Warm neutrals: how to design a calm, timeless interior</span>
+                </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /mega:blog -->
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -174,7 +207,19 @@
         </div>
       </div>
       <a href="about.html">About us</a>
-      <a href="blog.html">Blog</a>
+      <div class="mm-group" data-mm-group>
+        <button class="mm-toggle" type="button" aria-expanded="false" aria-controls="mm-blog"><span>Blog</span><svg class="mm-chev" aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+        <div class="mm-panel" id="mm-blog">
+          <div class="mm-panel__inner">
+            <ul class="mm-list" role="list">
+              <li><a href="plan-your-new-home.html"><img src="assets/img/projects/manor-4-sm.webp" alt="" loading="lazy" decoding="async"><span>Planning a new home? Seven steps from plot to keys<small>Planning</small></span></a></li>
+              <li><a href="architect-and-builder-under-one-roof.html"><img src="assets/img/work/house-gabled-sm.webp" alt="" loading="lazy" decoding="async"><span>Architect, contractor or both? Why one team makes building easier<small>Construction</small></span></a></li>
+              <li><a href="warm-neutral-interiors.html"><img src="assets/img/projects/refined-3-sm.webp" alt="" loading="lazy" decoding="async"><span>Warm neutrals: how to design a calm, timeless interior<small>Interiors</small></span></a></li>
+            </ul>
+            <a class="link-arrow mm-all" href="blog.html">All articles →</a>
+          </div>
+        </div>
+      </div>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="mobile-menu__contact">
@@ -489,7 +534,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=44" defer></script>
+  <script src="js/main.js?v=45" defer></script>
   <script src="js/brief.js?v=4" defer></script>
 </body>
 </html>
