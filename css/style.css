@@ -244,16 +244,32 @@ h1, h2, h3, p { margin: 0; }
 .mega__feature:hover .mega__name svg { transform: translateX(4px); color: var(--brand-deep); }
 .nav__item.is-open .mega__feature:hover .mega__img img { transform: scale(1.07); transition-duration: 1s; }
 
-/* phones and tablets: the four services sit under "Services" in the full-screen menu */
-.mobile-menu__services {
-  display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; padding: .75rem 0 1rem; border-bottom: 1px solid var(--line);
-  opacity: 0; transform: translateY(20px); animation: menuIn .7s var(--ease-out) .1s forwards;
+/* phones and tablets: Projects and Services open as dropdowns inside the full-screen menu (main.js) */
+.mm-group { opacity: 0; transform: translateY(20px); animation: menuIn .7s var(--ease-out) forwards; }
+.mm-toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; padding: .25rem 0; margin: 0;
+  border: 0; border-bottom: 1px solid var(--line); background: none; cursor: pointer; text-align: left; color: var(--ink);
+  font-family: var(--display); font-size: clamp(2.5rem, 11vw, 3.5rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.6;
 }
-.mobile-menu__services a {
+.mm-chev { flex: none; transition: transform .45s var(--ease-out); }
+.mm-group.is-open .mm-chev { transform: rotate(180deg); color: var(--brand-deep); }
+.mm-panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .5s var(--ease-out), visibility 0s linear .5s; }
+.mm-group.is-open .mm-panel { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows .5s var(--ease-out), visibility 0s; }
+.mm-panel__inner { min-height: 0; overflow: hidden; }
+.mm-panel__inner > :first-child { margin-top: .9rem; }
+.mm-panel__inner > :last-child { margin-bottom: 1.25rem; }
+.mobile-menu__services { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.mobile-menu__services a, .mm-list a {
   display: flex; align-items: center; gap: .65rem; padding: .4rem; border-radius: .5rem; text-decoration: none;
-  font-family: var(--display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -.01em; background: var(--soft);
+  font-family: var(--display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -.01em; line-height: 1.2; background: var(--soft);
 }
-.mobile-menu__services img { flex: none; width: 2.75rem; height: 2.75rem; object-fit: cover; border-radius: .35rem; }
+.mobile-menu__services img, .mm-list img { flex: none; width: 2.75rem; height: 2.75rem; object-fit: cover; border-radius: .35rem; }
+.mm-list { display: grid; gap: .35rem; margin-top: .5rem; }
+.mm-list a { background: none; }
+.mm-list span { display: grid; }
+.mm-list small { font-family: var(--font); font-weight: 500; font-size: .875rem; color: var(--muted); }
+:is(.mobile-menu__services, .mm-list) a[aria-current="page"] { box-shadow: inset 0 0 0 2px var(--brand); background: #fff; }
+.mm-all { margin-top: .9rem; font-size: 1.0625rem; }
 .mobile-menu { overflow-y: auto; }
 
 .menu-toggle {
@@ -270,7 +286,7 @@ h1, h2, h3, p { margin: 0; }
   display: flex; flex-direction: column; justify-content: space-between;
 }
 .mobile-menu[hidden] { display: none; }
-.mobile-menu nav { display: grid; gap: .25rem; }
+.mobile-menu nav { display: grid; gap: .25rem; align-content: start; }
 .mobile-menu nav > a {
   font-size: clamp(2.5rem, 11vw, 3.5rem); font-weight: 700; letter-spacing: -.03em; text-decoration: none;
   padding: .25rem 0; border-bottom: 1px solid var(--line);
@@ -280,6 +296,7 @@ h1, h2, h3, p { margin: 0; }
 .mobile-menu nav > :nth-child(3) { animation-delay: .1s; }
 .mobile-menu nav > :nth-child(4) { animation-delay: .15s; }
 .mobile-menu nav > :nth-child(5) { animation-delay: .2s; }
+.mobile-menu nav > a[aria-current="page"] { color: var(--brand-deep); }
 @keyframes menuIn { to { opacity: 1; transform: none; } }
 .mobile-menu__contact { display: grid; gap: 1rem; }
 .mobile-menu__mail { font-size: 1.125rem; text-align: center; }

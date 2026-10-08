@@ -215,6 +215,19 @@
     header.classList.remove('is-hidden');
     updateHeader();
   }
+  // Projects and Services open as dropdowns; only one at a time. The one holding the current page starts open.
+  const groups = $$('[data-mm-group]', menu).map((g) => ({ g, btn: $('.mm-toggle', g) }));
+  const setGroup = (grp, open) => {
+    grp.g.classList.toggle('is-open', open);
+    grp.btn.setAttribute('aria-expanded', String(open));
+  };
+  groups.forEach((grp) => {
+    grp.btn.addEventListener('click', () => {
+      const open = !grp.g.classList.contains('is-open');
+      groups.forEach((o) => setGroup(o, o === grp && open));
+    });
+    if ($('[aria-current="page"]', grp.g)) setGroup(grp, true);
+  });
   toggle.addEventListener('click', () => setMenu(menu.hidden));
   $$('a', menu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) setMenu(false); });

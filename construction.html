@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=68">
+  <link rel="stylesheet" href="css/style.css?v=69">
 </head>
 <body class="page-service page-construction has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -138,17 +138,37 @@
 
   <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
     <nav aria-label="Mobile">
-      <a href="index.html#projects">Projects</a>
-      <div class="mobile-menu__services">
-        <a href="residential.html"><img src="assets/img/projects/manor-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Residential</span></a>
-        <a href="commercial.html"><img src="assets/img/projects/urban-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Commercial</span></a>
+      <div class="mm-group" data-mm-group>
+        <button class="mm-toggle" type="button" aria-expanded="false" aria-controls="mm-projects"><span>Projects</span><svg class="mm-chev" aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+        <div class="mm-panel" id="mm-projects">
+          <div class="mm-panel__inner">
+            <div class="mobile-menu__services">
+              <a href="residential.html"><img src="assets/img/projects/manor-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Residential</span></a>
+              <a href="commercial.html"><img src="assets/img/projects/urban-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Commercial</span></a>
+            </div>
+            <ul class="mm-list" role="list">
+              <li><a href="classical-residence.html"><img src="assets/img/projects/manor-1-sm.webp" alt="" loading="lazy" decoding="async"><span>French Classical Residence<small>Residential</small></span></a></li>
+              <li><a href="curve-house.html"><img src="assets/img/projects/curve-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Contemporary Curve House<small>Residential</small></span></a></li>
+              <li><a href="stone-villa.html"><img src="assets/img/projects/stone-1-sm.webp" alt="" loading="lazy" decoding="async"><span>The Stone Villa<small>Residential</small></span></a></li>
+              <li><a href="refined-living.html"><img src="assets/img/projects/refined-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Refined Everyday Living<small>Residential</small></span></a></li>
+              <li><a href="urban-square.html"><img src="assets/img/projects/urban-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Urban Square<small>Commercial</small></span></a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <a href="services.html" aria-current="page">Services</a>
-      <div class="mobile-menu__services">
-        <a href="architecture.html"><img src="assets/img/work/house-gabled-sm.webp" alt="" loading="lazy" decoding="async"><span>Architecture</span></a>
-        <a href="construction.html"><img src="assets/img/work/township-street-sm.webp" alt="" loading="lazy" decoding="async"><span>Construction</span></a>
-        <a href="interiors.html"><img src="assets/img/work/living-chandelier-sm.webp" alt="" loading="lazy" decoding="async"><span>Interiors</span></a>
-        <a href="consultancy.html"><img src="assets/img/projects/refined-3-sm.webp" alt="" loading="lazy" decoding="async"><span>Consultancy</span></a>
+      <div class="mm-group" data-mm-group>
+        <button class="mm-toggle" type="button" aria-expanded="false" aria-controls="mm-services"><span>Services</span><svg class="mm-chev" aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
+        <div class="mm-panel" id="mm-services">
+          <div class="mm-panel__inner">
+            <div class="mobile-menu__services">
+              <a href="architecture.html"><img src="assets/img/work/house-gabled-sm.webp" alt="" loading="lazy" decoding="async"><span>Architecture</span></a>
+              <a href="construction.html" aria-current="page"><img src="assets/img/work/township-street-sm.webp" alt="" loading="lazy" decoding="async"><span>Construction</span></a>
+              <a href="interiors.html"><img src="assets/img/work/living-chandelier-sm.webp" alt="" loading="lazy" decoding="async"><span>Interiors</span></a>
+              <a href="consultancy.html"><img src="assets/img/projects/refined-3-sm.webp" alt="" loading="lazy" decoding="async"><span>Consultancy</span></a>
+            </div>
+            <a class="link-arrow mm-all" href="services.html">All services →</a>
+          </div>
+        </div>
       </div>
       <a href="about.html">About us</a>
       <a href="contact.html">Contact</a>
@@ -464,7 +484,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=38" defer></script>
+  <script src="js/main.js?v=39" defer></script>
   <script src="js/brief.js?v=4" defer></script>
 </body>
 </html>

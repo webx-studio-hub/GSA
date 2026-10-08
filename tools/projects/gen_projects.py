@@ -1,5 +1,6 @@
 # Builds the project pages from one template.
-#   1) writes the Projects mega menu into every page's header (refreshed on each run, so new projects appear everywhere)
+#   1) writes the Projects mega menu and the phone menu into every page's header (refreshed on each run, so new
+#      projects appear everywhere)
 #   2) builds residential.html, commercial.html and one page per project in projects_data.py
 # Run from anywhere:  python3 tools/projects/gen_projects.py   (needs Pillow: pip3 install pillow)
 # Header/footer come from services.html, the brief form and photo viewer from index.html.
@@ -15,7 +16,7 @@ SVC_TAG = {'architecture': 'Designs shaped around the way you live.', 'construct
            'interiors': 'Rooms that feel like you.', 'consultancy': 'Clear advice before you build.'}
 img = lambda k, i, sm=False: f'assets/img/projects/{k}-{i}{"-sm" if sm else ""}.webp'
 by_cat = {c: [p for p in P if p['cat'] == c] for c in CATS}
-EXISTING = ['index', 'about', 'contact', 'services', 'architecture', 'construction', 'interiors', 'consultancy']
+EXISTING = ['index', 'about', 'contact', 'services', 'architecture', 'construction', 'interiors', 'consultancy', '404']
 
 # ---------- the Projects mega menu ----------
 def mega_projects(current=None):
@@ -53,12 +54,38 @@ def mega_projects(current=None):
           </div>
         </div>'''
 
-def mobile_projects():
-    return '''
-      <div class="mobile-menu__services">
-        <a href="residential.html"><img src="assets/img/projects/manor-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Residential</span></a>
-        <a href="commercial.html"><img src="assets/img/projects/urban-1-sm.webp" alt="" loading="lazy" decoding="async"><span>Commercial</span></a>
+SERVICES = [('architecture', 'Architecture', 'assets/img/work/house-gabled-sm.webp'),
+            ('construction', 'Construction', 'assets/img/work/township-street-sm.webp'),
+            ('interiors', 'Interiors', 'assets/img/work/living-chandelier-sm.webp'),
+            ('consultancy', 'Consultancy', 'assets/img/projects/refined-3-sm.webp')]
+
+def mobile_nav(current_file):
+    """The phone/tablet menu: Projects and Services open as dropdowns (main.js), About and Contact are plain links."""
+    cur = lambda f: ' aria-current="page"' if f == current_file else ''
+    def group(gid, label, inner):
+        return f'''
+      <div class="mm-group" data-mm-group>
+        <button class="mm-toggle" type="button" aria-expanded="false" aria-controls="mm-{gid}"><span>{label}</span>{CHEV.replace('nav__chev', 'mm-chev').replace('width="16" height="16"', 'width="28" height="28"')}</button>
+        <div class="mm-panel" id="mm-{gid}">
+          <div class="mm-panel__inner">{inner}
+          </div>
+        </div>
       </div>'''
+    tile = lambda href, src, name: f'''
+              <a href="{href}"{cur(href)}><img src="{src}" alt="" loading="lazy" decoding="async"><span>{name}</span></a>'''
+    projects = ('\n            <div class="mobile-menu__services">' + tile('residential.html', 'assets/img/projects/manor-1-sm.webp', 'Residential')
+                + tile('commercial.html', 'assets/img/projects/urban-1-sm.webp', 'Commercial') + '\n            </div>'
+                + '\n            <ul class="mm-list" role="list">' + ''.join(f'''
+              <li><a href="{p['page']}.html"{cur(p['page'] + '.html')}><img src="{img(p['key'], 1, True)}" alt="" loading="lazy" decoding="async"><span>{p['name']}<small>{CATS[p['cat']]['name']}</small></span></a></li>''' for p in P)
+                + '\n            </ul>')
+    services = ('\n            <div class="mobile-menu__services">' + ''.join(tile(f'{k}.html', src, n) for k, n, src in SERVICES) + '\n            </div>'
+                + f'\n            <a class="link-arrow mm-all" href="services.html"{cur("services.html")}>All services →</a>')
+    return ('<nav aria-label="Mobile">' + group('projects', 'Projects', projects) + group('services', 'Services', services)
+            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
+
+def set_mobile_nav(t, current_file):
+    a = t.index('<nav aria-label="Mobile">'); b = t.index('</nav>', a) + len('</nav>')
+    return t[:a] + mobile_nav(current_file) + t[b:]
 
 for pg in EXISTING:
     p = pg + '.html'; t = open(p).read()
@@ -72,11 +99,7 @@ for pg in EXISTING:
         seg2 = re.sub(r'<a href="(index\.html)?#projects">Projects</a>', mega_projects(), seg, count=1)
         assert seg2 != seg, p
         t = t[:a] + seg2 + t[b:]
-        a = t.index('<nav aria-label="Mobile">'); b = t.index('</nav>', a)
-        seg = t[a:b]
-        seg2 = re.sub(r'(<a href="(index\.html)?#projects">Projects</a>)', lambda m: m.group(1) + mobile_projects(), seg, count=1)
-        assert seg2 != seg, p
-        t = t[:a] + seg2 + t[b:]
+    t = set_mobile_nav(t, p)
     open(p, 'w').write(t)
 
 # ---------- shared shell for the new pages ----------
@@ -96,6 +119,7 @@ def shell(title, desc, body, current, main, lightbox=False):
     h = h[:a] + mega_projects(current) + '\n        ' + h[b:]
     f = FOOT
     if lightbox: f = f.replace('  <div class="cursor"', LIGHTBOX + '  <div class="cursor"', 1)
+    h = set_mobile_nav(h, current + '.html')
     return h + main + CTA + '  </main>\n\n' + f
 
 def hero(src, alt, pos, crumbs, l1, l2, lead, after_lead, strip):
