@@ -683,6 +683,46 @@
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(fitWord);
   addEventListener('resize', fitWord);
 
+  /* ---------------------------------------------------------
+     Blog: topic filter on the listing, share buttons on articles
+     --------------------------------------------------------- */
+  const blogGrid = $('[data-blog-grid]');
+  if (blogGrid) {
+    const feature = $('[data-blog-feature]');
+    const empty = $('[data-blog-empty]');
+    const btns = $$('[data-blog-filter]');
+    btns.forEach((btn) => btn.addEventListener('click', () => {
+      const cat = btn.dataset.blogFilter;
+      btns.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      blogGrid.classList.toggle('is-filtered', cat !== 'all');
+      if (feature) feature.hidden = cat !== 'all';
+      let shown = 0;
+      $$('.blog-card', blogGrid).forEach((c) => { const on = cat === 'all' || c.dataset.cat === cat; c.hidden = !on; if (on) { shown += 1; c.classList.add('is-in'); } });
+      empty.hidden = shown > 0;
+    }));
+  }
+  // share the page's clean address (its canonical link), not whatever is in the address bar
+  const canonical = $('link[rel="canonical"]');
+  const pageUrl = canonical ? canonical.href : location.href.split('#')[0];
+  const shareText = document.title.split(' | ')[0];
+  const shareLinks = {
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(`${shareText} ${pageUrl}`)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`,
+  };
+  $$('[data-share]').forEach((el) => {
+    const kind = el.dataset.share;
+    if (shareLinks[kind]) { el.href = shareLinks[kind]; return; }
+    if (kind === 'copy') {
+      const label = $('[data-share-label]', el);
+      el.addEventListener('click', () => {
+        const done = () => { label.textContent = 'Link copied'; setTimeout(() => { label.textContent = 'Copy link'; }, 2200); };
+        if (navigator.clipboard) navigator.clipboard.writeText(pageUrl).then(done, () => prompt('Copy this link:', pageUrl));
+        else prompt('Copy this link:', pageUrl);
+      });
+    }
+  });
+
   const yr = $('[data-year]');
   if (yr) yr.textContent = new Date().getFullYear();
 })();

@@ -16,7 +16,11 @@ SVC_TAG = {'architecture': 'Designs shaped around the way you live.', 'construct
            'interiors': 'Rooms that feel like you.', 'consultancy': 'Clear advice before you build.'}
 img = lambda k, i, sm=False: f'assets/img/projects/{k}-{i}{"-sm" if sm else ""}.webp'
 by_cat = {c: [p for p in P if p['cat'] == c] for c in CATS}
-EXISTING = ['index', 'about', 'contact', 'services', 'architecture', 'construction', 'interiors', 'consultancy', '404']
+import glob
+# every other page on the site (home, about, services, blog posts...): their menus are refreshed on each run
+GENERATED = {p['page'] for p in P} | set(CATS)
+EXISTING = sorted(f[:-5] for f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '*.html')) if os.path.basename(f)[:-5] not in GENERATED)
+EXISTING = [os.path.basename(f) for f in EXISTING]
 
 # ---------- the Projects mega menu ----------
 def mega_projects(current=None):
@@ -81,7 +85,7 @@ def mobile_nav(current_file):
     services = ('\n            <div class="mobile-menu__services">' + ''.join(tile(f'{k}.html', src, n) for k, n, src in SERVICES) + '\n            </div>'
                 + f'\n            <a class="link-arrow mm-all" href="services.html"{cur("services.html")}>All services →</a>')
     return ('<nav aria-label="Mobile">' + group('projects', 'Projects', projects) + group('services', 'Services', services)
-            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
+            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>\n      <a href="blog.html"{cur("blog.html")}>Blog</a>\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
 
 def set_mobile_nav(t, current_file):
     a = t.index('<nav aria-label="Mobile">'); b = t.index('</nav>', a) + len('</nav>')
@@ -99,7 +103,7 @@ for pg in EXISTING:
         seg2 = re.sub(r'<a href="(index\.html)?#projects">Projects</a>', mega_projects(), seg, count=1)
         assert seg2 != seg, p
         t = t[:a] + seg2 + t[b:]
-    t = set_mobile_nav(t, p)
+    t = set_mobile_nav(t, 'blog.html' if 'page-post' in t[:t.index('<body')+200] else p)   # blog articles sit under Blog
     open(p, 'w').write(t)
 
 # ---------- shared shell for the new pages ----------
