@@ -701,31 +701,72 @@
       empty.hidden = shown > 0;
     }));
   }
-  // article contents: folded on smaller screens, always open beside the text on large ones; the section being read is marked
+  // article contents, as a progress timeline: the current section is marked, passed sections are ticked, the rail fills
+  // in amber as you read and a counter shows the minutes left. Large screens: always open beside the text. Smaller
+  // screens: a sticky bar showing the current section, folded until tapped.
   const toc = $('[data-toc]');
   if (toc) {
     const wide = matchMedia('(min-width: 1200px)');
+    const list = $('.toc__list', toc);
+    const items = $$('.toc__item', toc);
+    const links = items.map((li) => $('a', li));
+    const heads = links.map((l) => document.getElementById(decodeURIComponent(l.hash.slice(1))));
+    const body = $('.post__body');
+    const current = $('[data-toc-current]', toc);
+    const left = $('[data-toc-left]', toc);
+    const bar = $('[data-toc-progress]', toc);
+    const minutes = +toc.dataset.minutes || 1;
     const fit = () => { toc.open = wide.matches; };
     fit();
     wide.addEventListener('change', fit);
     $('summary', toc).addEventListener('click', (e) => { if (wide.matches) e.preventDefault(); });
-    const links = $$('a', toc);
-    const mark = (id) => links.forEach((l) => {
-      if (l.hash.slice(1) === id) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
-    });
-    const tocIO = new IntersectionObserver((entries) => {
-      entries.forEach((en) => { if (en.isIntersecting) mark(en.target.id); });
-    }, { rootMargin: '-12% 0px -75% 0px' });
-    links.forEach((l) => { const h = document.getElementById(decodeURIComponent(l.hash.slice(1))); if (h) tocIO.observe(h); });
-    // on small screens, fold the box away once a section is picked, then scroll, so the heading lands below the menu bar
-    links.forEach((l) => l.addEventListener('click', (e) => {
-      if (wide.matches) return;
-      const target = document.getElementById(decodeURIComponent(l.hash.slice(1)));
-      if (!target) return;
+
+    let last = -2;
+    const update = () => {
+      const line = innerHeight * 0.3; // a section counts as "being read" once its heading passes this line
+      let active = -1;
+      heads.forEach((h, i) => { if (h && h.getBoundingClientRect().top <= line) active = i; });
+      if (active !== last) {
+        last = active;
+        items.forEach((li, i) => { li.classList.toggle('is-done', i < active); li.classList.toggle('is-active', i === active); });
+        links.forEach((l, i) => (i === active ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current')));
+        current.textContent = (links[Math.max(active, 0)] || links[0]).querySelector('.toc__text').textContent;
+      }
+      // rail fill: down to the current dot, then part of the way to the next one
+      if (list.offsetParent) {
+        const dotY = (i) => { const a = links[i].getBoundingClientRect(); return a.top - list.getBoundingClientRect().top + 9; };
+        let fill = 0;
+        if (active >= 0) {
+          const from = heads[active].getBoundingClientRect().top;
+          const to = active + 1 < heads.length ? heads[active + 1].getBoundingClientRect().top : body.getBoundingClientRect().bottom;
+          const f = clamp((line - from) / Math.max(1, to - from));
+          const end = active + 1 < links.length ? dotY(active + 1) : dotY(active);
+          fill = dotY(active) + (end - dotY(active)) * f - dotY(0);
+        }
+        list.style.setProperty('--fill', `${Math.max(0, fill).toFixed(1)}px`);
+      }
+      // reading progress and minutes left
+      const r = body.getBoundingClientRect();
+      const read = clamp((innerHeight * 0.5 - r.top) / r.height);
+      bar.parentElement.style.setProperty('--read', read.toFixed(3));
+      const remaining = Math.ceil(minutes * (1 - read));
+      left.classList.toggle('is-done', read >= 0.98);
+      left.textContent = read >= 0.98 ? 'Finished ✓' : read <= 0.02 ? `${minutes} min read` : `${Math.max(1, remaining)} min left`;
+    };
+    let queued = false;
+    const onScroll = () => { if (queued) return; queued = true; requestAnimationFrame(() => { queued = false; update(); }); };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    toc.addEventListener('toggle', onScroll);
+    update();
+
+    // on smaller screens, fold the bar once a section is picked, then scroll, so the heading lands below the menu
+    links.forEach((l, i) => l.addEventListener('click', (e) => {
+      if (wide.matches || !heads[i]) return;
       e.preventDefault();
       toc.open = false;
       history.replaceState(null, '', l.hash);
-      requestAnimationFrame(() => target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }));
+      requestAnimationFrame(() => heads[i].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }));
     }));
   }
 

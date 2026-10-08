@@ -61,7 +61,7 @@ def with_toc(body):
     def anchor(m):
         text = re.sub('<[^>]+>', '', m.group(1))
         slug = re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')
-        items.append((slug, text))
+        items.append((slug, re.sub(r'^\d+\.\s*', '', text)))
         return f'<h2 id="{slug}">{m.group(1)}</h2>'
     return re.sub(r'<h2>(.*?)</h2>', anchor, body), items
 
@@ -79,9 +79,14 @@ for i, p in enumerate(POSTS):
     <!-- the contents list sits beside the text on large screens and as a folding box above it on smaller ones -->
     <article class="post" aria-labelledby="page-title">
       <div class="container post__layout">
-        <details class="toc" open data-toc>
-          <summary class="toc__title">In this article</summary>
-          <ol class="toc__list" role="list">{''.join(f'<li><a href="#{a}">{t}</a></li>' for a, t in toc)}</ol>
+        <details class="toc" open data-toc data-minutes="{read_mins(p)}">
+          <summary class="toc__bar">
+            <span class="toc__label">In this article</span>
+            <span class="toc__current" data-toc-current>{toc[0][1] if toc else ''}</span>
+            <span class="toc__left" data-toc-left>{read_mins(p)} min read</span>
+            <span class="toc__progress" aria-hidden="true"><i data-toc-progress></i></span>
+          </summary>
+          <ol class="toc__list" role="list">{''.join(f'<li class="toc__item"><a href="#{a}"><span class="toc__num">{n:02d}</span><span class="toc__text">{t}</span></a></li>' for n, (a, t) in enumerate(toc, 1))}</ol>
         </details>
         <div class="post__main">
         <div class="post__body">{body}
