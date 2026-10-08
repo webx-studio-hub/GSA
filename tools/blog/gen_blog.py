@@ -55,19 +55,36 @@ def card(p, extra=''):
             </a>
           </li>'''
 
+def with_toc(body):
+    """Gives every <h2> an id and returns (body, table-of-contents items)."""
+    items = []
+    def anchor(m):
+        text = re.sub('<[^>]+>', '', m.group(1))
+        slug = re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')
+        items.append((slug, text))
+        return f'<h2 id="{slug}">{m.group(1)}</h2>'
+    return re.sub(r'<h2>(.*?)</h2>', anchor, body), items
+
 # ---------- one page per post ----------
 for i, p in enumerate(POSTS):
     facts = [('Category', p['category']), ('Published', nice_date(p['date'])), ('Reading time', f'{read_mins(p)} minute{"s" if read_mins(p) != 1 else ""}'), ('Written by', 'GS Associates team')]
     strip = '\n        <dl class="page-hero__facts page-hero__facts--dl" data-intro>' + ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a, b in facts) + '</dl>'
     crumbs = f'<a href="blog.html">Blog</a><span aria-hidden="true">/</span><span aria-current="page">{p["category"]}</span>'
     main = hero(p['image'], p['image_alt'], p['pos'], crumbs, f'<span class="line" aria-hidden="true"><span>{p["title"]}</span></span>', html.escape(re.sub('<[^>]+>', '', p['title']), quote=True), p['excerpt'], strip)
+    body, toc = with_toc(p['body'])
     same = [q for q in POSTS if q is not p and q['category'] == p['category']]
     related = (same + [q for q in POSTS if q is not p and q not in same])[:3]
     main += f'''
     <!-- ============ ARTICLE ============ -->
+    <!-- the contents list sits beside the text on large screens and as a folding box above it on smaller ones -->
     <article class="post" aria-labelledby="page-title">
-      <div class="container">
-        <div class="post__body" data-reveal>{p['body']}
+      <div class="container post__layout">
+        <details class="toc" open data-toc>
+          <summary class="toc__title">In this article</summary>
+          <ol class="toc__list" role="list">{''.join(f'<li><a href="#{a}">{t}</a></li>' for a, t in toc)}</ol>
+        </details>
+        <div class="post__main">
+        <div class="post__body">{body}
         </div>
         <div class="post__share">
           <span>Share this article</span>
@@ -75,6 +92,7 @@ for i, p in enumerate(POSTS):
           <a class="post__share-btn" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" data-share="facebook" aria-label="Share on Facebook"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21Z"/></svg></a>
           <a class="post__share-btn" href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" rel="noopener" data-share="linkedin" aria-label="Share on LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.9 8.7H3.6V20h3.3V8.7ZM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8ZM20.4 13.5c0-3-1.6-5-4.3-5a3.7 3.7 0 0 0-3.3 1.8V8.7H9.6V20h3.3v-5.6c0-1.5.3-2.9 2.1-2.9s1.9 1.7 1.9 3V20h3.3Z"/></svg></a>
           <button class="post__share-btn post__share-copy" type="button" data-share="copy"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span data-share-label>Copy link</span></button>
+        </div>
         </div>
       </div>
     </article>

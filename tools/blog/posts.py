@@ -16,6 +16,7 @@ POSTS = [
 <h2>1. Understand your plot</h2>
 <p>Before you think about rooms and finishes, look closely at the land. Which way does it face? Where does the sun rise and set? How wide is the road, and where will the entrance go? Are there neighbouring buildings that will block light or overlook your garden?</p>
 <p>A short site study answers these questions and often changes the whole design for the better, for example by moving the living room to catch winter sun or placing bedrooms away from a busy road.</p>
+<figure><img src="assets/img/work/house-timber-gate.webp" alt="A modern home with a timber gate and planted entrance" loading="lazy" decoding="async"><figcaption>Where the entrance, parking and garden go is decided by the plot, long before the facade.</figcaption></figure>
 <h2>2. Set a realistic budget, with a buffer</h2>
 <p>Decide on an overall figure, then split it roughly between structure, finishes and interiors. Always keep a contingency of 10 to 15 percent for the unexpected. It is far easier to spend a buffer at the end than to find money halfway through.</p>
 <h2>3. Write down how you live</h2>
@@ -29,10 +30,12 @@ POSTS = [
 <h2>4. Design, and see it in 3D</h2>
 <p>Plans are hard to read for most people. Ask for 3D views of the outside and the main rooms, so you can see proportions, light and materials before anything is built. Changing a drawing costs nothing; changing a wall costs a lot.</p>
 <blockquote>Changing a drawing costs nothing. Changing a wall costs a lot.</blockquote>
+<figure><img src="assets/img/projects/refined-5.webp" alt="A hand-drawn concept sketch of a bedroom" loading="lazy" decoding="async"><figcaption>A concept sketch lets the whole family picture a room before anything is built.</figcaption></figure>
 <h2>5. Get the drawings and approvals in order</h2>
 <p>Detailed working and structural drawings tell the site team exactly what to build. They are also needed for building plan approval from your local authority. Starting construction before approvals are in place is one of the most common, and most expensive, mistakes.</p>
 <h2>6. Build with regular check-ins</h2>
 <p>During construction, agree on a simple rhythm of updates: photos from site, a short weekly call and a visit at key stages such as the foundation, the roof slab and before plastering. Checking work at the right moment is much easier than fixing it later.</p>
+<figure><img src="assets/img/work/villa-classical.webp" alt="A finished classical villa with columns and balconies" loading="lazy" decoding="async"><figcaption>Checks at the foundation, slab and plaster stages keep quality on track all the way to the finish.</figcaption></figure>
 <h2>7. Finish, check and move in</h2>
 <p>Before handover, walk through every room with a checklist: doors and windows, electrical points, plumbing, tiles and paint. Small fixes are quick while the team is still on site.</p>
 <p>Planning a new home and not sure where to start? <a href="contact.html">Talk to our team</a>. A first conversation is the easiest step of all.</p>
@@ -56,8 +59,10 @@ POSTS = [
   <li><strong>Clear responsibility.</strong> If something is not right, there is no one else to blame.</li>
 </ul>
 <blockquote>When the people who draw it also build it, the outside and the inside fit together.</blockquote>
+<figure><img src="assets/img/projects/curve-1.webp" alt="The Contemporary Curve House street facade" loading="lazy" decoding="async"><figcaption>The Contemporary Curve House: designed, built and furnished by one team.</figcaption></figure>
 <h2>When separate teams can still work</h2>
 <p>If you already have an architect you trust, or a contractor you have worked with for years, keeping them is perfectly reasonable. In that case, invest in very detailed drawings and agree in writing who decides what on site.</p>
+<figure><img src="assets/img/work/township-street.webp" alt="Aerial view of a landscaped commercial street" loading="lazy" decoding="async"><figcaption>Larger developments gain the most from one team coordinating design and site work.</figcaption></figure>
 <h2>How to decide</h2>
 <p>Ask yourself how much time you can spend coordinating. If you are busy, live in another city or simply want peace of mind, one team is usually the easier path. If you enjoy managing the details yourself, separate specialists can work well.</p>
 <p>Want to understand what a single team would look like for your project? <a href="services.html">See how we work</a>, or <a href="contact.html">get in touch</a>.</p>
@@ -72,6 +77,7 @@ POSTS = [
 <p>Trends come and go quickly in interior design. A warm neutral palette is one of the few approaches that stays beautiful for years, and it makes a busy family home feel restful.</p>
 <h2>Start with a narrow palette</h2>
 <p>Choose three or four related tones: a soft off-white for walls, a warm beige or greige for large surfaces, and one deeper shade such as walnut or clay for contrast. Keeping the palette narrow is what makes a room feel calm.</p>
+<figure><img src="assets/img/projects/curve-3.webp" alt="A warm living and dining room in wood and beige" loading="lazy" decoding="async"><figcaption>Wood, beige and one deeper accent: a narrow palette that still feels rich.</figcaption></figure>
 <h2>Add texture instead of colour</h2>
 <p>A neutral room can feel flat if every surface is smooth. Bring in texture to keep it interesting:</p>
 <ul>
@@ -86,6 +92,7 @@ POSTS = [
 <blockquote>In a neutral room, light does the work that colour usually does.</blockquote>
 <h2>Keep it practical</h2>
 <p>Neutral does not have to mean fragile. Choose washable paints, stain-resistant fabrics and darker tones on floors and lower surfaces that see the most use. Built-in storage keeps clutter out of sight, which matters more in a calm room than in a colourful one.</p>
+<figure><img src="assets/img/work/kitchen-arch.webp" alt="A kitchen with an arched opening, stone and warm wood" loading="lazy" decoding="async"><figcaption>Durable stone and wood finishes keep a neutral kitchen practical for everyday cooking.</figcaption></figure>
 <h2>Bring it to life</h2>
 <p>Finish with plants, books and a few personal pieces. They add warmth and make the space feel like yours rather than a showroom.</p>
 <p>Planning your interiors? <a href="interiors.html">See our interior design service</a> or <a href="refined-living.html">look inside a calm, neutral home</a> we designed.</p>
@@ -100,8 +107,10 @@ POSTS = [
 <p>Many problems in a finished home can be traced back to one moment: a decision that was made on site, in a hurry, without a drawing. Sketching first is the simplest way to avoid that.</p>
 <h2>Seeing is easier than imagining</h2>
 <p>Most people find it hard to picture a room from a floor plan. A sketch or a 3D view shows the height of the ceiling, the curve of a staircase or how light falls across a wall. Suddenly everyone in the family is talking about the same room.</p>
+<figure><img src="assets/img/projects/refined-6.webp" alt="A concept sketch of a couple relaxing in their living room" loading="lazy" decoding="async"><figcaption>Even a quick sketch shows scale, light and how a family will use a room.</figcaption></figure>
 <h2>Changes on paper are free</h2>
 <p>Moving a wall on paper takes a few minutes. Moving it on site means breaking work that is already done. The earlier a change happens, the cheaper it is.</p>
+<figure class="figure-pair"><img src="assets/img/projects/refined-5.webp" alt="Concept sketch of a bedroom" loading="lazy" decoding="async"><img src="assets/img/projects/refined-2.webp" alt="The same bedroom, finished" loading="lazy" decoding="async"><figcaption>Sketch and finished room, side by side: the curved shelving and hidden lighting were set on paper first.</figcaption></figure>
 <blockquote>The earlier a change happens, the cheaper it is.</blockquote>
 <h2>What we draw before building</h2>
 <ul>

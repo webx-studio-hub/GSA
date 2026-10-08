@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=71">
+  <link rel="stylesheet" href="css/style.css?v=72">
 </head>
 <body class="page-blog page-post has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -202,16 +202,24 @@
     </section>
 
     <!-- ============ ARTICLE ============ -->
+    <!-- the contents list sits beside the text on large screens and as a folding box above it on smaller ones -->
     <article class="post" aria-labelledby="page-title">
-      <div class="container">
-        <div class="post__body" data-reveal>
+      <div class="container post__layout">
+        <details class="toc" open data-toc>
+          <summary class="toc__title">In this article</summary>
+          <ol class="toc__list" role="list"><li><a href="#seeing-is-easier-than-imagining">Seeing is easier than imagining</a></li><li><a href="#changes-on-paper-are-free">Changes on paper are free</a></li><li><a href="#what-we-draw-before-building">What we draw before building</a></li><li><a href="#a-shared-picture-for-the-whole-team">A shared picture for the whole team</a></li></ol>
+        </details>
+        <div class="post__main">
+        <div class="post__body">
 <p>Many problems in a finished home can be traced back to one moment: a decision that was made on site, in a hurry, without a drawing. Sketching first is the simplest way to avoid that.</p>
-<h2>Seeing is easier than imagining</h2>
+<h2 id="seeing-is-easier-than-imagining">Seeing is easier than imagining</h2>
 <p>Most people find it hard to picture a room from a floor plan. A sketch or a 3D view shows the height of the ceiling, the curve of a staircase or how light falls across a wall. Suddenly everyone in the family is talking about the same room.</p>
-<h2>Changes on paper are free</h2>
+<figure><img src="assets/img/projects/refined-6.webp" alt="A concept sketch of a couple relaxing in their living room" loading="lazy" decoding="async"><figcaption>Even a quick sketch shows scale, light and how a family will use a room.</figcaption></figure>
+<h2 id="changes-on-paper-are-free">Changes on paper are free</h2>
 <p>Moving a wall on paper takes a few minutes. Moving it on site means breaking work that is already done. The earlier a change happens, the cheaper it is.</p>
+<figure class="figure-pair"><img src="assets/img/projects/refined-5.webp" alt="Concept sketch of a bedroom" loading="lazy" decoding="async"><img src="assets/img/projects/refined-2.webp" alt="The same bedroom, finished" loading="lazy" decoding="async"><figcaption>Sketch and finished room, side by side: the curved shelving and hidden lighting were set on paper first.</figcaption></figure>
 <blockquote>The earlier a change happens, the cheaper it is.</blockquote>
-<h2>What we draw before building</h2>
+<h2 id="what-we-draw-before-building">What we draw before building</h2>
 <ul>
   <li>The front of the house, from the street</li>
   <li>The main living and dining spaces</li>
@@ -220,7 +228,7 @@
   <li>Feature walls, ceilings and lighting ideas</li>
 </ul>
 <figure><img src="assets/img/projects/refined-1.webp" alt="The finished curved staircase with warm hidden lighting" loading="lazy" decoding="async"><figcaption>The same staircase, built: the sketch set the curve, the steps and the lighting.</figcaption></figure>
-<h2>A shared picture for the whole team</h2>
+<h2 id="a-shared-picture-for-the-whole-team">A shared picture for the whole team</h2>
 <p>Drawings are not only for the client. They give the site team, carpenters and electricians one clear picture to work from, so the finished room matches what everyone agreed.</p>
 <p>See it for yourself on our <a href="consultancy.html">consultancy page</a>, where you can drag a slider from the sketch to the finished room.</p>
 
@@ -231,6 +239,7 @@
           <a class="post__share-btn" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" data-share="facebook" aria-label="Share on Facebook"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21Z"/></svg></a>
           <a class="post__share-btn" href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" rel="noopener" data-share="linkedin" aria-label="Share on LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.9 8.7H3.6V20h3.3V8.7ZM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8ZM20.4 13.5c0-3-1.6-5-4.3-5a3.7 3.7 0 0 0-3.3 1.8V8.7H9.6V20h3.3v-5.6c0-1.5.3-2.9 2.1-2.9s1.9 1.7 1.9 3V20h3.3Z"/></svg></a>
           <button class="post__share-btn post__share-copy" type="button" data-share="copy"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span data-share-label>Copy link</span></button>
+        </div>
         </div>
       </div>
     </article>
@@ -414,7 +423,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=41" defer></script>
+  <script src="js/main.js?v=43" defer></script>
   <script src="js/brief.js?v=4" defer></script>
 </body>
 </html>

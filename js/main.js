@@ -701,6 +701,34 @@
       empty.hidden = shown > 0;
     }));
   }
+  // article contents: folded on smaller screens, always open beside the text on large ones; the section being read is marked
+  const toc = $('[data-toc]');
+  if (toc) {
+    const wide = matchMedia('(min-width: 1200px)');
+    const fit = () => { toc.open = wide.matches; };
+    fit();
+    wide.addEventListener('change', fit);
+    $('summary', toc).addEventListener('click', (e) => { if (wide.matches) e.preventDefault(); });
+    const links = $$('a', toc);
+    const mark = (id) => links.forEach((l) => {
+      if (l.hash.slice(1) === id) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+    });
+    const tocIO = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) mark(en.target.id); });
+    }, { rootMargin: '-12% 0px -75% 0px' });
+    links.forEach((l) => { const h = document.getElementById(decodeURIComponent(l.hash.slice(1))); if (h) tocIO.observe(h); });
+    // on small screens, fold the box away once a section is picked, then scroll, so the heading lands below the menu bar
+    links.forEach((l) => l.addEventListener('click', (e) => {
+      if (wide.matches) return;
+      const target = document.getElementById(decodeURIComponent(l.hash.slice(1)));
+      if (!target) return;
+      e.preventDefault();
+      toc.open = false;
+      history.replaceState(null, '', l.hash);
+      requestAnimationFrame(() => target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }));
+    }));
+  }
+
   // share the page's clean address (its canonical link), not whatever is in the address bar
   const canonical = $('link[rel="canonical"]');
   const pageUrl = canonical ? canonical.href : location.href.split('#')[0];

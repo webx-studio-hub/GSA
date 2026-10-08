@@ -1442,6 +1442,38 @@ h1, h2, h3, p { margin: 0; }
 @media (min-width: 1081px) { .post__body figure { margin-left: -6rem; margin-right: -6rem; } }
 .post__body figure img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--soft); }
 .post__body figcaption { margin-top: .75rem; font-size: 1rem; color: var(--muted); }
+/* table of contents: a folding box above the text; a sticky sidebar beside it on large screens */
+.post__layout { display: grid; grid-template-columns: minmax(0, 1fr); }
+.toc { width: 100%; max-width: 46rem; margin: 0 auto clamp(2.5rem, 5vw, 3.5rem); padding: 1.1rem 1.5rem; background: var(--soft); }
+.toc__title {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none;
+  font-size: .875rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-deep);
+}
+.toc__title::-webkit-details-marker { display: none; }
+.toc__title::after {
+  content: ""; flex: none; width: 1.1rem; height: 1.1rem; transition: transform .4s var(--ease-out);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23111214' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.toc[open] .toc__title::after { transform: rotate(180deg); }
+.toc__list { display: grid; margin-top: 1rem; border-left: 1px solid var(--faint); }
+.toc__list a {
+  display: block; margin-left: -1px; padding: .45rem 0 .45rem 1rem; border-left: 2px solid transparent;
+  color: var(--muted); font-size: 1rem; line-height: 1.35; text-decoration: none; transition: color .3s, border-color .3s;
+}
+.toc__list a:hover { color: var(--ink); }
+.toc__list a[aria-current="true"] { color: var(--ink); font-weight: 600; border-left-color: var(--brand); }
+.post__body h2 { scroll-margin-top: 6.5rem; }
+@media (min-width: 1200px) {
+  .post__layout { grid-template-columns: minmax(12rem, 15rem) minmax(0, 46rem); justify-content: center; gap: clamp(3rem, 5vw, 5rem); align-items: start; }
+  .toc { position: sticky; top: 7rem; margin: 0; padding: 0; background: none; }
+  .toc__title { cursor: default; pointer-events: none; }
+  .toc__title::after { display: none; }
+  .post__body figure { margin-left: 0; margin-right: 0; }   /* the sidebar takes the room the photos used to spread into */
+}
+.figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.post__body .figure-pair img { aspect-ratio: 4 / 5; }
+.figure-pair figcaption { grid-column: 1 / -1; }
+
 .post__share { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin-top: clamp(3rem, 6vw, 4rem); padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .post__share > span { margin-right: .5rem; font-weight: 600; }
 .post__share-btn {

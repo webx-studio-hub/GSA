@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=71">
+  <link rel="stylesheet" href="css/style.css?v=72">
 </head>
 <body class="page-blog page-post has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -202,13 +202,20 @@
     </section>
 
     <!-- ============ ARTICLE ============ -->
+    <!-- the contents list sits beside the text on large screens and as a folding box above it on smaller ones -->
     <article class="post" aria-labelledby="page-title">
-      <div class="container">
-        <div class="post__body" data-reveal>
+      <div class="container post__layout">
+        <details class="toc" open data-toc>
+          <summary class="toc__title">In this article</summary>
+          <ol class="toc__list" role="list"><li><a href="#start-with-a-narrow-palette">Start with a narrow palette</a></li><li><a href="#add-texture-instead-of-colour">Add texture instead of colour</a></li><li><a href="#layer-the-lighting">Layer the lighting</a></li><li><a href="#keep-it-practical">Keep it practical</a></li><li><a href="#bring-it-to-life">Bring it to life</a></li></ol>
+        </details>
+        <div class="post__main">
+        <div class="post__body">
 <p>Trends come and go quickly in interior design. A warm neutral palette is one of the few approaches that stays beautiful for years, and it makes a busy family home feel restful.</p>
-<h2>Start with a narrow palette</h2>
+<h2 id="start-with-a-narrow-palette">Start with a narrow palette</h2>
 <p>Choose three or four related tones: a soft off-white for walls, a warm beige or greige for large surfaces, and one deeper shade such as walnut or clay for contrast. Keeping the palette narrow is what makes a room feel calm.</p>
-<h2>Add texture instead of colour</h2>
+<figure><img src="assets/img/projects/curve-3.webp" alt="A warm living and dining room in wood and beige" loading="lazy" decoding="async"><figcaption>Wood, beige and one deeper accent: a narrow palette that still feels rich.</figcaption></figure>
+<h2 id="add-texture-instead-of-colour">Add texture instead of colour</h2>
 <p>A neutral room can feel flat if every surface is smooth. Bring in texture to keep it interesting:</p>
 <ul>
   <li>Natural stone or textured plaster on a feature wall</li>
@@ -217,12 +224,13 @@
   <li>Fluted panels or rounded edges for softness</li>
 </ul>
 <figure><img src="assets/img/projects/refined-2.webp" alt="A bedroom with curved shelving and hidden lighting" loading="lazy" decoding="async"><figcaption>Curved shelving and hidden lighting soften a neutral bedroom.</figcaption></figure>
-<h2>Layer the lighting</h2>
+<h2 id="layer-the-lighting">Layer the lighting</h2>
 <p>Lighting changes neutral colours more than anything else. Plan three layers: soft general light from the ceiling, hidden strip lights in shelves, coves and under steps, and a few warm lamps at eye level. Warm white bulbs keep beige and wood tones cosy rather than grey.</p>
 <blockquote>In a neutral room, light does the work that colour usually does.</blockquote>
-<h2>Keep it practical</h2>
+<h2 id="keep-it-practical">Keep it practical</h2>
 <p>Neutral does not have to mean fragile. Choose washable paints, stain-resistant fabrics and darker tones on floors and lower surfaces that see the most use. Built-in storage keeps clutter out of sight, which matters more in a calm room than in a colourful one.</p>
-<h2>Bring it to life</h2>
+<figure><img src="assets/img/work/kitchen-arch.webp" alt="A kitchen with an arched opening, stone and warm wood" loading="lazy" decoding="async"><figcaption>Durable stone and wood finishes keep a neutral kitchen practical for everyday cooking.</figcaption></figure>
+<h2 id="bring-it-to-life">Bring it to life</h2>
 <p>Finish with plants, books and a few personal pieces. They add warmth and make the space feel like yours rather than a showroom.</p>
 <p>Planning your interiors? <a href="interiors.html">See our interior design service</a> or <a href="refined-living.html">look inside a calm, neutral home</a> we designed.</p>
 
@@ -233,6 +241,7 @@
           <a class="post__share-btn" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" data-share="facebook" aria-label="Share on Facebook"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21Z"/></svg></a>
           <a class="post__share-btn" href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" rel="noopener" data-share="linkedin" aria-label="Share on LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.9 8.7H3.6V20h3.3V8.7ZM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8ZM20.4 13.5c0-3-1.6-5-4.3-5a3.7 3.7 0 0 0-3.3 1.8V8.7H9.6V20h3.3v-5.6c0-1.5.3-2.9 2.1-2.9s1.9 1.7 1.9 3V20h3.3Z"/></svg></a>
           <button class="post__share-btn post__share-copy" type="button" data-share="copy"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span data-share-label>Copy link</span></button>
+        </div>
         </div>
       </div>
     </article>
@@ -416,7 +425,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=41" defer></script>
+  <script src="js/main.js?v=43" defer></script>
   <script src="js/brief.js?v=4" defer></script>
 </body>
 </html>

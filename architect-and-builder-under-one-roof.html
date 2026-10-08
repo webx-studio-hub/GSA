@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=71">
+  <link rel="stylesheet" href="css/style.css?v=72">
 </head>
 <body class="page-blog page-post has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -202,13 +202,19 @@
     </section>
 
     <!-- ============ ARTICLE ============ -->
+    <!-- the contents list sits beside the text on large screens and as a folding box above it on smaller ones -->
     <article class="post" aria-labelledby="page-title">
-      <div class="container">
-        <div class="post__body" data-reveal>
+      <div class="container post__layout">
+        <details class="toc" open data-toc>
+          <summary class="toc__title">In this article</summary>
+          <ol class="toc__list" role="list"><li><a href="#the-gap-between-drawing-and-building">The gap between drawing and building</a></li><li><a href="#what-changes-with-one-team">What changes with one team</a></li><li><a href="#when-separate-teams-can-still-work">When separate teams can still work</a></li><li><a href="#how-to-decide">How to decide</a></li></ol>
+        </details>
+        <div class="post__main">
+        <div class="post__body">
 <p>Most people who build a home in India hire an architect for the drawings and a separate contractor for the construction. It works, but it also creates a gap between the two, and that gap is where many problems start.</p>
-<h2>The gap between drawing and building</h2>
+<h2 id="the-gap-between-drawing-and-building">The gap between drawing and building</h2>
 <p>When design and construction are handled by different people, every question on site has to travel back and forth. Is this beam size correct? Can this window move by a foot? Who pays if the drawing and the site do not match? Each answer takes time, and sometimes the client ends up in the middle.</p>
-<h2>What changes with one team</h2>
+<h2 id="what-changes-with-one-team">What changes with one team</h2>
 <p>A design-build team plans, draws and builds under one roof. The architects, engineers and site team talk every day, so problems are solved before they reach you.</p>
 <ul>
   <li><strong>One point of contact.</strong> You call one person, not three.</li>
@@ -217,9 +223,11 @@
   <li><strong>Clear responsibility.</strong> If something is not right, there is no one else to blame.</li>
 </ul>
 <blockquote>When the people who draw it also build it, the outside and the inside fit together.</blockquote>
-<h2>When separate teams can still work</h2>
+<figure><img src="assets/img/projects/curve-1.webp" alt="The Contemporary Curve House street facade" loading="lazy" decoding="async"><figcaption>The Contemporary Curve House: designed, built and furnished by one team.</figcaption></figure>
+<h2 id="when-separate-teams-can-still-work">When separate teams can still work</h2>
 <p>If you already have an architect you trust, or a contractor you have worked with for years, keeping them is perfectly reasonable. In that case, invest in very detailed drawings and agree in writing who decides what on site.</p>
-<h2>How to decide</h2>
+<figure><img src="assets/img/work/township-street.webp" alt="Aerial view of a landscaped commercial street" loading="lazy" decoding="async"><figcaption>Larger developments gain the most from one team coordinating design and site work.</figcaption></figure>
+<h2 id="how-to-decide">How to decide</h2>
 <p>Ask yourself how much time you can spend coordinating. If you are busy, live in another city or simply want peace of mind, one team is usually the easier path. If you enjoy managing the details yourself, separate specialists can work well.</p>
 <p>Want to understand what a single team would look like for your project? <a href="services.html">See how we work</a>, or <a href="contact.html">get in touch</a>.</p>
 
@@ -230,6 +238,7 @@
           <a class="post__share-btn" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" data-share="facebook" aria-label="Share on Facebook"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21Z"/></svg></a>
           <a class="post__share-btn" href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" rel="noopener" data-share="linkedin" aria-label="Share on LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.9 8.7H3.6V20h3.3V8.7ZM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8ZM20.4 13.5c0-3-1.6-5-4.3-5a3.7 3.7 0 0 0-3.3 1.8V8.7H9.6V20h3.3v-5.6c0-1.5.3-2.9 2.1-2.9s1.9 1.7 1.9 3V20h3.3Z"/></svg></a>
           <button class="post__share-btn post__share-copy" type="button" data-share="copy"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span data-share-label>Copy link</span></button>
+        </div>
         </div>
       </div>
     </article>
@@ -413,7 +422,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=41" defer></script>
+  <script src="js/main.js?v=43" defer></script>
   <script src="js/brief.js?v=4" defer></script>
 </body>
 </html>

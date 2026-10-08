@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=71">
+  <link rel="stylesheet" href="css/style.css?v=72">
 </head>
 <body class="page-blog page-post has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -202,17 +202,24 @@
     </section>
 
     <!-- ============ ARTICLE ============ -->
+    <!-- the contents list sits beside the text on large screens and as a folding box above it on smaller ones -->
     <article class="post" aria-labelledby="page-title">
-      <div class="container">
-        <div class="post__body" data-reveal>
+      <div class="container post__layout">
+        <details class="toc" open data-toc>
+          <summary class="toc__title">In this article</summary>
+          <ol class="toc__list" role="list"><li><a href="#1-understand-your-plot">1. Understand your plot</a></li><li><a href="#2-set-a-realistic-budget-with-a-buffer">2. Set a realistic budget, with a buffer</a></li><li><a href="#3-write-down-how-you-live">3. Write down how you live</a></li><li><a href="#4-design-and-see-it-in-3d">4. Design, and see it in 3D</a></li><li><a href="#5-get-the-drawings-and-approvals-in-order">5. Get the drawings and approvals in order</a></li><li><a href="#6-build-with-regular-check-ins">6. Build with regular check-ins</a></li><li><a href="#7-finish-check-and-move-in">7. Finish, check and move in</a></li></ol>
+        </details>
+        <div class="post__main">
+        <div class="post__body">
 <p>Building your own home is exciting, but it can also feel overwhelming. There are hundreds of decisions to make, and the order you make them in matters. Get the sequence right and the whole project feels calm. Get it wrong and you pay for it twice, in time and in money.</p>
 <p>Here is the path we recommend to every family who comes to us, whether they are building a compact family house or a large villa.</p>
-<h2>1. Understand your plot</h2>
+<h2 id="1-understand-your-plot">1. Understand your plot</h2>
 <p>Before you think about rooms and finishes, look closely at the land. Which way does it face? Where does the sun rise and set? How wide is the road, and where will the entrance go? Are there neighbouring buildings that will block light or overlook your garden?</p>
 <p>A short site study answers these questions and often changes the whole design for the better, for example by moving the living room to catch winter sun or placing bedrooms away from a busy road.</p>
-<h2>2. Set a realistic budget, with a buffer</h2>
+<figure><img src="assets/img/work/house-timber-gate.webp" alt="A modern home with a timber gate and planted entrance" loading="lazy" decoding="async"><figcaption>Where the entrance, parking and garden go is decided by the plot, long before the facade.</figcaption></figure>
+<h2 id="2-set-a-realistic-budget-with-a-buffer">2. Set a realistic budget, with a buffer</h2>
 <p>Decide on an overall figure, then split it roughly between structure, finishes and interiors. Always keep a contingency of 10 to 15 percent for the unexpected. It is far easier to spend a buffer at the end than to find money halfway through.</p>
-<h2>3. Write down how you live</h2>
+<h2 id="3-write-down-how-you-live">3. Write down how you live</h2>
 <p>Make a simple list: who lives in the house, who visits often, how you cook, where you like to sit in the evening, how much storage you need. This brief is the most useful thing you can give your architect.</p>
 <ul>
   <li>How many bedrooms and bathrooms, now and in ten years?</li>
@@ -220,14 +227,16 @@
   <li>Do you need a home office, a prayer room or a study area?</li>
   <li>How many cars, and do you want a covered porch?</li>
 </ul>
-<h2>4. Design, and see it in 3D</h2>
+<h2 id="4-design-and-see-it-in-3d">4. Design, and see it in 3D</h2>
 <p>Plans are hard to read for most people. Ask for 3D views of the outside and the main rooms, so you can see proportions, light and materials before anything is built. Changing a drawing costs nothing; changing a wall costs a lot.</p>
 <blockquote>Changing a drawing costs nothing. Changing a wall costs a lot.</blockquote>
-<h2>5. Get the drawings and approvals in order</h2>
+<figure><img src="assets/img/projects/refined-5.webp" alt="A hand-drawn concept sketch of a bedroom" loading="lazy" decoding="async"><figcaption>A concept sketch lets the whole family picture a room before anything is built.</figcaption></figure>
+<h2 id="5-get-the-drawings-and-approvals-in-order">5. Get the drawings and approvals in order</h2>
 <p>Detailed working and structural drawings tell the site team exactly what to build. They are also needed for building plan approval from your local authority. Starting construction before approvals are in place is one of the most common, and most expensive, mistakes.</p>
-<h2>6. Build with regular check-ins</h2>
+<h2 id="6-build-with-regular-check-ins">6. Build with regular check-ins</h2>
 <p>During construction, agree on a simple rhythm of updates: photos from site, a short weekly call and a visit at key stages such as the foundation, the roof slab and before plastering. Checking work at the right moment is much easier than fixing it later.</p>
-<h2>7. Finish, check and move in</h2>
+<figure><img src="assets/img/work/villa-classical.webp" alt="A finished classical villa with columns and balconies" loading="lazy" decoding="async"><figcaption>Checks at the foundation, slab and plaster stages keep quality on track all the way to the finish.</figcaption></figure>
+<h2 id="7-finish-check-and-move-in">7. Finish, check and move in</h2>
 <p>Before handover, walk through every room with a checklist: doors and windows, electrical points, plumbing, tiles and paint. Small fixes are quick while the team is still on site.</p>
 <p>Planning a new home and not sure where to start? <a href="contact.html">Talk to our team</a>. A first conversation is the easiest step of all.</p>
 
@@ -238,6 +247,7 @@
           <a class="post__share-btn" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" data-share="facebook" aria-label="Share on Facebook"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4a21 21 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21Z"/></svg></a>
           <a class="post__share-btn" href="https://www.linkedin.com/sharing/share-offsite/" target="_blank" rel="noopener" data-share="linkedin" aria-label="Share on LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.9 8.7H3.6V20h3.3V8.7ZM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8ZM20.4 13.5c0-3-1.6-5-4.3-5a3.7 3.7 0 0 0-3.3 1.8V8.7H9.6V20h3.3v-5.6c0-1.5.3-2.9 2.1-2.9s1.9 1.7 1.9 3V20h3.3Z"/></svg></a>
           <button class="post__share-btn post__share-copy" type="button" data-share="copy"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span data-share-label>Copy link</span></button>
+        </div>
         </div>
       </div>
     </article>
@@ -421,7 +431,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=41" defer></script>
+  <script src="js/main.js?v=43" defer></script>
   <script src="js/brief.js?v=4" defer></script>
 </body>
 </html>
