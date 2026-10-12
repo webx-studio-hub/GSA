@@ -148,8 +148,13 @@ h1, h2, h3, p { margin: 0; }
 .site-header__inner { display: flex; align-items: center; gap: 2rem; height: 5rem; }
 
 .brand { display: inline-flex; align-items: center; text-decoration: none; margin-right: auto; }
-.brand__mark { width: 3rem; height: auto; transition: transform .5s var(--ease-out); }
-.brand:hover .brand__mark { transform: scale(1.06); }
+.brand__word {
+  display: inline-flex; flex-direction: column; align-items: center; font-family: "Limelight", var(--serif); font-weight: 400;
+  color: var(--ink); line-height: 1; transition: transform .5s var(--ease-out), color .3s;
+}
+.brand__gs { font-size: 2.15rem; letter-spacing: .02em; }
+.brand__sub { margin-top: .1rem; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-deep); transition: color .3s; }
+.brand:hover .brand__word { transform: scale(1.04); }
 
 .nav { display: flex; gap: 2.25rem; }
 .nav > a, .nav__trigger {
@@ -490,8 +495,19 @@ h1, h2, h3, p { margin: 0; }
   display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); gap: clamp(3.5rem, 8vw, 8rem);
   align-items: center; scroll-margin-top: 7rem;
 }
-.svc + .svc { margin-top: clamp(8rem, 15vw, 13rem); }
-.svc__media { grid-column: 1; grid-row: 1; position: relative; display: block; }
+.svc + .svc { margin-top: clamp(6rem, 11vw, 9.5rem); }
+.svc__media { grid-column: 1; grid-row: 1; position: relative; display: block; isolation: isolate; }
+/* a warm shade block behind the photo and an amber half-border on the far corner, mirrored on flipped rows */
+.svc__media::before {
+  content: ""; position: absolute; z-index: -1; left: -1.75rem; bottom: -1.75rem; width: 72%; height: 78%;
+  background: linear-gradient(135deg, #f6ecdc, var(--soft));
+}
+.svc__media::after {
+  content: ""; position: absolute; z-index: -1; right: -1.25rem; top: -1.25rem; width: 42%; height: 46%;
+  border-top: 2px solid var(--brand); border-right: 2px solid var(--brand); pointer-events: none;
+}
+.svc--flip .svc__media::before { left: auto; right: -1.75rem; }
+.svc--flip .svc__media::after { right: auto; left: -1.25rem; border-right: 0; border-left: 2px solid var(--brand); }
 .svc__body { grid-column: 2; grid-row: 1; }
 .svc--flip { grid-template-columns: minmax(0, 9fr) minmax(0, 11fr); }
 .svc--flip .svc__media { grid-column: 2; }
@@ -1082,6 +1098,7 @@ h1, h2, h3, p { margin: 0; }
 /* the menu sits on the photo until the page scrolls past it */
 .has-photo-hero .site-header:not(.is-solid):not(.is-mega) :is(.nav > a, .nav__trigger) { color: #fff; }
 .has-photo-hero .site-header:not(.is-solid):not(.is-mega) .header-cta { background: #fff; color: var(--ink); }
+.has-photo-hero .site-header:not(.is-solid):not(.is-mega) :is(.brand__word, .brand__sub) { color: #fff; }
 
 /* who we are: the statement lights up word by word, the longer story sits beside it */
 .story { padding: clamp(5rem, 10vw, 9rem) 0 clamp(5rem, 9vw, 8rem); }
@@ -1596,6 +1613,10 @@ h1, h2, h3, p { margin: 0; }
   .svc__body, .svc--flip .svc__body { grid-column: 1; grid-row: 2; }
   .svc__frame { aspect-ratio: 5 / 4; }
   .svc__inset { width: 34%; right: -4%; bottom: -6%; border-width: 6px; }
+  .svc__media::before { left: -.75rem; bottom: -.75rem; }
+  .svc--flip .svc__media::before { left: auto; right: -.75rem; }
+  .svc__media::after { right: -.6rem; top: -.6rem; }
+  .svc--flip .svc__media::after { right: auto; left: -.6rem; }
   .svc--flip .svc__inset { left: -4%; }
   /* phones: the photo sits behind the words only, and the card overlaps its lower edge */
   .cta { --overhang: 0px; padding-top: 0; padding-bottom: clamp(3.5rem, 9vw, 5rem); }
@@ -1693,7 +1714,8 @@ h1, h2, h3, p { margin: 0; }
   .page-hero__jumptext { font-size: 1.0625rem; }
   .sizes__grid { grid-template-columns: minmax(0, 1fr); }
   .sizes__grid li, .sizes__grid li + li, .sizes__grid li:nth-child(n) { padding: 1.5rem 0; border-left: 0; border-bottom: 1px solid var(--line); }
-  .brand__mark { width: 2.6rem; }
+  .brand__gs { font-size: 1.85rem; }
+  .brand__sub { font-size: .54rem; }
   .stat { padding: 1.5rem .75rem; }
   .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem 1.5rem; }
   .footer__brand, .footer__contact { grid-column: 1 / -1; }   /* quick links and services sit side by side */
