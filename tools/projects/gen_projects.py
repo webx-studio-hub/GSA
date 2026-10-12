@@ -66,7 +66,7 @@ SERVICES = [('architecture', 'Architecture', 'assets/img/work/house-gabled-sm.we
             ('consultancy', 'Consultancy', 'assets/img/projects/refined-3-sm.webp')]
 
 def mobile_nav(current_file):
-    """The phone/tablet menu: Projects, Services and Blog open as dropdowns (main.js), About and Contact are plain links."""
+    """The phone/tablet menu: Home, About and Contact are plain links; Projects, Services and Blog open as dropdowns (main.js)."""
     cur = lambda f: ' aria-current="page"' if f == current_file else ''
     def group(gid, label, inner):
         return f'''
@@ -91,7 +91,7 @@ def mobile_nav(current_file):
     blog = ('\n            <ul class="mm-list" role="list">' + ''.join(f'''
               <li><a href="{q['slug']}.html"{cur(q['slug'] + '.html')}><img src="{q['image'].replace('.webp', '-sm.webp') if os.path.exists(q['image'].replace('.webp', '-sm.webp')) else q['image']}" alt="" loading="lazy" decoding="async"><span>{q['title']}<small>{q['category']}</small></span></a></li>''' for q in featured_posts())
             + '\n            </ul>' + f'\n            <a class="link-arrow mm-all" href="blog.html"{cur("blog.html")}{in_blog}>All articles →</a>')
-    return ('<nav aria-label="Mobile">' + group('projects', 'Projects', projects) + group('services', 'Services', services)
+    return ('<nav aria-label="Mobile">' + f'\n      <a href="index.html"{cur("index.html")}>Home</a>' + group('projects', 'Projects', projects) + group('services', 'Services', services)
             + f'\n      <a href="about.html"{cur("about.html")}>About us</a>' + group('blog', 'Blog', blog)
             + f'\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
 

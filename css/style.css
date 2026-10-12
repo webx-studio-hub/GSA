@@ -327,7 +327,7 @@ h1, h2, h3, p { margin: 0; }
    --u is one "design pixel": 1/192 of the viewport width on desktop (1920px artboard),
    1/37.5 on phones (375px artboard).
    ========================================================= */
-.hero { --u: calc(100vw / 192); position: relative; height: 650vh; overflow-x: clip; }
+.hero { --u: calc(100vw / 192); position: relative; height: 325vh; overflow-x: clip; }
 .hero__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; }
 .hero__bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; background: #c9dcef; }
 .hero__back { position: absolute; inset: 0; }
@@ -392,7 +392,7 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @media (max-width: 767px) {
-  .hero { --u: calc(100vw / 37.5); height: 450vh; }
+  .hero { --u: calc(100vw / 37.5); height: 325vh; }
   .hero__cloud--l { top: calc(var(--u) * 33.7); left: calc(var(--u) * -57.2); width: calc(var(--u) * 70.2); height: calc(var(--u) * 29.8); }
   .hero__cloud--r { top: calc(var(--u) * 37.12); right: calc(var(--u) * -41.2); width: calc(var(--u) * 55.7); height: calc(var(--u) * 23.6); }
   .hero__smoke { height: calc(var(--u) * 45); }

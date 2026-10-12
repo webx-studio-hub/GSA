@@ -15,7 +15,7 @@
   /* ---------------------------------------------------------
      Intro: reveal once fonts + hero art are ready
      --------------------------------------------------------- */
-  const heroImages = ['assets/img/hero/find-placeholder/sky.webp', 'assets/img/hero/find-placeholder/house.webp', 'assets/img/hero/find-placeholder/cloud.webp'];
+  const heroImages = ['assets/img/hero/find-placeholder/sky.webp', 'assets/img/hero/building.webp', 'assets/img/hero/find-placeholder/cloud.webp'];
   const imgReady = (src) => new Promise((res) => { const i = new Image(); i.onload = i.onerror = res; i.src = src; });
   const ready = Promise.all([document.fonts ? document.fonts.ready : null, ...($('[data-hero]') ? heroImages : []).map(imgReady)]);
   Promise.race([ready, new Promise((r) => setTimeout(r, 1400))]).then(() => {
@@ -30,7 +30,7 @@
        0.29–0.38  building fades away everywhere except inside the letters
        ~0.6–0.85  clouds rise over the lettering (plain page scroll, see .hero__overlap)
      --------------------------------------------------------- */
-  const BUILDING_RATIO = 2135 / 2400; // height / width of the building image
+  const BUILDING_RATIO = 984 / 1522; // height / width of the building image
 
   const hero = $('[data-hero]');
   const H = {};
@@ -57,12 +57,15 @@
     H.W = W; H.Hh = Hh;
     H.svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
 
-    // building: full width, top edge 60% down the screen, grows from its bottom edge
-    const hh = W * BUILDING_RATIO;
-    H.box = { x: 0, y: Hh * 0.6, w: W, h: hh, cx: W / 2, by: Hh * 0.6 + hh };
+    // building: full width (wider on phones, sides cropped, so it is tall enough to fill the letters),
+    // top edge 60% down the screen, grows from its bottom edge
+    const bw = W < 768 ? W * 1.7 : W;
+    const bx = (W - bw) / 2;
+    const hh = bw * BUILDING_RATIO;
+    H.box = { x: bx, y: Hh * 0.6, w: bw, h: hh, cx: W / 2, by: Hh * 0.6 + hh };
     H.houseImgs.forEach((img) => {
-      img.setAttribute('x', 0); img.setAttribute('y', H.box.y);
-      img.setAttribute('width', W); img.setAttribute('height', hh);
+      img.setAttribute('x', bx); img.setAttribute('y', H.box.y);
+      img.setAttribute('width', bw); img.setAttribute('height', hh);
     });
 
     // GS / ASSOCIATES lockup, centred
