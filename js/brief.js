@@ -21,7 +21,7 @@
       '',
       `Building: ${building}`,
       val('plot') ? `Plot size: ${val('plot')}` : null,
-      val('vastu') ? `Vastu compliant: ${val('vastu')}` : null,
+      val('vastu') ? `Vastu: ${val('vastu')}` : null,
       val('concept') ? `Concept: ${val('concept')}` : null,
       `Services: ${services.length ? services.join(', ') : 'Not sure yet, please advise'}`,
       val('name') ? `Name: ${val('name')}` : null,

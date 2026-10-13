@@ -371,6 +371,10 @@
           </div>
 
           <form class="brief" data-brief>
+            <div class="brief__head">
+              <p class="brief__title">Have a project in mind?</p>
+              <p class="brief__sub">Pick a few options and we'll get back to you with the next steps.</p>
+            </div>
             <fieldset class="brief__q">
               <legend>Type of building</legend>
               <div class="chips">
@@ -390,7 +394,7 @@
               </div>
             </fieldset>
             <fieldset class="brief__q brief__q--half">
-              <legend>Vastu compliant?</legend>
+              <legend>Vastu</legend>
               <div class="chips">
                 <label class="chip"><input type="radio" name="vastu" value="Yes"><span>Yes</span></label>
                 <label class="chip"><input type="radio" name="vastu" value="No"><span>No</span></label>
@@ -413,11 +417,11 @@
             <fieldset class="brief__q brief__contact">
               <legend>Your contact details</legend>
               <label class="brief__name">
-                <span>Name</span>
+                <span class="visually-hidden">Name</span>
                 <input type="text" name="name" autocomplete="name" placeholder="Type your name" maxlength="60">
               </label>
               <label class="brief__name">
-                <span>Phone</span>
+                <span class="visually-hidden">Phone</span>
                 <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Your mobile number" maxlength="20">
               </label>
             </fieldset>

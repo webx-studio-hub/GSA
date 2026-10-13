@@ -873,13 +873,16 @@ h1, h2, h3, p { margin: 0; }
 
 /* the brief: a white card with four big, easy questions */
 .brief {
-  position: relative; display: grid; gap: clamp(1rem, 1.6vw, 1.35rem); align-content: start;
+  position: relative; display: grid; gap: 1.75rem; align-content: start;
   padding: clamp(1.25rem, 2.4vw, 2.25rem);
   background: #fff; color: var(--ink);
   box-shadow: 0 40px 90px -35px rgba(17, 18, 20, .5);
   align-self: start; margin-top: calc(-1 * (var(--pad) + var(--overhang)));   /* rises above the photo's top edge */
 }
 .brief__q { margin: 0; padding: 0; border: 0; min-width: 0; }
+.brief__head { padding-bottom: 1.4rem; border-bottom: 1px solid var(--line); }
+.brief__title { font-family: var(--display); font-size: clamp(1.6rem, 1.3rem + .9vw, 2.1rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.brief__sub { margin-top: .45rem; font-size: 1rem; line-height: 1.45; color: var(--muted); }
 @media (min-width: 601px) {
   .brief { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .brief > * { grid-column: 1 / -1; }

@@ -57,13 +57,12 @@
     H.W = W; H.Hh = Hh;
     H.svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
 
-    // building: full width, top edge 60% down the screen, grows from its bottom edge.
-    // phones start a little wider and lower, then grow more (rising less), so the building stays planted on
-    // the bottom edge, starts small and still fills the letters
+    // building: centred, top edge about 60% down the screen, grows from its bottom edge.
+    // it starts narrower than the screen (sky on both sides) and grows more as you scroll, so it still fills the letters
     const phone = W < 768;
-    H.grow = phone ? { rise: 0.1, scale: 1.05 } : { rise: 0.4, scale: 0.3 };
-    const bw = phone ? W * 1.3 : W;
-    const top = Hh * (phone ? 0.62 : 0.6);
+    H.grow = phone ? { rise: 0.12, scale: 2.2 } : { rise: 0.3, scale: 0.65 };
+    const bw = W * (phone ? 0.92 : 0.72);
+    const top = Hh * (phone ? 0.7 : 0.6);
     const bx = (W - bw) / 2;
     const hh = bw * BUILDING_RATIO;
     H.box = { x: bx, y: top, w: bw, h: hh, cx: W / 2, by: top + hh };
