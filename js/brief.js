@@ -7,7 +7,7 @@
   const wa = root.querySelector('[data-brief-wa]');
   const mail = root.querySelector('[data-brief-mail]');
 
-  const PHONE = '919814626056';
+  const PHONE = '916280986491';
   const EMAIL = 'gsassociates.biz@gmail.com';
   const TYPES = { home: 'New home', renovation: 'Renovation', commercial: 'Office or shop', other: 'Something else' };
 

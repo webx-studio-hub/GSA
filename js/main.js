@@ -506,6 +506,26 @@
   }
 
   /* ---------------------------------------------------------
+     Inside, room by room — tabs switch the photo
+     --------------------------------------------------------- */
+  const roomImg = $('[data-room-img]');
+  if (roomImg) {
+    $$('[data-room-tabs] [role="tab"]').forEach((tab, i, all) => {
+      tab.addEventListener('click', () => {
+        if (tab.getAttribute('aria-selected') === 'true') return;
+        all.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+        roomImg.style.opacity = 0;
+        setTimeout(() => {
+          roomImg.src = tab.dataset.src;
+          roomImg.alt = tab.dataset.alt;
+          const show = () => (roomImg.style.opacity = 1);
+          roomImg.decode ? roomImg.decode().then(show, show) : show();
+        }, 250);
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------
      Idea to creation — the 3D drawing loads only as the section comes near
      --------------------------------------------------------- */
   const ideaTrack = $('[data-idea]');
@@ -546,7 +566,7 @@
     manor: { title: 'French Classical Residence', n: 4 },
     curve: { title: 'Contemporary Curve House', n: 6 },
     stone: { title: 'The Stone Villa', n: 10 },
-    refined: { title: 'Refined Everyday Living', n: 6 },
+    refined: { title: 'Refined Everyday Living', n: 3 },
     urban: { title: 'Urban Square', n: 1 },
   };
   const lb = $('[data-lightbox]') || document.createElement('div'); // inner pages have no lightbox

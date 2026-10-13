@@ -31,7 +31,7 @@ P = [
   links=['architecture', 'interiors']),
  dict(key='refined', seo_title='Refined Everyday Living | Home Interior Design | GS Associates',
   seo_desc='A calm home interior by GS Associates in soft neutrals, curved forms and hidden lighting, with every room sketched by hand before it was built.', page='refined-living', cat='residential', name='Refined Everyday Living', l1='Refined', l2='Everyday Living.',
-  type='Home interiors', style='Soft modern', services=['Interiors'], n=6, pos='50% 55%',
+  type='Home interiors', style='Soft modern', services=['Interiors'], n=3, pos='50% 55%',
   lead='Soft neutrals, curved forms and hidden lighting. A calm home, designed from the first sketch to the final finish.',
   statement='A calm home in soft neutrals, where every curve and every light was drawn by hand before it was built.',
   paras=['Every room started as a hand-drawn sketch: the curved staircase, the bedroom wall, the living room shelving. The finished spaces follow those drawings closely.',

@@ -31,7 +31,7 @@ POSTS = [
 <h2>4. Design, and see it in 3D</h2>
 <p>Plans are hard to read for most people. Ask for 3D views of the outside and the main rooms, so you can see proportions, light and materials before anything is built. Changing a drawing costs nothing; changing a wall costs a lot.</p>
 <blockquote>Changing a drawing costs nothing. Changing a wall costs a lot.</blockquote>
-<figure><img src="assets/img/projects/refined-5.webp" alt="A hand-drawn concept sketch of a bedroom" loading="lazy" decoding="async"><figcaption>A concept sketch lets the whole family picture a room before anything is built.</figcaption></figure>
+<figure><img src="assets/img/work/bedroom-green.webp" alt="A bedroom with a deep green wall, a framed artwork and a brass floor lamp" loading="lazy" decoding="async"><figcaption>Planning a room in detail lets the whole family picture it before anything is built.</figcaption></figure>
 <h2>5. Get the drawings and approvals in order</h2>
 <p>Detailed working and structural drawings tell the site team exactly what to build. They are also needed for building plan approval from your local authority. Starting construction before approvals are in place is one of the most common, and most expensive, mistakes.</p>
 <h2>6. Build with regular check-ins</h2>
@@ -103,15 +103,15 @@ POSTS = [
   seo_title='Why Sketches and 3D Views Matter Before You Build | GS Associates',
   seo_desc='Hand sketches and 3D views let you see your home before a single brick is laid. Why drawing every room first saves money and leads to better spaces.',
   excerpt='A quick hand sketch or a 3D view can save weeks on site. Here is why we draw every important room before work begins.',
-  image='assets/img/projects/refined-4.webp', image_alt='A hand-drawn concept sketch of a curved staircase', pos='50% 55%',
+  image='assets/img/work/living-lounge-garden.webp', image_alt='A living room with tall windows looking onto the garden', pos='50% 55%',
   body='''
 <p>Many problems in a finished home can be traced back to one moment: a decision that was made on site, in a hurry, without a drawing. Sketching first is the simplest way to avoid that.</p>
 <h2>Seeing is easier than imagining</h2>
 <p>Most people find it hard to picture a room from a floor plan. A sketch or a 3D view shows the height of the ceiling, the curve of a staircase or how light falls across a wall. Suddenly everyone in the family is talking about the same room.</p>
-<figure><img src="assets/img/projects/refined-6.webp" alt="A concept sketch of a couple relaxing in their living room" loading="lazy" decoding="async"><figcaption>Even a quick sketch shows scale, light and how a family will use a room.</figcaption></figure>
+<figure><img src="assets/img/work/stair-timber.webp" alt="A timber staircase lit by a skylight" loading="lazy" decoding="async"><figcaption>Drawing a space first shows its scale, its light and how a family will use it.</figcaption></figure>
 <h2>Changes on paper are free</h2>
 <p>Moving a wall on paper takes a few minutes. Moving it on site means breaking work that is already done. The earlier a change happens, the cheaper it is.</p>
-<figure class="figure-pair"><img src="assets/img/projects/refined-5.webp" alt="Concept sketch of a bedroom" loading="lazy" decoding="async"><img src="assets/img/projects/refined-2.webp" alt="The same bedroom, finished" loading="lazy" decoding="async"><figcaption>Sketch and finished room, side by side: the curved shelving and hidden lighting were set on paper first.</figcaption></figure>
+<figure><img src="assets/img/projects/refined-2.webp" alt="A bedroom with curved shelving and hidden lighting" loading="lazy" decoding="async"><figcaption>The curved shelving and hidden lighting in this bedroom were set on paper before work began.</figcaption></figure>
 <blockquote>The earlier a change happens, the cheaper it is.</blockquote>
 <h2>What we draw before building</h2>
 <ul>
@@ -121,7 +121,7 @@ POSTS = [
   <li>Kitchens and wardrobes, where every centimetre counts</li>
   <li>Feature walls, ceilings and lighting ideas</li>
 </ul>
-<figure><img src="assets/img/projects/refined-1.webp" alt="The finished curved staircase with warm hidden lighting" loading="lazy" decoding="async"><figcaption>The same staircase, built: the sketch set the curve, the steps and the lighting.</figcaption></figure>
+<figure><img src="assets/img/projects/refined-1.webp" alt="The finished curved staircase with warm hidden lighting" loading="lazy" decoding="async"><figcaption>This staircase was drawn first: the sketch set the curve, the steps and the lighting.</figcaption></figure>
 <h2>A shared picture for the whole team</h2>
 <p>Drawings are not only for the client. They give the site team, carpenters and electricians one clear picture to work from, so the finished room matches what everyone agreed.</p>
 <p>See it for yourself on our <a href="consultancy.html">consultancy page</a>, where you can drag a slider from the sketch to the finished room.</p>

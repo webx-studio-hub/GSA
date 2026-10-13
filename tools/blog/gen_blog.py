@@ -125,7 +125,7 @@ for i, p in enumerate(POSTS):
 feat = POSTS[0]
 filters = ''.join(f'<button type="button" data-blog-filter="{c}" aria-pressed="false">{c}</button>' for c in CATEGORIES if any(p['category'] == c for p in POSTS))
 title_html = '<span class="line" aria-hidden="true"><span>Ideas, advice</span></span>\n          <span class="line" aria-hidden="true"><span><em>&amp; stories.</em></span></span>'
-main = hero('assets/img/projects/refined-6.webp', 'A concept sketch of a couple relaxing in a living room', '50% 55%',
+main = hero('assets/img/work/villa-modern-trees.webp', 'A modern home with planted balconies set among tall trees', '50% 60%',
             '<span>GS Associates</span><span aria-hidden="true">/</span><span aria-current="page">Blog</span>', title_html,
             'Ideas, advice and stories.', 'Practical guides on planning, building and furnishing your home, from the people who do it every day.')
 main += f'''
