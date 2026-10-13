@@ -1120,7 +1120,7 @@ h1, h2, h3, p { margin: 0; }
 
 /* leadership: two principals and the wider team */
 .leaders { padding: clamp(5rem, 9vw, 8rem) 0; border-top: 1px solid var(--line); }
-.leaders__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+.leaders__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); max-width: 60rem; margin-inline: auto; }
 .leader__portrait {
   position: relative; aspect-ratio: 4 / 5; overflow: hidden; display: grid; place-items: center;
   background: var(--soft) url("../assets/img/brand/gs-mark.webp") right 1.25rem bottom 1.25rem / 2.5rem auto no-repeat;
@@ -1152,6 +1152,7 @@ h1, h2, h3, p { margin: 0; }
 .member__name { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 1.1rem + 1.1vw, 2.35rem); line-height: 1.05; letter-spacing: -.005em; }
 .member__role { margin-top: .5rem; font-size: clamp(.8rem, .7rem + .3vw, 1rem); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .88); line-height: 1.4; }
 @media (max-width: 1100px) { .team__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .leaders__grid { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 600px) { .team__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .member__name { font-size: 1.35rem; } .member__role { margin-top: .4rem; font-size: .72rem; letter-spacing: .08em; } }
 
 /* four services as photo tiles */
@@ -1696,9 +1697,6 @@ h1, h2, h3, p { margin: 0; }
   .visit__map iframe { position: relative; height: 18rem; }
   .visit__card { position: static; transform: none; width: auto; box-shadow: none; }
   .page-hero__media::after { background: linear-gradient(180deg, rgba(17, 18, 20, .55) 0%, rgba(17, 18, 20, .6) 30%, rgba(17, 18, 20, .82) 70%, rgba(17, 18, 20, .92) 100%); }
-  .leaders__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-  .leader--team { grid-column: 1 / -1; }
-  .leader--team .leader__portrait { aspect-ratio: 16 / 9; }
   .press__logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .js .idea__track { height: 440vh; }
   .idea__sticky { align-items: stretch; padding: 4.75rem 0 1rem; }
