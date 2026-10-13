@@ -57,12 +57,16 @@
     H.W = W; H.Hh = Hh;
     H.svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
 
-    // building: full width (wider on phones, sides cropped, so it is tall enough to fill the letters),
-    // top edge 60% down the screen, grows from its bottom edge
-    const bw = W < 768 ? W * 1.7 : W;
+    // building: full width, top edge 60% down the screen, grows from its bottom edge.
+    // phones start a little wider and lower, then grow more (rising less), so the building stays planted on
+    // the bottom edge, starts small and still fills the letters
+    const phone = W < 768;
+    H.grow = phone ? { rise: 0.1, scale: 1.05 } : { rise: 0.4, scale: 0.3 };
+    const bw = phone ? W * 1.3 : W;
+    const top = Hh * (phone ? 0.62 : 0.6);
     const bx = (W - bw) / 2;
     const hh = bw * BUILDING_RATIO;
-    H.box = { x: bx, y: Hh * 0.6, w: bw, h: hh, cx: W / 2, by: Hh * 0.6 + hh };
+    H.box = { x: bx, y: top, w: bw, h: hh, cx: W / 2, by: top + hh };
     H.houseImgs.forEach((img) => {
       img.setAttribute('x', bx); img.setAttribute('y', H.box.y);
       img.setAttribute('width', bw); img.setAttribute('height', hh);
@@ -105,8 +109,8 @@
     const { W, Hh, box } = H;
 
     // building rises + grows from its bottom edge
-    const s = 1 + 0.3 * e;
-    const ty = -0.4 * box.h * e;
+    const s = 1 + H.grow.scale * e;
+    const ty = -H.grow.rise * box.h * e;
     const tf = `translate(${box.cx} ${(box.by + ty).toFixed(2)}) scale(${s.toFixed(4)}) translate(${-box.cx} ${(-box.by).toFixed(2)})`;
     H.houseImgs.forEach((img) => img.setAttribute('transform', tf));
 

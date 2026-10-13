@@ -906,6 +906,10 @@ h1, h2, h3, p { margin: 0; }
 .chip input:active + span { transform: scale(.96); }
 .chip input:focus-visible + span { outline: 3px solid var(--brand); outline-offset: 3px; }
 .brief__name { display: block; }
+.brief__contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.brief__contact legend { margin-bottom: 1rem; }
+.brief__contact .brief__name > span { font-family: var(--font); font-size: .9375rem; font-weight: 600; letter-spacing: 0; color: var(--ink-2); margin-bottom: .45rem; }
+@media (max-width: 600px) { .brief__contact { grid-template-columns: minmax(0, 1fr); } }
 .brief__name small { font-family: var(--font); font-size: .9375rem; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 .brief__name input {
   width: 100%; min-height: 3.5rem; padding: 0 1.25rem; border: 0; border-radius: 999px;
@@ -1708,8 +1712,8 @@ h1, h2, h3, p { margin: 0; }
   .idea__caption strong { color: var(--ink); font-weight: 600; }
   .idea--static .idea__grid, .idea--still .idea__grid { height: auto; }
   .idea--static .sheet__view, .idea--still .sheet__view { flex: none; aspect-ratio: 966 / 645; }
-  .compare-tabs { width: 100%; }
-  .compare-tabs button { flex: 1; padding: 0 .5rem; font-size: 1rem; }
+  .compare-tabs { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; border-radius: 1.6rem; overflow: visible; }
+  .compare-tabs button { padding: 0 .5rem; font-size: 1rem; min-height: 2.9rem; }
   .compare__knob { width: 3.5rem; height: 3.5rem; margin: -1.75rem 0 0 -1.75rem; }
   .lightbox__stage { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
   .lightbox__nav { position: absolute; bottom: 1.5rem; z-index: 2; width: 3.5rem; height: 3.5rem; box-shadow: 0 6px 20px rgba(0,0,0,.15); background: #fff; }

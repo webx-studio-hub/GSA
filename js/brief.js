@@ -9,29 +9,30 @@
 
   const PHONE = '916280986491';
   const EMAIL = 'gsassociates.biz@gmail.com';
-  const TYPES = { home: 'New home', renovation: 'Renovation', commercial: 'Office or shop', other: 'Something else' };
 
   function update() {
     const fd = new FormData(form);
-    const type = TYPES[fd.get('type') || 'home'];
+    const val = (k) => (fd.get(k) || '').toString().trim();
+    const building = val('building') || 'Residential';
     const services = fd.getAll('service');
-    const when = fd.get('when');
-    const name = (fd.get('name') || '').toString().trim();
 
     const text = [
       'Hello GS Associates! I would like to start a project.',
       '',
-      `Project: ${type}`,
+      `Building: ${building}`,
+      val('plot') ? `Plot size: ${val('plot')}` : null,
+      val('vastu') ? `Vastu compliant: ${val('vastu')}` : null,
+      val('concept') ? `Concept: ${val('concept')}` : null,
       `Services: ${services.length ? services.join(', ') : 'Not sure yet, please advise'}`,
-      when ? `Start: ${when}` : null,
-      name ? `Name: ${name}` : null,
+      val('name') ? `Name: ${val('name')}` : null,
+      val('phone') ? `Phone: ${val('phone')}` : null,
     ].filter((l) => l !== null).join('\n');
     wa.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
-    mail.href = `mailto:${EMAIL}?subject=${encodeURIComponent(`New project: ${type}`)}&body=${encodeURIComponent(text)}`;
+    mail.href = `mailto:${EMAIL}?subject=${encodeURIComponent(`New project: ${building}`)}&body=${encodeURIComponent(text)}`;
   }
 
   form.addEventListener('change', update);
-  form.addEventListener('input', (e) => { if (e.target.name === 'name') update(); });
+  form.addEventListener('input', (e) => { if (e.target.name === 'name' || e.target.name === 'phone') update(); });
   form.addEventListener('submit', (e) => { e.preventDefault(); wa.click(); });
   update();
 })();
