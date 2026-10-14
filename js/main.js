@@ -570,7 +570,8 @@
     curve: { title: 'Contemporary Curve House', n: 6 },
     stone: { title: 'The Stone Villa', n: 10 },
     refined: { title: 'Refined Everyday Living', n: 3 },
-    urban: { title: 'Urban Square', n: 1 },
+    tampra: { title: 'Tampra Tower', n: 2 },
+    urban: { title: 'Urban Square', n: 10 },
   };
   const lb = $('[data-lightbox]') || document.createElement('div'); // inner pages have no lightbox
   const hasLb = !!lb.parentNode;

@@ -942,8 +942,10 @@ h1, h2, h3, p { margin: 0; }
   gap: clamp(2.5rem, 4vw, 4rem);
 }
 .footer__logo { display: inline-block; }
-.footer__logo img { width: 6rem; height: auto; transition: transform .5s var(--ease-out); }
-.footer__logo:hover img { transform: scale(1.04); }
+.footer__logo { text-decoration: none; }
+.footer__word .brand__gs { font-size: 4rem; }
+.footer__word .brand__sub { margin-top: .2rem; font-size: 1.15rem; }
+.footer__logo:hover .brand__word { transform: scale(1.04); }
 .footer__brand p { margin-top: 1.5rem; color: var(--muted); max-width: 25rem; line-height: 1.6; font-size: 14px; }
 .footer__social { display: flex; gap: .65rem; margin-top: 1.75rem; }
 .footer__social a {
@@ -1153,7 +1155,7 @@ h1, h2, h3, p { margin: 0; }
 .member__role { margin-top: .5rem; font-size: clamp(.8rem, .7rem + .3vw, 1rem); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .88); line-height: 1.4; }
 @media (max-width: 1100px) { .team__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .leaders__grid { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 600px) { .team__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .member__name { font-size: 1.35rem; } .member__role { margin-top: .4rem; font-size: .72rem; letter-spacing: .08em; } }
+@media (max-width: 600px) { .team__grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* four services as photo tiles */
 .roof { padding: clamp(5rem, 9vw, 8rem) 0; border-top: 1px solid var(--line); }
