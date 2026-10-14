@@ -428,7 +428,7 @@ h1, h2, h3, p { margin: 0; }
 .statement__text .w.is-on { color: var(--ink); }
 .about__cta { margin: 2.5rem 0 clamp(3.5rem, 7vw, 6rem); }
 .about__photo {
-  position: relative; margin-top: auto; width: clamp(16rem, 56%, 27rem); aspect-ratio: 3 / 2;
+  position: relative; margin-top: auto; width: 100%; aspect-ratio: 16 / 9;
   overflow: hidden; background: var(--soft);
 }
 .about__photo img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; }
