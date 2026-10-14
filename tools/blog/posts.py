@@ -63,7 +63,7 @@ POSTS = [
 <figure><img src="assets/img/projects/curve-1.webp" alt="The Contemporary Curve House street facade" loading="lazy" decoding="async"><figcaption>The Contemporary Curve House: designed, built and furnished by one team.</figcaption></figure>
 <h2>When separate teams can still work</h2>
 <p>If you already have an architect you trust, or a contractor you have worked with for years, keeping them is perfectly reasonable. In that case, invest in very detailed drawings and agree in writing who decides what on site.</p>
-<figure><img src="assets/img/work/township-street.webp" alt="Aerial view of a landscaped commercial street" loading="lazy" decoding="async"><figcaption>Larger developments gain the most from one team coordinating design and site work.</figcaption></figure>
+<figure><img src="assets/img/work/villa-stone-dusk.webp" alt="A stone-clad family home with a lit gateway at dusk" loading="lazy" decoding="async"><figcaption>One team coordinating design and site work keeps a build on track from the first drawing to the handover.</figcaption></figure>
 <h2>How to decide</h2>
 <p>Ask yourself how much time you can spend coordinating. If you are busy, live in another city or simply want peace of mind, one team is usually the easier path. If you enjoy managing the details yourself, separate specialists can work well.</p>
 <p>Want to understand what a single team would look like for your project? <a href="services.html">See how we work</a>, or <a href="contact.html">get in touch</a>.</p>
@@ -124,7 +124,6 @@ POSTS = [
 <figure><img src="assets/img/projects/refined-1.webp" alt="The finished curved staircase with warm hidden lighting" loading="lazy" decoding="async"><figcaption>This staircase was drawn first: the sketch set the curve, the steps and the lighting.</figcaption></figure>
 <h2>A shared picture for the whole team</h2>
 <p>Drawings are not only for the client. They give the site team, carpenters and electricians one clear picture to work from, so the finished room matches what everyone agreed.</p>
-<p>See it for yourself on our <a href="consultancy.html">consultancy page</a>, where you can drag a slider from the sketch to the finished room.</p>
 '''),
 ]
 

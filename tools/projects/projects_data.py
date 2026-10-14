@@ -37,7 +37,7 @@ P = [
   paras=['Every room started as a hand-drawn sketch: the curved staircase, the bedroom wall, the living room shelving. The finished spaces follow those drawings closely.',
          'Hidden lighting, rounded edges and natural textures keep the home quiet and warm, a place made for everyday life.'],
   features=['Curved staircase with hidden step lighting', 'Arched shelving and soft, rounded forms', 'Warm neutral palette and natural textures', 'Each room sketched first, then built'],
-  links=['interiors', 'consultancy']),
+  links=['interiors', 'architecture']),
  dict(key='tampra', seo_title='Tampra Tower | Commercial Building Design | GS Associates',
   seo_desc='Tampra Tower by GS Associates: a mixed-use commercial building with tall arched glazing, a stone-clad frame and shops and restaurants at street level.', page='tampra-tower', cat='commercial', name='Tampra Tower', l1='Tampra', l2='Tower.',
   type='Commercial building', style='Contemporary classic', services=['Architecture', 'Construction'], n=2, pos='50% 40%',

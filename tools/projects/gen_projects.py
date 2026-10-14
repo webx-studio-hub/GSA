@@ -35,7 +35,7 @@ def mega_projects(current=None):
         cur = ' aria-current="page"' if current == c else ''
         return f'''
                 <div class="mega__col">
-                  <a class="mega__colhead" href="{c}.html"{cur}><span>{CATS[c]['name']}</span><small>{len(by_cat[c])} project{'s' if len(by_cat[c]) != 1 else ''}</small>{ARR}</a>
+                  <a class="mega__colhead" href="{c}.html"{cur}><span>{CATS[c]['name']}</span>{ARR}</a>
                   <ul class="mega__list" role="list">{rows}
                   </ul>
                 </div>'''
@@ -61,9 +61,8 @@ def mega_projects(current=None):
         </div>'''
 
 SERVICES = [('architecture', 'Architecture', 'assets/img/work/house-gabled-sm.webp'),
-            ('construction', 'Construction', 'assets/img/work/township-street-sm.webp'),
-            ('interiors', 'Interiors', 'assets/img/work/living-chandelier-sm.webp'),
-            ('consultancy', 'Consultancy', 'assets/img/projects/refined-3-sm.webp')]
+            ('construction', 'Construction', 'assets/img/work/villa-stone-dusk-sm.webp'),
+            ('interiors', 'Interiors', 'assets/img/work/living-chandelier-sm.webp')]
 
 def mobile_nav(current_file):
     """The phone/tablet menu: Home, About and Contact are plain links; Projects, Services and Blog open as dropdowns (main.js)."""

@@ -197,7 +197,7 @@ h1, h2, h3, p { margin: 0; }
 .mega__call a { display: block; margin-top: .2rem; font-weight: 700; color: var(--ink); text-decoration: none; }
 .mega__call a:hover { text-decoration: underline; text-underline-offset: .2em; }
 
-.mega__cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.75rem, 1.4vw, 1.25rem); }
+.mega__cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.75rem, 1.4vw, 1.25rem); }
 .mega__cards li, .mega__list li, .mega__feature { opacity: 0; transform: translateY(24px); transition: opacity .5s var(--ease-out), transform .8s var(--ease-out); }
 .nav__item.is-open :is(.mega__cards li, .mega__list li, .mega__feature) { opacity: 1; transform: none; transition-delay: calc(.08s + var(--i) * .05s); }
 .mega__card { display: block; text-decoration: none; color: var(--ink); transition: opacity .4s; }
@@ -1153,6 +1153,12 @@ h1, h2, h3, p { margin: 0; }
 .member__info { position: absolute; z-index: 2; left: clamp(1.25rem, 2.4vw, 2.25rem); right: 1rem; bottom: clamp(1rem, 2vw, 1.9rem); color: #fff; }
 .member__name { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 1.1rem + 1.1vw, 2.35rem); line-height: 1.05; letter-spacing: -.005em; }
 .member__role { margin-top: .5rem; font-size: clamp(.8rem, .7rem + .3vw, 1rem); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255, 255, 255, .88); line-height: 1.4; }
+/* on devices with a mouse the role stays hidden until the card is hovered or focused */
+@media (hover: hover) {
+  .member__role { max-height: 0; margin-top: 0; opacity: 0; transform: translateY(8px); overflow: hidden;
+    transition: max-height .5s var(--ease-out), margin-top .5s var(--ease-out), opacity .4s, transform .5s var(--ease-out); }
+  .member:hover .member__role, .member:focus-within .member__role { max-height: 4rem; margin-top: .5rem; opacity: 1; transform: none; }
+}
 @media (max-width: 1100px) { .team__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .leaders__grid { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 600px) { .team__grid { grid-template-columns: minmax(0, 1fr); } }
@@ -1347,6 +1353,9 @@ h1, h2, h3, p { margin: 0; }
 .page-service .process { background: #fff; }
 .roof__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .roof__grid--3 .tile__frame { aspect-ratio: 4 / 3; }
+.roof__grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.roof__grid--2 .tile__frame { aspect-ratio: 16 / 10; }
+.page-hero__reach--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 /* =========================================================
    PROJECTS: listing pages (residential, commercial) and the project page template
