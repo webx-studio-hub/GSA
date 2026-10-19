@@ -9,7 +9,7 @@
   const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ideaScripts = ['vendor/three.idea.min.js?v=1', 'idea3d.js?v=6'].map((f) => new URL(f, document.currentScript.src).href);
+  const ideaScripts = ['vendor/three.idea.min.js?v=2', 'idea3d.js?v=9'].map((f) => new URL(f, document.currentScript.src).href);
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------------------------------------------------------
@@ -560,6 +560,24 @@
   const track = $('[data-marquee] .marquee__track');
   if (track && !reduceMotion) {
     $$('a', track).forEach((a) => { const c = a.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c); });
+  }
+
+  /* ---------------------------------------------------------
+     About: the framework timeline fills as you scroll past it
+     --------------------------------------------------------- */
+  const fw = $('[data-framework]');
+  if (fw) {
+    const items = $$('.framework__item', fw);
+    const fwUpdate = () => {
+      // the line's tip follows a point 60% down the screen
+      const r = fw.getBoundingClientRect();
+      const f = reduceMotion ? 1 : clamp((innerHeight * 0.6 - r.top) / r.height);
+      fw.style.setProperty('--fill', f.toFixed(3));
+      items.forEach((it) => it.classList.toggle('is-on', reduceMotion || r.top + it.offsetTop + 12 <= innerHeight * 0.6));
+    };
+    addEventListener('scroll', fwUpdate, { passive: true });
+    addEventListener('resize', fwUpdate);
+    fwUpdate();
   }
 
   /* ---------------------------------------------------------

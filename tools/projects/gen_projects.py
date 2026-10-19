@@ -91,7 +91,7 @@ def mobile_nav(current_file):
               <li><a href="{q['slug']}.html"{cur(q['slug'] + '.html')}><img src="{q['image'].replace('.webp', '-sm.webp') if os.path.exists(q['image'].replace('.webp', '-sm.webp')) else q['image']}" alt="" loading="lazy" decoding="async"><span>{q['title']}<small>{q['category']}</small></span></a></li>''' for q in featured_posts())
             + '\n            </ul>' + f'\n            <a class="link-arrow mm-all" href="blog.html"{cur("blog.html")}{in_blog}>All articles →</a>')
     return ('<nav aria-label="Mobile">' + f'\n      <a href="index.html"{cur("index.html")}>Home</a>' + group('projects', 'Projects', projects) + group('services', 'Services', services)
-            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>' + group('blog', 'Blog', blog)
+            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>'
             + f'\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
 
 def set_mobile_nav(t, current_file):

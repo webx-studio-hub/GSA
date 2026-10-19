@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Limelight&family=Montserrat:wght@800;900&family=Urbanist:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/style.css?v=74">
+  <link rel="stylesheet" href="css/style.css?v=78">
 </head>
 <body class="page-services has-photo-hero">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -123,40 +123,6 @@
           </div>
         </div>
         <a href="about.html">About</a>
-        <!-- mega:blog -->
-        <div class="nav__item" data-mega-item>
-          <a class="nav__trigger" href="blog.html" aria-expanded="false" aria-controls="mega-blog">Blog <svg class="nav__chev" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></a>
-          <!-- full-width blog panel: topics and featured articles (tools/blog/gen_blog.py writes it; main.js opens it) -->
-          <div class="mega mega--blog" id="mega-blog" data-mega>
-            <div class="container mega__inner mega__inner--blog">
-              <div class="mega__intro">
-                <p class="mega__label">From the blog</p>
-                <p class="mega__title">Ideas, advice <em>&amp; stories.</em></p>
-                <p class="mega__text">Practical guides on planning, building and furnishing your home.</p>
-                <div class="mega__topics" aria-label="Topics"><a href="blog.html?topic=Planning">Planning</a><a href="blog.html?topic=Construction">Construction</a><a href="blog.html?topic=Interiors">Interiors</a><a href="blog.html?topic=Design">Design</a></div>
-                <a class="btn btn--dark mega__all" href="blog.html"><span>All articles</span><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              </div>
-              <ul class="mega__cards mega__cards--blog" role="list">
-                <li style="--i: 0"><a class="mega__post" href="plan-your-new-home.html">
-                  <span class="mega__img"><img src="assets/img/projects/manor-4.webp" alt="" decoding="async"></span>
-                  <span class="mega__meta"><b>Planning</b> · 3 min read</span>
-                  <span class="mega__posttitle">Planning a new home? Seven steps from plot to keys</span>
-                </a></li>
-                <li style="--i: 1"><a class="mega__post" href="architect-and-builder-under-one-roof.html">
-                  <span class="mega__img"><img src="assets/img/work/house-gabled.webp" alt="" decoding="async"></span>
-                  <span class="mega__meta"><b>Construction</b> · 2 min read</span>
-                  <span class="mega__posttitle">Architect, contractor or both? Why one team makes building easier</span>
-                </a></li>
-                <li style="--i: 2"><a class="mega__post" href="warm-neutral-interiors.html">
-                  <span class="mega__img"><img src="assets/img/projects/refined-3.webp" alt="" decoding="async"></span>
-                  <span class="mega__meta"><b>Interiors</b> · 2 min read</span>
-                  <span class="mega__posttitle">Warm neutrals: how to design a calm, timeless interior</span>
-                </a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- /mega:blog -->
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -208,19 +174,6 @@
         </div>
       </div>
       <a href="about.html">About us</a>
-      <div class="mm-group" data-mm-group>
-        <button class="mm-toggle" type="button" aria-expanded="false" aria-controls="mm-blog"><span>Blog</span><svg class="mm-chev" aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></button>
-        <div class="mm-panel" id="mm-blog">
-          <div class="mm-panel__inner">
-            <ul class="mm-list" role="list">
-              <li><a href="plan-your-new-home.html"><img src="assets/img/projects/manor-4-sm.webp" alt="" loading="lazy" decoding="async"><span>Planning a new home? Seven steps from plot to keys<small>Planning</small></span></a></li>
-              <li><a href="architect-and-builder-under-one-roof.html"><img src="assets/img/work/house-gabled-sm.webp" alt="" loading="lazy" decoding="async"><span>Architect, contractor or both? Why one team makes building easier<small>Construction</small></span></a></li>
-              <li><a href="warm-neutral-interiors.html"><img src="assets/img/projects/refined-3-sm.webp" alt="" loading="lazy" decoding="async"><span>Warm neutrals: how to design a calm, timeless interior<small>Interiors</small></span></a></li>
-            </ul>
-            <a class="link-arrow mm-all" href="blog.html">All articles →</a>
-          </div>
-        </div>
-      </div>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="mobile-menu__contact">
@@ -313,6 +266,91 @@
             <div class="chapter__small"><img src="assets/img/work/stair-double-height.webp" alt="A double-height staircase hall" loading="lazy" decoding="async"></div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- ============ DESIGN PROCESS & FLOW ============ -->
+    <!-- the brochure's design principles and building philosophy, each with a line drawing -->
+    <section class="proc" id="process" aria-labelledby="proc-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Design process &amp; flow</span></p>
+            <h2 class="h2" id="proc-title" data-reveal>Six steps behind <em>every design.</em></h2>
+          </div>
+          <p class="lead" data-reveal>A home should not depend on machines to feel liveable. It should be comfortable without excess energy, durable across generations and predictable to maintain.</p>
+        </div>
+        <ol class="proc__grid" role="list">
+          <li class="proc__card" data-reveal style="--i: 0">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M30 92h100"/><path d="M55 86l25-12 25 12-25 12zM55 86V70l25-12 25 12v16M80 98V82M55 70l25 12 25-12"/><path class="a" d="M28 60a52 40 0 0 1 104 0" stroke-dasharray="3 4"/><circle class="a" cx="46" cy="30" r="7"/><path class="a" d="M46 16v-4M46 48v-4M32 30h-4M64 30h-4"/><path d="M134 22l-6 14h12z"/><path d="M134 14v-4"/></g></svg>
+            <span class="proc__num">01</span>
+            <h3 class="proc__title">Site orientation &amp; climate response</h3>
+            <p>We set the building to the sun path, prevailing winds and microclimate of your plot.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 1">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 96h120"/><path d="M30 88l22-11 22 11-22 11zM30 88V70l22-11 22 11v18M52 99V81M30 70l22 11 22-11"/><path d="M74 66l22-11 22 11-22 11zM74 66V48l22-11 22 11v18M96 77V59M74 48l22 11 22-11"/><path d="M58 40l18-9 18 9-18 9zM58 40V26l18-9 18 9v14M76 49V35M58 26l18 9 18-9"/><path class="a" d="M120 57h20M98 22h40M78 92h62" stroke-dasharray="2 3"/></g></svg>
+            <span class="proc__num">02</span>
+            <h3 class="proc__title">Spatial zoning &amp; massing</h3>
+            <p>Rooms are placed by privacy, views, access and how each space will be used.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 2">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 94h104M36 94V52l44-26 44 26v42M36 52h88"/><path d="M54 94V72h16v22M92 66h18v14H92z"/><path class="a" d="M10 70c10-4 18 4 28 0M10 80c10-4 18 4 28 0M122 70c10-4 18 4 28 0M122 80c10-4 18 4 28 0"/><path class="a" d="M40 76l80 0" stroke-dasharray="3 4"/><path class="a" d="M140 18l-22 22M150 30l-24 16M128 10l-16 24"/></g></svg>
+            <span class="proc__num">03</span>
+            <h3 class="proc__title">Natural ventilation &amp; daylight</h3>
+            <p>Openings, courtyards and shading bring in light and moving air, so the home stays comfortable with less energy.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 0">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 96h116"/><path d="M40 86l40-18 40 18-40 18zM40 86V66l40-18 40 18v20M80 104V84M40 66l40 18 40-18"/><path class="a" d="M60 56c-6-10 2-18 8-14 4-10 16-6 14 4 8 0 8 12 0 12H60zM96 48c-4-8 2-14 7-11 3-8 13-5 11 3 7 0 7 10 0 10H96z"/><path class="a" d="M70 56v6M104 50v8M24 96V80M18 84c0-8 12-8 12 0M138 96V82M132 86c0-8 12-8 12 0"/></g></svg>
+            <span class="proc__num">04</span>
+            <h3 class="proc__title">Green &amp; sustainable design</h3>
+            <p>Landscape, terraces and sustainable materials are part of the design from the first sketch.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 1">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 98h120"/><path d="M40 90V40M80 98V48M120 90V40M60 80V30M100 88V38M40 40l20-10 40 8 20 2M40 40l40 8 40-8M60 30l40 8M40 64l40 8 40-8M60 54l40 8M40 64l20-10M80 72l20-10M120 64l-20-2"/><path class="a" d="M40 90l40 8 40-8M40 90l20-10 40 8 20 2" stroke-dasharray="3 3"/></g></svg>
+            <span class="proc__num">05</span>
+            <h3 class="proc__title">Structural system &amp; durability</h3>
+            <p>We choose the right structural system for safety, a long life and good performance.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 2">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 14v84M40 30h80M40 36h80M40 42h80M40 76h80M40 82h80M40 88h80"/><path d="M52 42v34M52 50h12v18H52"/><path class="a" d="M120 30h14M120 39h14M120 79h14M120 88h14"/><circle class="a" cx="136" cy="30" r="1.5"/><circle class="a" cx="136" cy="39" r="1.5"/><circle class="a" cx="136" cy="79" r="1.5"/><circle class="a" cx="136" cy="88" r="1.5"/><path d="M24 14v84M20 14h8M20 98h8"/></g></svg>
+            <span class="proc__num">06</span>
+            <h3 class="proc__title">Detailing &amp; execution excellence</h3>
+            <p>Precise drawings and quality execution on site, for value that lasts.</p>
+          </li>
+        </ol>
+
+        <div class="section-head proc__head2">
+          <div>
+            <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">Our philosophy</span></p>
+            <h2 class="h2" data-reveal>Beyond <em>construction.</em></h2>
+          </div>
+        </div>
+        <ol class="proc__grid proc__grid--4" role="list">
+          <li class="proc__card" data-reveal style="--i: 0">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 100h124"/><path d="M36 92V44M80 100V52M124 92V44M58 82V34M102 90V42M36 44l22-10 44 8 22 2M36 44l44 8 44-8M58 34l44 8"/><path d="M36 68l44 8 44-8M58 58l44 8M36 68l22-10M80 76l22-10"/><path class="a" d="M30 92h12M74 100h12M118 92h12M52 82h12M96 90h12" stroke-width="3"/></g></svg>
+            <span class="proc__num">01</span>
+            <h3 class="proc__title">50+ years of structural stability</h3>
+            <p>Every structure is a framed structure on columns, for the best finishes, a stable building and faster work on site.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 1">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 60h128"/><path d="M70 14h20v62H70z"/><path d="M50 76h60v14H50z"/><path class="a" d="M76 22v50M84 22v50M56 82h48"/><path d="M20 70l8-8M30 70l8-8M118 70l8-8M128 70l8-8M20 84l8-8M128 84l8-8M20 98l8-8M128 98l8-8"/><path class="a" d="M18 104c6-4 10 4 16 0s10 4 16 0 10 4 16 0 10 4 16 0 10 4 16 0 10 4 16 0 10 4 16 0"/></g></svg>
+            <span class="proc__num">02</span>
+            <h3 class="proc__title">RCC foundations for earthquake safety</h3>
+            <p>High-grade M25 concrete in the foundations, built for seismic zone IV and a lifetime free of damp.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 2">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M30 20h70v70H30z"/><path d="M38 28h54v54H38zM65 28v54M38 55h54"/><path d="M30 96h70M30 92v8M100 92v8"/><path class="a" d="M116 24l-4 8M126 30l-4 8M120 44l-4 8M130 50l-4 8M114 62l-4 8"/><path class="a" d="M108 90h40M108 84v12M118 87v6M128 84v12M138 87v6M148 84v12"/></g></svg>
+            <span class="proc__num">03</span>
+            <h3 class="proc__title">Standardisation &amp; good practice</h3>
+            <p>Windows sized for light, rain and wind; energy and water planned in; and an area chart before planning, so no space is wasted.</p>
+          </li>
+          <li class="proc__card" data-reveal style="--i: 0">
+            <svg class="proc__art" viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 18h38v74H18z"/><path d="M24 26h26v8H24zM24 40h26v8H24zM24 54h26v8H24z"/><path d="M28 70h18v14H28z"/><path class="a" d="M56 30h86M56 44h70v40h16M56 58h44v34h42"/><path class="a" d="M64 26v8M80 26v8M96 26v8M112 26v8M128 26v8"/><path class="a" d="M134 12l-8 12h8l-8 12" stroke-width="1.8"/></g></svg>
+            <span class="proc__num">04</span>
+            <h3 class="proc__title">Fault-free electricity</h3>
+            <p>Proper panels and boards on cable trays, dedicated shafts for high and low voltage, and conduits laid to drawings so faults are easy to trace.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -447,7 +485,7 @@
         <nav class="footer__col" aria-label="Quick links">
           <h3>Quick links</h3>
           <a href="index.html">Home</a>
-          <a href="index.html#projects">Projects</a>
+          <a href="residential.html">Projects</a>
           <a href="about.html">About us</a>
           <a href="blog.html">Blog</a>
           <a href="contact.html">Contact us</a>
@@ -484,7 +522,6 @@
 
       <div class="footer__bottom">
         <p>© <span data-year>2026</span> GS Associates. All rights reserved.</p>
-        <a class="footer__credit" href="https://www.thewebxstudio.com/" target="_blank" rel="noopener">Built with <span role="img" aria-label="fire">🔥</span> by <strong>WebX Studio</strong></a>
         <a href="#top" class="to-top">Back to top <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M6 11l6-6 6 6"/></svg></a>
       </div>
     </div>
@@ -492,7 +529,7 @@
 
   <div class="cursor" aria-hidden="true" data-cursor-el><span>View</span></div>
 
-  <script src="js/main.js?v=45" defer></script>
-  <script src="js/brief.js?v=4" defer></script>
+  <script src="js/main.js?v=47" defer></script>
+  <script src="js/brief.js?v=8" defer></script>
 </body>
 </html>

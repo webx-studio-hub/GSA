@@ -125,6 +125,28 @@ for i, p in enumerate(POSTS):
 feat = POSTS[0]
 filters = ''.join(f'<button type="button" data-blog-filter="{c}" aria-pressed="false">{c}</button>' for c in CATEGORIES if any(p['category'] == c for p in POSTS))
 title_html = '<span class="line" aria-hidden="true"><span>Ideas, advice</span></span>\n          <span class="line" aria-hidden="true"><span><em>&amp; stories.</em></span></span>'
+FAQS = [
+    ('What does a turnkey project with GS Associates include?',
+     'One team takes care of everything: design, structure, services, construction and finishing, until we hand you the keys. You deal with one contract and one point of contact.'),
+    ('How do you keep the cost transparent?',
+     'We work with an open bill of quantities, so you can see what goes into your home. Exclusions are written down clearly, and any price-escalation clauses are agreed up front. People fear unknowns more than cost, so we remove them.'),
+    ('Do you give a warranty on construction?',
+     'Yes. We offer a maintenance-backed warranty model, typically for 5 to 10 years, along with a structural durability certificate and an annual inspection plan.'),
+    ('Is your construction earthquake safe?',
+     'Our foundations use high-grade M25 concrete and every building is a framed RCC structure on columns, designed for seismic zone IV, which covers much of North India.'),
+    ('Will my home really use less electricity?',
+     'We design for the climate first: orientation, shading, ventilation and daylight. That cuts heat gain and the need for air-conditioning. We share energy performance estimates with you before construction.'),
+    ('How do you avoid damp, seepage and cracks?',
+     'By planning structure, waterproofing and services together, using the right materials and checking execution on site. Most of these problems come from systems that were never integrated, and that is what we fix.'),
+    ('How is the electrical work planned?',
+     'Panels and boards are mounted on cable trays, high and low voltage run in their own shafts, and all conduits follow the drawings, so any fault is easy to trace and repair later.'),
+]
+FAQ_HTML = ''.join(f"""
+          <details class="faq__item"{' open' if i == 0 else ''}>
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>""" for i, (q, a) in enumerate(FAQS))
+
 main = hero('assets/img/work/villa-modern-trees.webp', 'A modern home with planted balconies set among tall trees', '50% 60%',
             '<span>GS Associates</span><span aria-hidden="true">/</span><span aria-current="page">Blog</span>', title_html,
             'Ideas, advice and stories.', 'Practical guides on planning, building and furnishing your home, from the people who do it every day.')
@@ -155,6 +177,18 @@ main += f'''
         <ul class="blog-grid" role="list" data-blog-grid>{card(feat, ' blog-card--feat')}{''.join(card(q) for q in POSTS[1:])}
         </ul>
         <p class="blog-empty" hidden data-blog-empty>No articles in this topic yet.</p>
+      </div>
+    </section>
+
+    <!-- ============ FAQS ============ -->
+    <section class="faq faq--blog" id="faqs" aria-labelledby="faq-title">
+      <div class="container faq__grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__line" aria-hidden="true"></span><span class="eyebrow__text">FAQs</span></p>
+          <h2 class="h2" id="faq-title" data-reveal>Questions we <em>hear often.</em></h2>
+        </div>
+        <div class="faq__list" data-reveal>{FAQ_HTML}
+        </div>
       </div>
     </section>
 
@@ -198,20 +232,15 @@ def mega_blog(current_file):
         </div>
         <!-- /mega:blog -->'''
 
+# the blog lives in the footer only: take any blog menu out of the header
 for f in sorted(glob.glob('*.html')):
     t = open(f).read()
-    a = t.index('<nav class="nav" aria-label="Main">')
     if '<!-- mega:blog -->' in t:
-        s0 = t.index('<!-- mega:blog -->', a); s1 = t.index('<!-- /mega:blog -->', s0) + len('<!-- /mega:blog -->')
-        t = t[:s0] + mega_blog(f) + t[s1:]
-    else:
-        b = t.index('</nav>', t.rindex('</div>', a, t.index('</nav>', t.rindex('data-mega-item', a, t.index('<div class="mobile-menu"'))) + 1))
-        seg = t[a:b]
-        seg2 = re.sub(r'<a href="blog\.html"(?: aria-current="page")?>Blog</a>', lambda m: mega_blog(f), seg, count=1)
-        assert seg2 != seg, f
-        t = t[:a] + seg2 + t[b:]
+        s0 = t.index('<!-- mega:blog -->'); s1 = t.index('<!-- /mega:blog -->', s0) + len('<!-- /mega:blog -->')
+        s0 = t.rindex('\n', 0, s0)
+        t = t[:s0] + t[s1:]
     open(f, 'w').write(t)
-print('blog menu written into every page')
+print('blog menu removed from every header')
 
 # the phone menu (with its Blog dropdown) and the share tags/sitemap are owned by the project generator and seo.py:
 # running it here leaves every page in the same state whichever generator was run last
