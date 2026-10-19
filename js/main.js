@@ -581,6 +581,75 @@
   }
 
   /* ---------------------------------------------------------
+     WhatsApp chat: a floating button that opens a small chat panel.
+     Quick replies and the message box open WhatsApp with the text ready to send.
+     --------------------------------------------------------- */
+  (() => {
+    const PHONE = '916280986491';
+    const WA_ICON = '<svg aria-hidden="true" viewBox="0 0 24 24" width="30" height="30"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>';
+    const QUICK = ['I want to build a new home', 'I have a commercial project', 'I need interior design', "I'd like to book a site visit"];
+    const wrap = document.createElement('div');
+    wrap.className = 'wa';
+    wrap.innerHTML = `
+      <div class="wa__panel" id="wa-panel" role="dialog" aria-label="Chat with GS Associates on WhatsApp" hidden>
+        <div class="wa__head">
+          <span class="wa__avatar" aria-hidden="true">GS</span>
+          <span class="wa__who"><b>GS Associates</b><small><i aria-hidden="true"></i>Usually replies within an hour</small></span>
+          <button class="wa__close" type="button" aria-label="Close chat"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></button>
+        </div>
+        <div class="wa__body" aria-live="polite">
+          <div class="wa__typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wa__msg">Hi there 👋<br>Planning a home, an office or an interior? Tell us a little and we'll reply on WhatsApp.</div>
+          <div class="wa__quick">${QUICK.map((q) => `<button type="button">${q}</button>`).join('')}</div>
+        </div>
+        <form class="wa__form">
+          <input type="text" name="msg" placeholder="Type a message…" aria-label="Your message" autocomplete="off" maxlength="500">
+          <button type="submit" aria-label="Send on WhatsApp"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M3.4 20.4 21 12 3.4 3.6 3.3 10l12.6 2-12.6 2z"/></svg></button>
+        </form>
+      </div>
+      <span class="wa__teaser" aria-hidden="true">Need help? Chat with us</span>
+      <button class="wa__btn" type="button" aria-expanded="false" aria-controls="wa-panel" aria-label="Chat with us on WhatsApp">${WA_ICON}</button>`;
+    document.body.appendChild(wrap);
+    const panel = $('.wa__panel', wrap);
+    const btn = $('.wa__btn', wrap);
+    const input = $('input', wrap);
+    const open = (yes) => {
+      panel.hidden = !yes;
+      wrap.classList.toggle('is-open', yes);
+      wrap.classList.remove('show-teaser');
+      btn.setAttribute('aria-expanded', String(yes));
+      if (yes && !wrap.classList.contains('was-opened')) {
+        wrap.classList.add('was-opened');
+        setTimeout(() => wrap.classList.add('is-greeted'), reduceMotion ? 0 : 900);
+      }
+      if (yes && matchMedia('(hover: hover)').matches) setTimeout(() => input.focus(), 50);
+    };
+    const send = (text) => {
+      window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(`Hello GS Associates! ${text}`)}`, '_blank', 'noopener');
+    };
+    btn.addEventListener('click', () => open(panel.hidden));
+    $('.wa__close', wrap).addEventListener('click', () => { open(false); btn.focus(); });
+    $$('.wa__quick button', wrap).forEach((b) => b.addEventListener('click', () => send(b.textContent)));
+    $('.wa__form', wrap).addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = input.value.trim();
+      send(v || 'I would like to talk about a project.');
+      input.value = '';
+    });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) { open(false); btn.focus(); } });
+    // a one-time nudge a few seconds after the first visit of the session
+    let seen = false;
+    try { seen = sessionStorage.getItem('gs-wa-teaser') === '1'; } catch (err) { /* storage blocked */ }
+    if (!seen) {
+      setTimeout(() => {
+        if (panel.hidden) wrap.classList.add('show-teaser');
+        try { sessionStorage.setItem('gs-wa-teaser', '1'); } catch (err) { /* storage blocked */ }
+        setTimeout(() => wrap.classList.remove('show-teaser'), 6000);
+      }, 7000);
+    }
+  })();
+
+  /* ---------------------------------------------------------
      Project lightbox
      --------------------------------------------------------- */
   const PROJECTS = {
