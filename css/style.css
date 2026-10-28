@@ -1425,6 +1425,10 @@ h1, h2, h3, p { margin: 0; }
 .gallery__item:nth-child(2), .gallery__item:nth-child(5), .gallery__item:nth-child(6) { grid-column: span 2; }
 .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
 .gallery__item:hover img { transform: scale(1.05); }
+/* four photos: one large, one tall, two stacked */
+.gallery__grid--4 .gallery__item:nth-child(n) { grid-column: auto; grid-row: auto; }
+.gallery__grid--4 .gallery__item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery__grid--4 .gallery__item:nth-child(2) { grid-row: span 2; }
 .page-consultancy .inside { border-top: 0; }
 .page-service .process { background: #fff; }
 .roof__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }

@@ -24,7 +24,7 @@ GENERATED = {p['page'] for p in P} | set(CATS)
 EXISTING = sorted(f[:-5] for f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '*.html')) if os.path.basename(f)[:-5] not in GENERATED)
 EXISTING = [os.path.basename(f) for f in EXISTING]
 
-SERVICES = [('architecture', 'Architecture', 'assets/img/work/house-gabled-sm.webp'),
+SERVICES = [('architecture', 'Architecture', 'assets/img/work/arch-1-sm.webp'),
             ('construction', 'Construction', 'assets/img/work/villa-stone-dusk-sm.webp'),
             ('interiors', 'Interiors', 'assets/img/work/living-chandelier-sm.webp')]
 
