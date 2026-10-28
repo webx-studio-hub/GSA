@@ -39,7 +39,7 @@ POSTS = [
 <figure><img src="assets/img/work/villa-classical.webp" alt="A finished classical villa with columns and balconies" loading="lazy" decoding="async"><figcaption>Checks at the foundation, slab and plaster stages keep quality on track all the way to the finish.</figcaption></figure>
 <h2>7. Finish, check and move in</h2>
 <p>Before handover, walk through every room with a checklist: doors and windows, electrical points, plumbing, tiles and paint. Small fixes are quick while the team is still on site.</p>
-<p>Planning a new home and not sure where to start? <a href="contact.html">Talk to our team</a>. A first conversation is the easiest step of all.</p>
+<p>Planning a new home and not sure where to start? <a href="#contact">Talk to our team</a>. A first conversation is the easiest step of all.</p>
 '''),
  dict(slug='architect-and-builder-under-one-roof', category='Construction', date='2026-09-14',
   title='Architect, contractor or both? Why one team makes building easier',
@@ -66,7 +66,7 @@ POSTS = [
 <figure><img src="assets/img/work/villa-stone-dusk.webp" alt="A stone-clad family home with a lit gateway at dusk" loading="lazy" decoding="async"><figcaption>One team coordinating design and site work keeps a build on track from the first drawing to the handover.</figcaption></figure>
 <h2>How to decide</h2>
 <p>Ask yourself how much time you can spend coordinating. If you are busy, live in another city or simply want peace of mind, one team is usually the easier path. If you enjoy managing the details yourself, separate specialists can work well.</p>
-<p>Want to understand what a single team would look like for your project? <a href="services.html">See how we work</a>, or <a href="contact.html">get in touch</a>.</p>
+<p>Want to understand what a single team would look like for your project? <a href="services.html">See how we work</a>, or <a href="#contact">get in touch</a>.</p>
 '''),
  dict(slug='warm-neutral-interiors', category='Interiors', date='2026-08-30',
   title='Warm neutrals: how to design a calm, timeless interior',

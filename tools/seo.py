@@ -7,9 +7,9 @@ import datetime, glob, os, re
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 SITE_URL = 'https://gsassociatesindia.com'
 DEFAULT_IMAGE = 'assets/img/projects/curve-1.webp'
-NOT_INDEXED = {'404.html'}
+NOT_INDEXED = {'404.html', 'contact.html'}   # contact.html is hidden for now: nothing links to it
 # how important each page is to the site, for the sitemap (1.0 = home)
-PRIORITY = {'index.html': '1.0', 'services.html': '0.9', 'residential.html': '0.9', 'commercial.html': '0.9', 'contact.html': '0.9',
+PRIORITY = {'index.html': '1.0', 'services.html': '0.9', 'residential.html': '0.9', 'commercial.html': '0.9',
             'about.html': '0.8', 'blog.html': '0.8', 'architecture.html': '0.8', 'construction.html': '0.8', 'interiors.html': '0.8', 'consultancy.html': '0.8'}
 
 base = SITE_URL.rstrip('/')

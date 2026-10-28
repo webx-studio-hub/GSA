@@ -854,12 +854,13 @@ function initIdea(section, { reduceMotion = false } = {}) {
     nbFront.visible = nb > 0.01;
     nbBack.visible = nb > 0.98;
 
-    // 01 plan
-    lineMat.uniforms.uDraw.value = map(p, 0.02, 0.18);
-    const planFade = 1 - smooth(0.26, 0.34, p);
-    uA[C.PLAN] = planFade; uA[C.PLAN_LIGHT] = planFade; uA[C.DIM] = planFade;
-    pocheMat.opacity = smooth(0.13, 0.18, p) * (1 - smooth(0.23, 0.29, p)) * 0.92;
-    poche.visible = pocheMat.opacity > 0.002;
+    // 01 plan: the real drawing (an image over the canvas) is inked in, then fades as the frame rises.
+    // The model's own drawn plan, its poché and room labels stay hidden.
+    sheet.style.setProperty('--plan-draw', map(p, 0.02, 0.18).toFixed(4));
+    sheet.style.setProperty('--plan-a', (1 - smooth(0.22, 0.29, p)).toFixed(4));
+    uA[C.PLAN] = 0; uA[C.PLAN_LIGHT] = 0; uA[C.DIM] = 0;
+    pocheMat.opacity = 0;
+    poche.visible = false;
 
     // 02 frame rises
     const build = lerp(-0.05, 9.6, ease(map(p, 0.24, 0.39)));
@@ -895,7 +896,7 @@ function initIdea(section, { reduceMotion = false } = {}) {
     sheet.classList.toggle('is-real', wipe >= 0.999);
 
     // labels
-    const planA = smooth(0.1, 0.16, p) * (1 - smooth(0.22, 0.27, p));
+    const planA = 0;
     // on small sheets the model is too small for three callouts, so they stay hidden
     const noteA = W < 520 ? 0 : smooth(0.68, 0.72, p) * (1 - smooth(0.79, 0.83, p));
     const mepLabelA = smooth(0.48, 0.51, p) * (1 - smooth(0.56, 0.59, p));

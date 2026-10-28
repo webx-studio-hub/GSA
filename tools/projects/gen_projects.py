@@ -1,5 +1,5 @@
 # Builds the project pages from one template.
-#   1) writes the Projects mega menu and the phone menu into every page's header (refreshed on each run, so new
+#   1) writes the menu (the hamburger panel, used at every screen size) into every page's header (refreshed on each run, so new
 #      projects appear everywhere)
 #   2) builds residential.html, commercial.html and one page per project in projects_data.py
 # Run from anywhere:  python3 tools/projects/gen_projects.py   (needs Pillow: pip3 install pillow)
@@ -24,48 +24,12 @@ GENERATED = {p['page'] for p in P} | set(CATS)
 EXISTING = sorted(f[:-5] for f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '*.html')) if os.path.basename(f)[:-5] not in GENERATED)
 EXISTING = [os.path.basename(f) for f in EXISTING]
 
-# ---------- the Projects mega menu ----------
-def mega_projects(current=None):
-    def col(c):
-        rows = ''.join(f'''
-                    <li style="--i: {i + (0 if c == 'residential' else 4)}"><a class="mega__row" href="{p['page']}.html"{' aria-current="page"' if current == p['page'] else ''}>
-                      <img src="{img(p['key'], 1, True)}" alt="" decoding="async">
-                      <span><b>{p['name']}</b><small>{' · '.join(p['services'])}</small></span>
-                    </a></li>''' for i, p in enumerate(by_cat[c]))
-        cur = ' aria-current="page"' if current == c else ''
-        return f'''
-                <div class="mega__col">
-                  <a class="mega__colhead" href="{c}.html"{cur}><span>{CATS[c]['name']}</span>{ARR}</a>
-                  <ul class="mega__list" role="list">{rows}
-                  </ul>
-                </div>'''
-    feat = P[1]
-    return f'''<div class="nav__item" data-mega-item>
-          <a class="nav__trigger" href="residential.html"{' aria-current="page"' if current else ''} aria-expanded="false" aria-controls="mega-projects">Projects {CHEV}</a>
-          <!-- full-width projects panel: residential and commercial lists (main.js opens it) -->
-          <div class="mega mega--projects" id="mega-projects" data-mega>
-            <div class="container mega__inner mega__inner--projects">
-              <div class="mega__intro">
-                <p class="mega__label">Our projects</p>
-                <p class="mega__title">Spaces we've <em>shaped.</em></p>
-                <p class="mega__text">Homes, villas, interiors and commercial spaces, designed and built by one team.</p>
-                <p class="mega__call">Planning something similar? <a href="contact.html">Talk to us</a></p>
-              </div>{col('residential')}{col('commercial')}
-              <a class="mega__feature" href="{feat['page']}.html" style="--i: 6">
-                <span class="mega__img"><img src="{img(feat['key'], 1, True)}" alt="" decoding="async"></span>
-                <span class="mega__tag">Featured project</span>
-                <span class="mega__name">{feat['name']} {ARR}</span>
-              </a>
-            </div>
-          </div>
-        </div>'''
-
 SERVICES = [('architecture', 'Architecture', 'assets/img/work/house-gabled-sm.webp'),
             ('construction', 'Construction', 'assets/img/work/villa-stone-dusk-sm.webp'),
             ('interiors', 'Interiors', 'assets/img/work/living-chandelier-sm.webp')]
 
 def mobile_nav(current_file):
-    """The phone/tablet menu: Home, About and Contact are plain links; Projects, Services and Blog open as dropdowns (main.js)."""
+    """The menu panel (all screen sizes): Home and About are plain links; Projects and Services open as dropdowns (main.js)."""
     cur = lambda f: ' aria-current="page"' if f == current_file else ''
     def group(gid, label, inner):
         return f'''
@@ -91,8 +55,7 @@ def mobile_nav(current_file):
               <li><a href="{q['slug']}.html"{cur(q['slug'] + '.html')}><img src="{q['image'].replace('.webp', '-sm.webp') if os.path.exists(q['image'].replace('.webp', '-sm.webp')) else q['image']}" alt="" loading="lazy" decoding="async"><span>{q['title']}<small>{q['category']}</small></span></a></li>''' for q in featured_posts())
             + '\n            </ul>' + f'\n            <a class="link-arrow mm-all" href="blog.html"{cur("blog.html")}{in_blog}>All articles →</a>')
     return ('<nav aria-label="Mobile">' + f'\n      <a href="index.html"{cur("index.html")}>Home</a>' + group('projects', 'Projects', projects) + group('services', 'Services', services)
-            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>'
-            + f'\n      <a href="contact.html"{cur("contact.html")}>Contact</a>\n    </nav>')
+            + f'\n      <a href="about.html"{cur("about.html")}>About us</a>\n    </nav>')
 
 def set_mobile_nav(t, current_file):
     a = t.index('<nav aria-label="Mobile">'); b = t.index('</nav>', a) + len('</nav>')
@@ -100,16 +63,6 @@ def set_mobile_nav(t, current_file):
 
 for pg in EXISTING:
     p = pg + '.html'; t = open(p).read()
-    a = t.index('<nav class="nav" aria-label="Main">')
-    if 'id="mega-projects"' in t:  # refresh the existing panel (it sits just before the Services one)
-        s0 = t.index('<div class="nav__item" data-mega-item>', a); s1 = t.index('<div class="nav__item" data-mega-item>', s0 + 10)
-        t = t[:s0] + mega_projects() + '\n        ' + t[s1:]
-    else:
-        b = t.index('<div class="nav__item" data-mega-item>', a)
-        seg = t[a:b]
-        seg2 = re.sub(r'<a href="(index\.html)?#projects">Projects</a>', mega_projects(), seg, count=1)
-        assert seg2 != seg, p
-        t = t[:a] + seg2 + t[b:]
     t = set_mobile_nav(t, p)
     open(p, 'w').write(t)
 
@@ -125,9 +78,6 @@ def shell(title, desc, body, current, main, lightbox=False):
     h = re.sub(r'<title>.*?</title>', lambda m: f'<title>{title}</title>', HEAD, count=1)
     h = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{desc}">', h)
     h = h.replace('<body class="page-services has-photo-hero">', f'<body class="{body} has-photo-hero">')
-    h = h.replace('<a class="nav__trigger" href="services.html" aria-current="page"', '<a class="nav__trigger" href="services.html"')
-    a = h.index('<div class="nav__item" data-mega-item>'); b = h.index('<div class="nav__item" data-mega-item>', a + 10)
-    h = h[:a] + mega_projects(current) + '\n        ' + h[b:]
     f = FOOT
     if lightbox: f = f.replace('  <div class="cursor"', LIGHTBOX + '  <div class="cursor"', 1)
     h = set_mobile_nav(h, current + '.html')

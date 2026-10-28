@@ -9,7 +9,7 @@
   const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ideaScripts = ['vendor/three.idea.min.js?v=2', 'idea3d.js?v=9'].map((f) => new URL(f, document.currentScript.src).href);
+  const ideaScripts = ['vendor/three.idea.min.js?v=2', 'idea3d.js?v=10'].map((f) => new URL(f, document.currentScript.src).href);
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------------------------------------------------------
@@ -302,7 +302,7 @@
      The photo also drifts gently inside its frame, and overlapping inset photos float a little faster.
      --------------------------------------------------------- */
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .about__media, .about__photo, .leader__portrait--photo, .chapter__big, .pj-shot--full, .pj-next__media').map((frame) => {
+  const scrubs = $$('.svc__frame, .proj__media, .cta__media, .leader__portrait--photo, .chapter__big, .pj-shot--full, .pj-next__media').map((frame) => {
     frame.setAttribute('data-scrub', '');
     const media = frame.closest('.svc__media');
     return {
@@ -387,11 +387,11 @@
   strengthItems.forEach((el) => sIO.observe(el));
 
   /* ---------------------------------------------------------
-     About video: muted loop that only plays while on screen; the round button pauses / plays it
+     Why GS videos: muted loops that only play while on screen; each round button pauses / plays its own
      --------------------------------------------------------- */
-  const video = $('[data-about-video]');
-  const vToggle = $('[data-video-toggle]');
-  if (video && vToggle) {
+  $$('[data-clip]').forEach((clip) => {
+    const video = $('video', clip);
+    const vToggle = $('[data-clip-toggle]', clip);
     let userPaused = reduceMotion; // calmer default for people who prefer less motion
     const sync = () => {
       const paused = video.paused;
@@ -410,7 +410,7 @@
       if (!visible && !video.paused) video.pause();
     }, { threshold: 0.25 }).observe(video);
     sync();
-  }
+  });
 
   /* ---------------------------------------------------------
      How we work: each step's line draws in as it arrives; the step in the middle of the screen is highlighted
@@ -560,6 +560,61 @@
   const track = $('[data-marquee] .marquee__track');
   if (track && !reduceMotion) {
     $$('a', track).forEach((a) => { const c = a.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c); });
+  }
+
+  /* ---------------------------------------------------------
+     Projects slider: arrows step one project, the bar shows how far along you are,
+     and on a desktop the photos can be dragged with the mouse (a drag never counts as a click)
+     --------------------------------------------------------- */
+  const ps = $('[data-pslider]');
+  if (ps) {
+    const psTrack = $('[data-pslider-track]', ps);
+    const psFill = $('[data-pslider-fill]', ps);
+    const psPrev = $('[data-pslider-prev]', ps);
+    const psNext = $('[data-pslider-next]', ps);
+    const psStep = () => {
+      const s = psTrack.children;
+      return s.length > 1 ? s[1].offsetLeft - s[0].offsetLeft : psTrack.clientWidth;
+    };
+    const psUpdate = () => {
+      const max = psTrack.scrollWidth - psTrack.clientWidth;
+      const x = psTrack.scrollLeft;
+      psFill.style.setProperty('--p', max > 0 ? (clamp(x / max) * (1 - 1 / psTrack.children.length) + 1 / psTrack.children.length).toFixed(4) : 1);
+      psPrev.disabled = x <= 2;
+      psNext.disabled = x >= max - 2;
+    };
+    const psGo = (dir) => psTrack.scrollBy({ left: dir * psStep(), behavior: reduceMotion ? 'auto' : 'smooth' });
+    psPrev.addEventListener('click', () => psGo(-1));
+    psNext.addEventListener('click', () => psGo(1));
+    psTrack.addEventListener('scroll', psUpdate, { passive: true });
+    addEventListener('resize', psUpdate);
+    psUpdate();
+
+    let drag = null, noClick = false;
+    psTrack.addEventListener('click', (e) => { if (noClick) { e.preventDefault(); noClick = false; } }, true);
+    psTrack.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      drag = { x: e.clientX, left: psTrack.scrollLeft, moved: false };
+    });
+    addEventListener('pointermove', (e) => {
+      if (!drag) return;
+      const dx = e.clientX - drag.x;
+      if (!drag.moved && Math.abs(dx) > 6) { drag.moved = true; psTrack.classList.add('is-dragging'); }
+      if (drag.moved) psTrack.scrollLeft = drag.left - dx;
+    });
+    addEventListener('pointerup', () => {
+      if (!drag) return;
+      if (drag.moved) {
+        // let go: snap to the nearest project in the direction of the drag
+        const step = psStep();
+        const moved = psTrack.scrollLeft - drag.left;
+        const target = Math.round(drag.left / step) * step + Math.sign(moved) * (Math.abs(moved) > step * 0.15 ? step : 0);
+        psTrack.classList.remove('is-dragging');
+        noClick = true; setTimeout(() => { noClick = false; }, 0);
+        psTrack.scrollTo({ left: target, behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+      drag = null;
+    });
   }
 
   /* ---------------------------------------------------------
