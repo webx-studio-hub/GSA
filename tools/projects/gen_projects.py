@@ -25,7 +25,7 @@ EXISTING = sorted(f[:-5] for f in glob.glob(os.path.join(os.path.dirname(os.path
 EXISTING = [os.path.basename(f) for f in EXISTING]
 
 SERVICES = [('architecture', 'Architecture', 'assets/img/work/arch-1-sm.webp'),
-            ('construction', 'Construction', 'assets/img/work/villa-stone-dusk-sm.webp'),
+            ('construction', 'Construction', 'assets/img/work/build-3-sm.webp'),
             ('interiors', 'Interiors', 'assets/img/work/living-chandelier-sm.webp')]
 
 def mobile_nav(current_file):
