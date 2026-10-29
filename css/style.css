@@ -441,6 +441,7 @@ h1, h2, h3, p { margin: 0; }
   font-size: clamp(1.875rem, 1rem + 2.15vw, 3rem); line-height: 1.18; font-weight: 600; letter-spacing: -.03em;
   text-wrap: balance; max-width: 30ch;
 }
+.about__main .statement__text { max-width: 38ch; }   /* home page "Why GS": three lines on laptops and desktops */
 .statement__text .w { color: var(--faint); transition: color .35s; }
 .statement__text .w.is-on { color: var(--ink); }
 .about__cta { margin-top: 2.5rem; }
