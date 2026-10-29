@@ -26,7 +26,7 @@ EXISTING = [os.path.basename(f) for f in EXISTING]
 
 SERVICES = [('architecture', 'Architecture', 'assets/img/work/arch-1-sm.webp'),
             ('construction', 'Construction', 'assets/img/work/build-3-sm.webp'),
-            ('interiors', 'Interiors', 'assets/img/work/living-chandelier-sm.webp')]
+            ('interiors', 'Interiors', 'assets/img/work/int-1-sm.webp')]
 
 def mobile_nav(current_file):
     """The menu panel (all screen sizes): Home and About are plain links; Projects and Services open as dropdowns (main.js)."""

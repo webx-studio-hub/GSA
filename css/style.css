@@ -1429,6 +1429,9 @@ h1, h2, h3, p { margin: 0; }
 .gallery__grid.gallery__grid--tall { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: auto; }
 .gallery__grid--tall .gallery__item:nth-child(n) { grid-column: auto; grid-row: auto; aspect-ratio: 4 / 5; }
 @media (max-width: 860px) { .gallery__grid.gallery__grid--tall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* five photos: one large, two wide stacked beside it, two wide below */
+.gallery__grid--5 .gallery__item:nth-child(n) { grid-column: span 2; grid-row: auto; }
+.gallery__grid--5 .gallery__item:nth-child(1) { grid-row: span 2; }
 /* four photos: one large, one tall, two stacked */
 .gallery__grid--4 .gallery__item:nth-child(n) { grid-column: auto; grid-row: auto; }
 .gallery__grid--4 .gallery__item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
