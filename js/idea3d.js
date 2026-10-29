@@ -463,11 +463,14 @@ function initIdea(section, { reduceMotion = false } = {}) {
     }
   });
 
+  // the house next door sits just behind the boundary wall on the right (its eaves stop short of the piers, which reach
+  // back to z = -0.45), kept small and well clear of the villa's right wing
+  const NB_X0 = 8.6, NB_X1 = 13.0, NB_ZF = -1.0, NB_ZB = -7.0, NB_F = NB_ZF + 0.01, NB_EAVE = 2.5;
   const nb = (x0, x1, y0, y1, z0, z1) => box(x0, x1, y0, y1, z0, z1, 'n', { cat: C.CONTEXT });
-  nb(10.8, 16.8, 0, 3.0, ZF - 7, ZF + 2.5);
-  hipRoof(10.6, 17.0, ZF + 2.7, ZF - 7.2, 3.0, 4.2, 'n', C.CONTEXT);
-  lines.poly([[11.6, 0, ZF + 2.51], [12.4, 0, ZF + 2.51], [12.4, 2.2, ZF + 2.51], [11.6, 2.2, ZF + 2.51]], C.CONTEXT, MODE.BUILD, 1, true);
-  lines.poly([[13.4, 1.0, ZF + 2.51], [14.4, 1.0, ZF + 2.51], [14.4, 2.3, ZF + 2.51], [13.4, 2.3, ZF + 2.51]], C.CONTEXT, MODE.BUILD, 1, true);
+  nb(NB_X0, NB_X1, 0, NB_EAVE, NB_ZB, NB_ZF);
+  hipRoof(NB_X0 - 0.2, NB_X1 + 0.2, NB_ZF + 0.2, NB_ZB - 0.2, NB_EAVE, NB_EAVE + 1.0, 'n', C.CONTEXT);
+  lines.poly([[NB_X0 + 0.3, 0, NB_F], [NB_X0 + 0.85, 0, NB_F], [NB_X0 + 0.85, 2.2, NB_F], [NB_X0 + 0.3, 2.2, NB_F]], C.CONTEXT, MODE.BUILD, 1, true);
+  lines.poly([[NB_X0 + 1.1, 1.85, NB_F], [NB_X0 + 1.6, 1.85, NB_F], [NB_X0 + 1.6, 2.35, NB_F], [NB_X0 + 1.1, 2.35, NB_F]], C.CONTEXT, MODE.BUILD, 1, true);
 
   /* ---------------------------------------------------------
      MEP: electrical, plumbing and air-conditioning runs, drawn in during step 03
@@ -592,7 +595,7 @@ function initIdea(section, { reduceMotion = false } = {}) {
       if (xb > xa) penCtx.push(lines.add(pp(xa, xa - c), pp(xb, xb - c), C.PLAN_LIGHT, MODE.PEN, 0.7));
     }
   };
-  hatch(10.8, 16.8, ZF - 7, ZF + 2.5);
+  hatch(NB_X0, NB_X1, NB_ZB, NB_ZF);
   penCtx.push(lines.add(pp(-18, 2.3), pp(18, 2.3), C.PLAN_LIGHT, MODE.PEN));
   penCtx.push(lines.add(pp(WX(1000), -0.5), pp(WX(1000), ZF + 0.8), C.PLAN_LIGHT, MODE.PEN));
   penCtx.push(lines.add(pp(WX(1200), -0.5), pp(WX(1200), ZF + 0.8), C.PLAN_LIGHT, MODE.PEN));
