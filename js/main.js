@@ -708,10 +708,10 @@
      Project lightbox
      --------------------------------------------------------- */
   const PROJECTS = {
-    manor: { title: 'French Classical Residence', n: 4 },
-    curve: { title: 'Contemporary Curve House', n: 6 },
-    stone: { title: 'The Stone Villa', n: 10 },
-    refined: { title: 'Refined Everyday Living', n: 3 },
+    manor: { title: 'Château Residence', n: 4 },
+    curve: { title: 'The Sculpted Residence', n: 6 },
+    stone: { title: 'Stonehaven Villa', n: 10 },
+    refined: { title: 'The Living Atelier', n: 3 },
     tampra: { title: 'Tampra Tower', n: 2 },
     urban: { title: 'Urban Square', n: 10 },
   };

@@ -8,7 +8,7 @@
   const mail = root.querySelector('[data-brief-mail]');
 
   const PHONE = '916280986491';
-  const EMAIL = 'gsassociates.biz@gmail.com';
+  const EMAIL = 'info@gsassociatesindia.com';
 
   function update() {
     const fd = new FormData(form);

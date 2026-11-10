@@ -60,7 +60,7 @@ POSTS = [
   <li><strong>Clear responsibility.</strong> If something is not right, there is no one else to blame.</li>
 </ul>
 <blockquote>When the people who draw it also build it, the outside and the inside fit together.</blockquote>
-<figure><img src="assets/img/projects/curve-1.webp" alt="The Contemporary Curve House street facade" loading="lazy" decoding="async"><figcaption>The Contemporary Curve House: designed, built and furnished by one team.</figcaption></figure>
+<figure><img src="assets/img/projects/curve-1.webp" alt="The Sculpted Residence street facade" loading="lazy" decoding="async"><figcaption>The Sculpted Residence: designed, built and furnished by one team.</figcaption></figure>
 <h2>When separate teams can still work</h2>
 <p>If you already have an architect you trust, or a contractor you have worked with for years, keeping them is perfectly reasonable. In that case, invest in very detailed drawings and agree in writing who decides what on site.</p>
 <figure><img src="assets/img/work/villa-stone-dusk.webp" alt="A stone-clad family home with a lit gateway at dusk" loading="lazy" decoding="async"><figcaption>One team coordinating design and site work keeps a build on track from the first drawing to the handover.</figcaption></figure>
