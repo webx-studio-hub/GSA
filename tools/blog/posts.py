@@ -96,7 +96,7 @@ POSTS = [
 <figure><img src="assets/img/work/kitchen-arch.webp" alt="A kitchen with an arched opening, stone and warm wood" loading="lazy" decoding="async"><figcaption>Durable stone and wood finishes keep a neutral kitchen practical for everyday cooking.</figcaption></figure>
 <h2>Bring it to life</h2>
 <p>Finish with plants, books and a few personal pieces. They add warmth and make the space feel like yours rather than a showroom.</p>
-<p>Planning your interiors? <a href="interiors.html">See our interior design service</a> or <a href="refined-living.html">look inside a calm, neutral home</a> we designed.</p>
+<p>Planning your interiors? <a href="interiors.html">See our interior design service</a> or <a href="living-atelier.html">look inside a calm, neutral home</a> we designed.</p>
 '''),
  dict(slug='sketch-before-you-build', category='Design', date='2026-08-12',
   title='From sketch to reality: why we draw every room before we build it',
