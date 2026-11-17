@@ -1,70 +1,57 @@
 # GS Associates — Hostinger (Apache / LiteSpeed)
-# Clean URLs, HTTPS, caching, compression, custom 404.
+# Safe-by-design: the site works even if clean-URL rewriting is unavailable.
+# Links in the pages point to real .html files, so nothing 404s.
+# When mod_rewrite is active, .html URLs are cleaned to extensionless.
 
-Options -MultiViews -Indexes
-RewriteEngine On
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-# ----------------------------------------------------------------------
-# Force HTTPS (works behind Hostinger's proxy too)
-# ----------------------------------------------------------------------
-RewriteCond %{HTTPS} off
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # --- Force HTTPS (also works behind Hostinger's proxy) ---
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# ----------------------------------------------------------------------
-# Clean URLs
-# ----------------------------------------------------------------------
-# /index and /index.html  ->  /
-RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
-RewriteRule ^ / [L,R=301]
+  # --- /index and /index.html  ->  /  ---
+  RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
 
-# Any .html request  ->  extensionless (e.g. /about.html -> /about)
-RewriteCond %{THE_REQUEST} \s/+([^.\s?]+)\.html[\s?] [NC]
-RewriteRule ^ /%1 [L,R=301]
+  # --- Visible .html  ->  extensionless (e.g. /about.html -> /about) ---
+  RewriteCond %{THE_REQUEST} \s/+([^.\s?/]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
 
-# Internally serve the matching .html file for an extensionless URL
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(.+?)/?$ $1.html [L]
+  # --- Internally serve the .html file for an extensionless URL ---
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^ %{REQUEST_URI}.html [L]
+</IfModule>
 
-# ----------------------------------------------------------------------
-# Custom error page
-# ----------------------------------------------------------------------
+# --- Custom 404 ---
 ErrorDocument 404 /404.html
 
-# ----------------------------------------------------------------------
-# Compression
-# ----------------------------------------------------------------------
+# --- Compression ---
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
-    application/javascript application/json image/svg+xml \
-    application/x-font-ttf font/woff2
+    application/javascript application/json image/svg+xml font/woff2
 </IfModule>
 
-# ----------------------------------------------------------------------
-# Browser caching
-# ----------------------------------------------------------------------
+# --- Browser caching ---
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresDefault                              "access plus 1 month"
-  ExpiresByType text/html                     "access plus 0 seconds"
-  ExpiresByType text/css                      "access plus 1 year"
-  ExpiresByType application/javascript        "access plus 1 year"
-  ExpiresByType image/webp                    "access plus 1 year"
-  ExpiresByType image/png                     "access plus 1 year"
-  ExpiresByType image/jpeg                    "access plus 1 year"
-  ExpiresByType image/svg+xml                 "access plus 1 year"
-  ExpiresByType image/x-icon                  "access plus 1 year"
-  ExpiresByType font/woff2                    "access plus 1 year"
+  ExpiresDefault                       "access plus 1 month"
+  ExpiresByType text/html              "access plus 0 seconds"
+  ExpiresByType text/css               "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp             "access plus 1 year"
+  ExpiresByType image/png              "access plus 1 year"
+  ExpiresByType image/jpeg             "access plus 1 year"
+  ExpiresByType image/svg+xml          "access plus 1 year"
+  ExpiresByType image/x-icon           "access plus 1 year"
+  ExpiresByType font/woff2             "access plus 1 year"
 </IfModule>
 
-# ----------------------------------------------------------------------
-# Security headers
-# ----------------------------------------------------------------------
+# --- Security headers ---
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
-  Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header unset X-Powered-By
 </IfModule>
