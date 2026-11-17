@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gsassociatesindia.com/sitemap.xml
+Sitemap: https://gsassociateindia.com/sitemap.xml
